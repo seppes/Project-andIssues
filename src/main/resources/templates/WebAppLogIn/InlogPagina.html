@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../static/css/cssWebAppLogIn/WebAppLogin.css">
-    <link rel="stylesheet" href="../../static/css/cssWebAppLogIn/csseigen.css">
     <title>InlogPagina</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/css/cssWebAppLogIn/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/cssWebAppLogIn/csseigen.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="../img/logo.PNG" height="100" width="100"/>
+
+        <img class="rounded" src="../../img/logo.PNG" height="100" width="100"/>
 
     </a>
 
@@ -33,5 +37,53 @@
 
     </div>
 </nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid" src="../../static/img/Deegel.png" height="266" width="266"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-lg-center">
+            <form>
+                <div class="form-group">
+                    <label for="username">
+                        <h5>Gebruikersnaam:</h5>
+                        <input type="text" id="username" class="form-control" placeholder="Gebruikersnaam">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="wachtwoord">
+                        <h5>Wachtwoord:</h5>
+                        <input type="password" id="wachtwoord" class="form-control" placeholder="Wachtwoord">
+                    </label>
+                </div>
+                <button class="btn btn-primary">Aanmelden</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-6">
+                    <img class="img-fluid" src="../../static/img/Dekangerou.png" height="333" width="333"/>
+                </div>
+                <div class="col-6 text-lg-right">
+                    <img class="img-fluid" src="../../static/img/Demol.PNG" height="200" width="200"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="col">
+            <p>&copy;Knús2020</p>
+        </div>
+    </div>
+
+
+</div>
+
 </body>
 </html>

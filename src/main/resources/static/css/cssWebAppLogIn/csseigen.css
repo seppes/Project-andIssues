@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -9,65 +8,23 @@ body {
     width: 100%
 }
 
-.container-fluid{
-margin: 0;
-padding: 0;
-width: 100%
-}
-
-ul {
-    list-style-type: none;
-
-}
-
-div.inhoudPagina{
-    background-color: rgb(234, 214, 128);
-}
-
-
 nav{
 background-color: #E6D16E;
 }
 
-div.info{
-    background-color: #E6D16E;
-    padding: 2.4rem;
-    font-size: 12px;
-}
-
-.img-small {
-    max-width : 140px;
-}
-
-/*mijn code*/
-
-.backgroundColor {
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     background-color: #EDE4B8;
 }
 
-.bubbleText {
-    float: right;
-    border-color: #E6D16E;
-    background: #E6D16E;
-    margin-top: 1.5rem;
-    padding: 1rem;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    border-radius: 15px;
-    font-size: 24px;
-}
-
-.img-fluid {
-    margin-top: 1.5rem;
-}
-
 .btn {
+    color: black;
     border-color: #E6D16E;
     background: #E6D16E;
-    padding: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    border-radius: 15px;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .buttons {
