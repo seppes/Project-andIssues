@@ -1,3 +1,12 @@
 .whiteText{
     color: white;
 }
+.deck-layout{
+    padding: 5% 15%;
+}
+.deck-bg{
+    background-color: #E5D06C;
+}
+.btn-layout{
+    color: #E5D06C;
+}
