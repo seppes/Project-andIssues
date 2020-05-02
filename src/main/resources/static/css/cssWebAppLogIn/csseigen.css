@@ -37,4 +37,55 @@ background-color: #E6D16E;
     text-align: center;
 }
 
+.HoofdTitel {
+    color: #DCCA70;
+    font-family: Roboto;
+}
+
+
+.speech-bubble {
+    color: black;
+    position: relative;
+    background: #E6D16E;
+    border-radius: .4em;
+    font-size: large;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #E6D16E;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+.speech-bubble-KangoeroeMol {
+    position: relative;
+    background: #E6D16E;
+    border-radius: .4em;
+    font-size: large;
+}
+
+.speech-bubble-KangoeroeMol:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #E6D16E;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
 
