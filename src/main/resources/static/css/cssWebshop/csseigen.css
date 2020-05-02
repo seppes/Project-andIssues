@@ -1,3 +1,39 @@
 .whiteText{
     color: white;
 }
+.deck-layout{
+    padding: 5% 15%;
+}
+.deck-bg{
+    background-color: #E5D06C;
+}
+.blue-bg{
+    background-color: #7195b8;
+}
+.btn-layout{
+    color: #E5D06C;
+}
+.contact-layout{
+    margin-left: 43%;
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
