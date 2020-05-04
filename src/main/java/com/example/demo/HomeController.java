@@ -1,7 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.repositories.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 
 
 @Controller
@@ -10,7 +12,6 @@ public class HomeController {
 
     @Autowired
     private VideoRepository videoRepository;
-
 
 
 
