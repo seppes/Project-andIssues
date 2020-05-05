@@ -7,10 +7,24 @@ import javax.persistence.Id;
 public class Video {
 
     @Id
-    String name;
+    private int id;
+    private String name;
+
 
     public Video() {
     }
+
+    public Video(int id, String name) {
+        this.id = id;
+        this.name = name;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
 
     public String getName() {
         return name;
