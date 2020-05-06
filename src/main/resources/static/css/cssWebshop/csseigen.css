@@ -43,3 +43,8 @@
     text-align: center;
     text-decoration: none;
 }
+
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
