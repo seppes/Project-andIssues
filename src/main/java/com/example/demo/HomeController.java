@@ -38,7 +38,11 @@ public class HomeController {
 //        return "VideoPagina";
 //    }
 
-//    @GetMapping
+    @GetMapping("/Game/Mol")
+        public String GamePagina(Model model){
+        model.addAttribute("games", gameRepository.findAll());
+        return "SpelDeMol";
+    }
 
 
 }
