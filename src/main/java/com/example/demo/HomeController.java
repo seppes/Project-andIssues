@@ -12,7 +12,7 @@ public class HomeController {
     @Autowired
     private VideoRepository videoRepository;
 
-    private Video[] videos = {
+    private Video[] videos= {
 
             new Video(0,"Waarom spuitje"),
             new Video(1,"Waarom wenen"),
@@ -24,7 +24,7 @@ public class HomeController {
     @GetMapping("/")
     public String VideoPagina(Model model) {
         model.addAttribute("videos", videos);
-        return "VideoPagina";
+        return "htmlVideoGames/VideoPagina";
     }
 
 
