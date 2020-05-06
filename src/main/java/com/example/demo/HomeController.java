@@ -22,12 +22,22 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String VideoPagina(Model model) {
+    public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPagina";
+        return "htmlVideoGames/VideoPaginaMol";
     }
 
+    @GetMapping("/VideoEgel")
+    public String VideoPaginaEgel(Model model) {
+        model.addAttribute("videos", videos);
+        return "htmlVideoGames/VideoPaginaEgel";
+    }
 
+    @GetMapping("/VideoKangerou")
+    public String VideoPaginaKangerou(Model model) {
+        model.addAttribute("videos", videos);
+        return "htmlVideoGames/VideoPaginaKangerou";
+    }
 
 
 
