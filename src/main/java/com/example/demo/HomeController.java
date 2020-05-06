@@ -18,7 +18,12 @@ public class HomeController {
             new Video(2,"Waarom spelendd"),
 
     };
+    private Game[] games= {
 
+            new Game(0, "Uno"),
+            new Game(1, "Deltarune"),
+            new Game(2, "Shrek 3")
+    };
 
     @GetMapping("/")
     public String VideoPaginaMol(Model model) {
@@ -38,17 +43,16 @@ public class HomeController {
         return "htmlVideoGames/VideoPaginaKangerou";
     }
 
-
-
-
-
-
 //    @GetMapping ("/VideoPagina")
 //    public String VideoPagina(Model model){
 //        model.addAttribute("videos", videoRepository.findAll());
 //        return "VideoPagina";
 //    }
 
-
+    @GetMapping("/GameMol")
+    public String SpelDemol(Model model) {
+        model.addAttribute("games", games);
+        return "htmlVideoGames/SpelDemol";
+    }
 
 }
