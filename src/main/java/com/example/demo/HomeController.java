@@ -1,36 +1,41 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 
 @Controller
 public class HomeController {
 
 
-    @Autowired
-    private VideoRepository videoRepository;
+//    @Autowired
+//    private VideoRepository videoRepository;
 
-    private Video[] videos = {
+    private Video[] videos= {
 
             new Video(0,"Waarom spuitje"),
             new Video(1,"Waarom wenen"),
-            new Video(2,"Waarom spelen"),
+            new Video(2,"Waarom spelendd"),
 
     };
 
 
     @GetMapping("/")
-    public String VideoPagina(Model model) {
-        model.addAttribute("video", videos);
-        return "htmlVideoGames/VideoPagina";
+    public String VideoPaginaMol(Model model) {
+        model.addAttribute("videos", videos);
+        return "htmlVideoGames/VideoPaginaMol";
     }
 
-    @GetMapping({"/Deegel"})
-    public String Deegel(Model model) {
-        return "Deegel";
+    @GetMapping("/VideoEgel")
+    public String VideoPaginaEgel(Model model) {
+        model.addAttribute("videos", videos);
+        return "htmlVideoGames/VideoPaginaEgel";
+    }
+
+    @GetMapping("/VideoKangerou")
+    public String VideoPaginaKangerou(Model model) {
+        model.addAttribute("videos", videos);
+        return "htmlVideoGames/VideoPaginaKangerou";
     }
 
 
@@ -38,7 +43,7 @@ public class HomeController {
 
 
 
-//    @GetMapping("/VideoPagina")
+//    @GetMapping ("/VideoPagina")
 //    public String VideoPagina(Model model){
 //        model.addAttribute("videos", videoRepository.findAll());
 //        return "VideoPagina";
