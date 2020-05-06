@@ -25,7 +25,12 @@ public class HomeController {
     @GetMapping("/")
     public String VideoPagina(Model model) {
         model.addAttribute("video", videos);
-        return "VideoPagina";
+        return "htmlVideoGames/VideoPagina";
+    }
+
+    @GetMapping({"/Deegel"})
+    public String Deegel(Model model) {
+        return "Deegel";
     }
 
 
