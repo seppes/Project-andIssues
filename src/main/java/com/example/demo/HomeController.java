@@ -49,10 +49,21 @@ public class HomeController {
 //        return "VideoPagina";
 //    }
 
-    @GetMapping("/GameMol")
+    @GetMapping("/Game/Mol")
     public String SpelDemol(Model model) {
         model.addAttribute("games", games);
         return "htmlVideoGames/SpelDemol";
     }
 
+    @GetMapping("/Game/Egel")
+    public String SpelDeegel(Model model) {
+        model.addAttribute("games", games);
+        return "htmlVideoGames/SpelDeegel";
+    }
+
+    @GetMapping("/Game/Kangoeroe")
+    public String SpelDekangoeroe(Model model) {
+        model.addAttribute("games", games);
+        return "htmlVideoGames/SpelDekangerou";
+    }
 }
