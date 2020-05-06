@@ -43,3 +43,12 @@
     text-align: center;
     text-decoration: none;
 }
+
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.card-deck{
+    height: 82vh;
+}
