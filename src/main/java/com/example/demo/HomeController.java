@@ -16,7 +16,7 @@ public class HomeController {
 
             new Video(0,"Waarom spuitje"),
             new Video(1,"Waarom wenen"),
-            new Video(2,"Waarom spelen"),
+            new Video(2,"Waarom spelendd"),
 
     };
 
