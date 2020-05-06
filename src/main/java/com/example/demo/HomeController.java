@@ -40,8 +40,8 @@ public class HomeController {
 
     @GetMapping("/Game/Mol")
         public String GamePagina(Model model){
-        model.addAttribute("games", gameRepository.findAll());
-        return "SpelDeMol";
+        model.addAttribute("games", games);
+        return "SpelDemol";
     }
 
 
