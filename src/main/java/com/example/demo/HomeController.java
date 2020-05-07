@@ -25,7 +25,7 @@ public class HomeController {
             new Knuffel(2, "De Mol", "€10"),
     };
 
-    @GetMapping("/")
+    @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
         return "Deegel";
@@ -43,7 +43,7 @@ public class HomeController {
         return "htmlVideoGames/GamePage";
     }
 
-    @GetMapping("/webshop")
+    @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("knuffels", knuffels);
         return "htmlWebshop/index";
@@ -57,11 +57,13 @@ public class HomeController {
 
     @GetMapping("/about")
     public String about(Model model) {
+
         return "htmlWebshop/about";
     }
 
     @GetMapping("/contact")
     public String contact(Model model) {
+
         return "htmlWebshop/contact";
     }
 
