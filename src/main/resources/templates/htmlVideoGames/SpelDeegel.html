@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>De Mol</title>
-    <link rel="stylesheet" href="../../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/css/csseigen.css">
+    <title>De Egel</title>
+    <link rel="stylesheet" href="../../static/css/cssVideoGames/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/cssVideoGames/csseigen.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
@@ -34,7 +34,7 @@
             <a class="nav-item nav-link" href="index.html"><i class="fas fa-home fa-3x"></i><span
                     class="sr-only">(huidig)</span></a>
             <a class="nav-item nav-link" href="game.html"><i class="fas fa-gamepad fa-3x"></i></a>
-            <a class="nav-item nav-link" href="Demol.html.html"><i class="fas fa-tv fa-3x"></i></a>
+            <a class="nav-item nav-link" href="Deegel.html.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" href="login.html"><i class="fas fa-sign-out-alt fa-3x"></i></a>
 
         </div>
@@ -51,7 +51,7 @@
 
         <div class="row">
             <div class="col-md text-center">
-                <h1>De Mol</h1>
+                <h1>De Egel</h1>
 
 
             </div>
@@ -60,7 +60,7 @@
 
         <div class="row">
             <div class="col-md text-center mt-3">
-                <img class="img-fluid rounded" src="../../static/img/Demol.PNG"/>
+                <img class="img-fluid rounded" src="../../static/img/Deegel.PNG"/>
             </div>
         </div>
 
@@ -68,15 +68,15 @@
         <div class="row">
             <div class="col-md text-center">
                 <ul class="mt-3">
-                    <li>
+                    <li th:text="${games[0].name}">
                         1: Naam Spel 1
                     </li>
 
-                    <li>
+                    <li th:text="${games[1].name}">
                         2: Naam Spel 2
                     </li>
 
-                    <li>
+                    <li th:text="${games[2].name}">
                         3: Naam Spel 3
                     </li>
 
@@ -92,7 +92,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3>De titel van spel 1</h3>
+                <h3 th:text="${games[0].name}">De titel van spel 1</h3>
             </div>
         </div>
 
@@ -110,7 +110,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3>De titel van spel 2</h3>
+                <h3 th:text="${games[1].name}">De titel van spel 2</h3>
             </div>
         </div>
 
@@ -127,7 +127,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3>De titel van spel 3</h3>
+                <h3 th:text="${games[2].name}">De titel van spel 3</h3>
             </div>
         </div>
 
@@ -155,8 +155,8 @@
 <!-- ******************* -->
 <!-- Scripts -->
 <!-- ******************* -->
-<script src="../../static/js/jquery-3.2.1.min.js"></script>
-<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script>
 
 </script>
