@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.model.Knuffel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +19,16 @@ public class HomeController {
             new Video(2,"Waarom spelendd"),
 
     };
+    private Knuffel[] knuffels = {
+            new Knuffel(0, "De Egel", "€10"),
+            new Knuffel(1, "De Kangoeroe", "€10"),
+            new Knuffel(2, "De Mol", "€10"),
+    };
 
-
-    @GetMapping("/")
+    @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPaginaMol";
+        return "Deegel";
     }
 
     @GetMapping("/VideoEgel")
@@ -32,15 +37,35 @@ public class HomeController {
         return "htmlVideoGames/VideoPaginaEgel";
     }
 
-    @GetMapping("/VideoKangerou")
+    @GetMapping("/GamePage")
     public String VideoPaginaKangerou(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPaginaKangerou";
+        return "htmlVideoGames/GamePage";
     }
 
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("knuffels", knuffels);
+        return "htmlWebshop/index";
+    }
 
+    @GetMapping("/shoppingcart")
+    public String shoppingcart(Model model) {
+        model.addAttribute("knuffels", knuffels);
+        return "htmlWebshop/shoppingcart";
+    }
 
+    @GetMapping("/about")
+    public String about(Model model) {
 
+        return "htmlWebshop/about";
+    }
+
+    @GetMapping("/contact")
+    public String contact(Model model) {
+
+        return "htmlWebshop/contact";
+    }
 
 
 //    @GetMapping ("/VideoPagina")
