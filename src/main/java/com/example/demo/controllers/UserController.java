@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 
-import com.example.demo.AdminController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

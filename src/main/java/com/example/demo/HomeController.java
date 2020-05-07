@@ -28,7 +28,7 @@ public class HomeController {
     @GetMapping("/")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPaginaMol";
+        return "htmlHome/home";
     }
 
     @GetMapping("/VideoEgel")
@@ -47,6 +47,12 @@ public class HomeController {
     public String index(Model model) {
         model.addAttribute("knuffels", knuffels);
         return "htmlWebshop/index";
+    }
+
+    @GetMapping("/shoppingcart")
+    public String shoppingcart(Model model) {
+        model.addAttribute("knuffels", knuffels);
+        return "htmlWebshop/shoppingcart";
     }
 
     @GetMapping("/about")
