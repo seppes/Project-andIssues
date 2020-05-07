@@ -28,13 +28,13 @@ public class HomeController {
     @GetMapping("/")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "Deegel";
+        return "htmlHome/Deegel";
     }
 
     @GetMapping("/VideoEgel")
     public String VideoPaginaEgel(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPaginaEgel";
+        return "htmlVideoGames/VideoPage";
     }
 
     @GetMapping("/GamePage")
