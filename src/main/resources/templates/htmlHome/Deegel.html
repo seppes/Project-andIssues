@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>De Egel</title>
@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link rel="stylesheet" href="../../static/css/cssHome/csseigen.css">
-    <link rel="stylesheet" href="../../static/css/cssHome/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="/css/bootstrap.css">
 
 
 </head>
 <body>
 <a name="top"></a>
-<!--content here-->
-
 
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="../../static/img/logo.PNG" height="100" width="100"/>
+        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -31,7 +29,7 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="index.html"><i class="fas fa-home fa-3x"></i><span
+            <a class="nav-item nav-link" href="Deegel.html"><i class="fas fa-home fa-3x"></i><span
                     class="sr-only">(huidig)</span></a>
             <a class="nav-item nav-link" href="Demol.html.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" href="game.html"><i class="fas fa-gamepad fa-3x"></i></a>
@@ -55,7 +53,7 @@
             </div>
             <div class="row">
                 <div class="col text-lg-center">
-                    <img class="img-fluid" src="../../static/img/Demol.PNG"/>
+                    <img class="img-fluid" src="/img/Demol.PNG"/>
                 </div>
             </div>
         </div>
@@ -101,8 +99,8 @@
 <!-- ******************* -->
 <!-- Scripts -->
 <!-- ******************* -->
-<script src="../js/jquery-3.2.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script>
 
 </script>
