@@ -37,10 +37,10 @@ public class HomeController {
         return "htmlVideoGames/VideoPaginaEgel";
     }
 
-    @GetMapping("/VideoKangerou")
+    @GetMapping("/GamePage")
     public String VideoPaginaKangerou(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPaginaKangerou";
+        return "htmlVideoGames/GamePage";
     }
 
     @GetMapping("/webshop")
