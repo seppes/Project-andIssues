@@ -46,7 +46,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("knuffels", knuffels);
-        return "htmlWebshop/index";
+        return "htmlHome/Deegel";
     }
 
     @GetMapping("/shoppingcart")
@@ -65,6 +65,24 @@ public class HomeController {
     public String contact(Model model) {
 
         return "htmlWebshop/contact";
+    }
+
+    @GetMapping("/video")
+    public String video(Model model) {
+
+        return "htmlVideoGames/VideoPage";
+    }
+
+    @GetMapping("/game")
+    public String game(Model model) {
+
+        return "htmlVideoGames/GamePage";
+    }
+
+    @GetMapping("/LogIn")
+    public String login(Model model) {
+
+        return "WebAppLogIn/InlogPagina";
     }
 
 
