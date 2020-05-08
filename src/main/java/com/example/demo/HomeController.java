@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.model.Knuffel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-//
+
 //    @Autowired
 //    private VideoRepository videoRepository;
 
@@ -19,7 +20,6 @@ public class HomeController {
             new Video(2,"Waarom spelen"),
 
     };
-
 
     @GetMapping("/")
     public String VideoPagina(Model model) {
@@ -38,11 +38,11 @@ public class HomeController {
 //        return "VideoPagina";
 //    }
 
-    @GetMapping("/Game/Mol")
-        public String GamePagina(Model model){
-        model.addAttribute("games", games);
-        return "SpelDemol";
-    }
+//    @GetMapping("/Game/Mol")
+//        public String GamePagina(Model model){
+//        model.addAttribute("games", games);
+//        return "SpelDemol";
+//    }
 
 
 }

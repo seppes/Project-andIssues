@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+div.inhoudPagina{
+    background-color: rgb(234, 214, 128);
+}
+
+
+nav{
+    background-color: #E6D16E;
+}
+
+div.info{
+    background-color: #E6D16E;
+    padding: 2.4rem;
+    font-size: 12px;
+}
+
+.img-small {
+    max-width : 140px;
+}
+
+/*mijn code*/
+
+.backgroundColor {
+    background-color: #EDE4B8;
+}
+
+.bubbleText {
+    float: right;
+    border-color: #E6D16E;
+    background: #E6D16E;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-radius: 15px;
+    font-size: 24px;
+}
+
+.img-fluid {
+    margin-top: 1.5rem;
+}
+
+.btn {
+    border-color: #E6D16E;
+    background: #E6D16E;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-radius: 15px;
+}
+
+.buttons {
+    font-size: 24px;
+}
+
+.footer {
+    background-color: #6A97BA;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/*-------------------------*/
+
+
+
+ul {
+    list-style-type: none;
+}
+
+div.inhoudPagina {
+    background-color: rgb(234, 214, 128);
+}
+
+nav {
+    background-color: rgba(106, 151, 186,1);
+}
+
+div.demolvideos {
+    background-color: rgb(245, 236, 199);
+}
+
+div.demolvideo1 {
+    background-color: rgb(234, 214, 128);
+}
+
+div.demolvideo2 {
+    background-color: rgba(106, 151, 186,1);
+}
+
+div.demolvideo3 {
+    background-color: rgb(245, 236, 199);
+}
+
+div.footer {
+    background-color: rgba(106, 151, 186,1);
+    padding: 20px;
+    color: #efc700;
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+}
+
+.m-links {
+    margin-left: 27%;
+}
+
+p.porbleemopgelost {
+    position: relative;
+    top: -100px;
+}
+
+.img-small {
+    max-width: 140px;
+}
+
+iframe {
+    max-width: 70%;
+}
+
+
+/*-----------------------------*/
+
+
+body {
+    font-family: "Roboto Light";
+    width: 100%
+}
+
+nav{
+    background-color: #E6D16E;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #EDE4B8;
+}
+
+.btn {
+    color: black;
+    border-color: #E6D16E;
+    background: #E6D16E;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.buttons {
+    font-size: 24px;
+}
+
+.HoofdTitel {
+    color: #DCCA70;
+    font-family: Roboto;
+}
+
+
+.speech-bubble {
+    color: black;
+    position: relative;
+    background: #E6D16E;
+    border-radius: .4em;
+    font-size: large;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #E6D16E;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+.speech-bubble-KangoeroeMol {
+    position: relative;
+    background: #E6D16E;
+    border-radius: .4em;
+    font-size: large;
+}
+
+.speech-bubble-KangoeroeMol:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: #E6D16E;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+
