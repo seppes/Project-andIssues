@@ -25,10 +25,16 @@ public class HomeController {
             new Knuffel(2, "De Mol", "€10"),
     };
 
+    private Game[] games = {
+            new Game(0, "Game Uno"),
+            new Game(1, "Game Dos"),
+            new Game(2, "Game Tres")
+    };
+
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlHome/Deegel";
+        return "htmlHome/DemolHome";
     }
 
     @GetMapping("/VideoEgel")
@@ -38,8 +44,8 @@ public class HomeController {
     }
 
     @GetMapping("/GamePage")
-    public String VideoPaginaKangerou(Model model) {
-        model.addAttribute("videos", videos);
+    public String GamePage(Model model) {
+        model.addAttribute("games", games);
         return "htmlVideoGames/GamePage";
     }
 
