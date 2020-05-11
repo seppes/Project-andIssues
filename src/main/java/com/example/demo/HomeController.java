@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.model.Knuffel;
+import com.example.demo.model.Video;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class HomeController {
         return "htmlHome/Home";
     }
 
-    @GetMapping("/VideoEgel")
+    @GetMapping("/VideoPage")
     public String VideoPaginaEgel(Model model) {
         model.addAttribute("videos", videos);
         return "htmlVideoGames/VideoPage";
