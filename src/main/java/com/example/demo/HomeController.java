@@ -29,7 +29,7 @@ public class HomeController {
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlHome/Deegel";
+        return "htmlHome/DeegelHome";
     }
 
     @GetMapping("/VideoEgel")
