@@ -46,7 +46,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("knuffels", knuffels);
-        return "htmlHome/Deegel";
+        return "htmlWebshop/index";
     }
 
     @GetMapping("/shoppingcart")
@@ -67,31 +67,17 @@ public class HomeController {
         return "htmlWebshop/contact";
     }
 
-    @GetMapping("/video")
-    public String video(Model model) {
-
-        return "htmlVideoGames/VideoPage";
-    }
-
-    @GetMapping("/game")
-    public String game(Model model) {
-
-        return "htmlVideoGames/GamePage";
-    }
-
-    @GetMapping("/LogIn")
-    public String login(Model model) {
-
-        return "WebAppLogIn/InlogPagina";
-    }
-
-
-//    @GetMapping ("/VideoPagina")
+//    @GetMapping("/VideoPagina")
 //    public String VideoPagina(Model model){
 //        model.addAttribute("videos", videoRepository.findAll());
 //        return "VideoPagina";
 //    }
 
+//    @GetMapping("/Game/Mol")
+//        public String GamePagina(Model model){
+//        model.addAttribute("games", games);
+//        return "SpelDemol";
+//    }
 
 
 }
