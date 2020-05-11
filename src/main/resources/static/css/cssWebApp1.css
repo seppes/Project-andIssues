@@ -3,6 +3,10 @@
     padding: 0;
 
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
 ul {
     list-style-type: none;
@@ -12,7 +16,6 @@ ul {
 div.inhoudPagina{
     background-color: rgb(234, 214, 128);
 }
-
 
 nav{
     background-color: #E6D16E;
@@ -209,5 +212,3 @@ nav{
     margin-left: -10px;
     margin-bottom: -20px;
 }
-
-
