@@ -32,7 +32,7 @@ public class HomeController {
         return "htmlHome/DeegelHome";
     }
 
-    @GetMapping("/VideoEgel")
+    @GetMapping("/VideoPage")
     public String VideoPaginaEgel(Model model) {
         model.addAttribute("videos", videos);
         return "htmlVideoGames/VideoPage";
