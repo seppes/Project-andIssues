@@ -29,12 +29,62 @@ import java.util.Optional;
 public class UserController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-    // Register form
-    @RequestMapping("/register")
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/Deegel";
+        if (principal != null) return "redirect:/login";
+
+
         return "WebAppLogIn/RegisterPagina";
     }
+
+    @PostMapping("/register")
+    public String registerPost(@RequestParam String userName,
+                               @RequestParam String password,
+                               Principal principal, Model model) {
+        if (principal == null && !userName.isBlank()) {
+            Optional<User> userWithUserName = userRepository.findByUsername(userName);
+            if (!userWithUserName.isPresent()) {
+                User newUser = new User();
+                newUser.setUsername(userName);
+                String encode = passwordEncoder.encode(password);
+                logger.info(String.format("password %s\n", encode));
+                newUser.setPassword(encode);
+                autologin(userName, password);
+            }
+        }
+        return "redirect:/Deegel";
+    }
+
+    private void autologin(String userName, String password) {
+        UsernamePasswordAuthenticationToken token
+                = new UsernamePasswordAuthenticationToken(userName, password);
+
+        try {
+            Authentication auth = authenticationManager.authenticate(token);
+            logger.info("authentication done - result is " + auth.isAuthenticated());
+            SecurityContext sc = SecurityContextHolder.getContext();
+            sc.setAuthentication(auth);
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+//    // Register form
+//    @RequestMapping("/register")
+//    public String register(Principal principal, Model model) {
+//        if (principal != null) return "redirect:/Deegel";
+//        return "WebAppLogIn/RegisterPagina";
+//    }
 
      //Login form
     @RequestMapping("/login")

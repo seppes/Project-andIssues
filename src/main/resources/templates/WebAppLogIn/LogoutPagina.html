@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>LogoutPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="/css/cssWebApp1.css">
-    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
@@ -24,8 +24,13 @@
 
 
 <div class="container-fluid">
-    <h1>Tot ziens!!!</h1>
-
+    <div class="row1content">
+        <form th:action="@{/user/logout}" method="post">
+            <h2>Ben je zeker?</h2>
+            <input class="btn" type="submit" value="Uitloggen"/>
+            <a href="/Deegel" class="btn">Annuleren</a>
+        </form>
+    </div>
 </div>
 
 </body>

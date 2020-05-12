@@ -29,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/Deegel ", true);
         http.logout()
                 .logoutUrl("/user/logout")
-                .logoutSuccessUrl("/user/logout");
+                .logoutSuccessUrl("/");
         http.csrf().ignoringAntMatchers("/h2-console/**")
                 .and().headers().frameOptions().sameOrigin();
     }
