@@ -1,47 +1,59 @@
 package com.example.demo;
 
 import com.example.demo.model.Knuffel;
+import com.example.demo.repositories.VideoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Optional;
 
 @Controller
 public class HomeController {
 
 
-//    @Autowired
-//    private VideoRepository videoRepository;
+    @Autowired
+   private VideoRepository videoRepository;
 
-    private Video[] videos= {
 
-            new Video(0,"Waarom spuitje"),
-            new Video(1,"Waarom wenen"),
-            new Video(2,"Waarom spelendd"),
-
-    };
     private Knuffel[] knuffels = {
             new Knuffel(0, "De Egel", "€10"),
             new Knuffel(1, "De Kangoeroe", "€10"),
             new Knuffel(2, "De Mol", "€10"),
     };
 
-    @GetMapping("/appHome")
-    public String VideoPaginaMol(Model model) {
-        model.addAttribute("videos", videos);
-        return "htmlHome/Deegel";
-    }
 
-    @GetMapping("/VideoEgel")
-    public String VideoPaginaEgel(Model model) {
-        model.addAttribute("videos", videos);
+
+    @GetMapping("/Video/{videoId}")
+    public String VideoPaginaEgel(@PathVariable int videoId, Model model) {
+        Optional<Video> optionalVideoFromDb = videoRepository.findById(videoId);
+        addVideoInModel(videoId, model, optionalVideoFromDb);
         return "htmlVideoGames/VideoPage";
     }
 
-    @GetMapping("/GamePage")
-    public String VideoPaginaKangerou(Model model) {
-        model.addAttribute("videos", videos);
-        return "htmlVideoGames/GamePage";
+    private void addVideoInModel(@PathVariable int videoId, Model model, Optional<Video> optionalVideoFromDb) {
+        if (optionalVideoFromDb.isPresent()) {
+            long nrOfVideo = videoRepository.count();
+            model.addAttribute("Video", optionalVideoFromDb.get());
+        } else {
+            model.addAttribute("artist", null);
+        }
     }
+    
+//    @GetMapping("/appHome")
+//    public String VideoPaginaMol(Model model) {
+//        model.addAttribute("videos", videos);
+//        return "htmlHome/Deegel";
+//    }
+//
+//
+//    @GetMapping("/GamePage")
+//    public String VideoPaginaKangerou(Model model) {
+//        model.addAttribute("videos", knuffels);
+//        return "htmlVideoGames/GamePage";
+//    }
 
     @GetMapping("/")
     public String index(Model model) {
@@ -66,13 +78,6 @@ public class HomeController {
 
         return "htmlWebshop/contact";
     }
-
-
-//    @GetMapping ("/VideoPagina")
-//    public String VideoPagina(Model model){
-//        model.addAttribute("videos", videoRepository.findAll());
-//        return "VideoPagina";
-//    }
 
 
 
