@@ -21,9 +21,9 @@ public class HomeController {
 
     };
     private Knuffel[] knuffels = {
-            new Knuffel(0, "De Egel", "€10"),
-            new Knuffel(1, "De Kangoeroe", "€10"),
-            new Knuffel(2, "De Mol", "€10"),
+            new Knuffel(0, "De Egel", "€10", "knuffel_egel.jpg", "de egel heeft naalden"),
+            new Knuffel(1, "De Kangoeroe", "€10", "knuffel_egel.jpg", "de kangoeroe springt"),
+            new Knuffel(2, "De Mol", "€10", "knuffel_egel.jpg", "de mol graaft"),
     };
 
     @GetMapping("/appHome")
