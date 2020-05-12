@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
@@ -25,23 +24,56 @@ public class HomeController {
     };
 
 
+    @GetMapping("VideoMol")
+    public String VideoPaginaMol(Model model){
 
-    @GetMapping("/Video/{videoId}")
-    public String VideoPaginaEgel(@PathVariable int videoId, Model model) {
-        Optional<Video> optionalVideoFromDb = videoRepository.findById(videoId);
-        addVideoInModel(videoId, model, optionalVideoFromDb);
+    Optional<Video> videos = videoRepository.findById(0);
+    model.addAttribute("video", videos);
+    return "htmlVideoGames/VideoPage";
+
+    }
+
+    @GetMapping("VideoKangerou")
+    public String VideoPaginaKangerou(Model model){
+
+        Optional<Video> videos = videoRepository.findById(1);
+        model.addAttribute("video", videos);
         return "htmlVideoGames/VideoPage";
+
     }
 
-    private void addVideoInModel(@PathVariable int videoId, Model model, Optional<Video> optionalVideoFromDb) {
-        if (optionalVideoFromDb.isPresent()) {
-            long nrOfVideo = videoRepository.count();
-            model.addAttribute("Video", optionalVideoFromDb.get());
-        } else {
-            model.addAttribute("artist", null);
-        }
+    @GetMapping("VideoMol")
+    public String VideoPaginaEgel(Model model){
+
+        Optional<Video> videos = videoRepository.findById(2);
+        model.addAttribute("video", videos);
+        return "htmlVideoGames/VideoPage";
+
     }
-    
+
+
+
+//    @GetMapping("/Video/{videoId}")
+//    public String VideoPaginaEgel(@PathVariable int videoId, Model model) {
+//        Optional<Video> optionalVideoFromDb = videoRepository.findById(videoId);
+//        addVideoInModel(videoId, model, optionalVideoFromDb);
+//        return "htmlVideoGames/VideoPage";
+//    }
+//
+//    private void addVideoInModel(@PathVariable int videoId, Model model, Optional<Video> optionalVideoFromDb) {
+//        if (optionalVideoFromDb.isPresent()) {
+//            long nrOfVideo = videoRepository.count();
+//            model.addAttribute("Video", optionalVideoFromDb.get());
+//        } else {
+//            model.addAttribute("Video", null);
+//        }
+//    }
+
+
+
+
+
+
 //    @GetMapping("/appHome")
 //    public String VideoPaginaMol(Model model) {
 //        model.addAttribute("videos", videos);
@@ -54,6 +86,7 @@ public class HomeController {
 //        model.addAttribute("videos", knuffels);
 //        return "htmlVideoGames/GamePage";
 //    }
+
 
     @GetMapping("/")
     public String index(Model model) {
