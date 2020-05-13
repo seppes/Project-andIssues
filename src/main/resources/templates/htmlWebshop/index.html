@@ -50,7 +50,7 @@
     <div class="card-deck deck-layout">
         <div th:each="Knuffel:${knuffels}" class="card">
             <div class="card-header">
-                <img class="img-fluid" src="/img/knuffel_egel.jpg" alt="egel"/>
+                <img class="img-fluid" th:src="${Knuffel.knuffelFoto}" alt="knuffel"/>
             </div>
             <div class="card-body">
                 <h3 th:text="${Knuffel.knuffelNaam}">Titel</h3>
