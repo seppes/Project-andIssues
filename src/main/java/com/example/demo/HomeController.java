@@ -74,17 +74,4 @@ public class HomeController {
         return "htmlWebshop/contact";
     }
 
-//    @GetMapping("/VideoPagina")
-//    public String VideoPagina(Model model){
-//        model.addAttribute("videos", videoRepository.findAll());
-//        return "VideoPagina";
-//    }
-
-//    @GetMapping("/Game/Mol")
-//        public String GamePagina(Model model){
-//        model.addAttribute("games", games);
-//        return "SpelDemol";
-//    }
-
-
 }
