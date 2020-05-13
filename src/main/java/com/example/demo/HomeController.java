@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
@@ -23,19 +24,21 @@ public class HomeController {
 
 
 
-//    @GetMapping({"/video/{knuffelId}"})
-//    public String VideoPagina(@PathVariable int knuffelId, Model model) {
-//        Optional<Knuffel> optionalKnuffelFromDb = videoRepository.findById(knuffelId);
-//        if (optionalKnuffelFromDb.isEmpty()) {
-//            model.addAttribute("videos", new Video[]{});
-//        } else {
-//            Knuffel knuffel = optionalKnuffelFromDb.get();
-//            model.addAttribute("knuffel", knuffel);
-//            model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
-//        }
-//        return "htmlVideoGames/VideoPage";
-//    }
-//
+    @GetMapping({"/video/{knuffelId}"})
+   public String VideoPagina(@PathVariable int knuffelId, Model model) {
+//       Optional<Knuffel> optionalKnuffelFromDb = videoRepository.findById(knuffelId);
+//     if (optionalKnuffelFromDb.isEmpty()) {
+//         model.addAttribute("videos", new Video[]{});
+//     } else {
+//         Knuffel knuffel = optionalKnuffelFromDb.get();
+//          model.addAttribute("knuffel", knuffel);
+//         model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
+//     }
+        model.addAttribute("knuffel", knuffels[knuffelId]);
+        model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffels[knuffelId]));
+      return "htmlVideoGames/VideoPage";
+   }
+
 
 
 
