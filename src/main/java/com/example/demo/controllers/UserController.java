@@ -58,6 +58,8 @@ public class UserController {
                 String encode = passwordEncoder.encode(password);
                 logger.info(String.format("password %s\n", encode));
                 newUser.setPassword(encode);
+                newUser.setRole("USER");
+                userRepository.save(newUser);
                 autologin(userName, password);
             }
         }
@@ -78,13 +80,6 @@ public class UserController {
         }
     }
 
-
-//    // Register form
-//    @RequestMapping("/register")
-//    public String register(Principal principal, Model model) {
-//        if (principal != null) return "redirect:/Deegel";
-//        return "WebAppLogIn/RegisterPagina";
-//    }
 
      //Login form
     @RequestMapping("/login")
