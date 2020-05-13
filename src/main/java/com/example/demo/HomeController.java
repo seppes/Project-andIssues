@@ -36,6 +36,7 @@ public class HomeController {
             new Knuffel(2, "De Mol", "€10", "knuffel_egel.jpg", "de mol graaft"),
     };
 
+
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
