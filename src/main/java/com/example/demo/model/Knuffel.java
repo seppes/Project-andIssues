@@ -1,10 +1,18 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Knuffel {
+
+    @Id
     private int id;
     private String KnuffelNaam;
     private String KnuffelPrijs;
 
+    public Knuffel() {
+    }
 
     public Knuffel(int id, String KnuffelNaam, String KnuffelPrijs) {
         this.id = id;
