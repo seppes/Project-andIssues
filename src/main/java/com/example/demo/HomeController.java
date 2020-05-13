@@ -2,6 +2,8 @@ package com.example.demo;
 
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.Video;
+import com.example.demo.repositories.KnuffelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,9 @@ public class HomeController {
 
 //    @Autowired
 //    private VideoRepository videoRepository;
+
+    @Autowired
+    private KnuffelRepository knuffelRepository;
 
     private Video[] videos= {
 
@@ -46,7 +51,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("knuffels", knuffels);
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
         return "htmlWebshop/index";
     }
 
@@ -57,14 +63,12 @@ public class HomeController {
     }
 
     @GetMapping("/about")
-    public String about(Model model) {
-
+    public String about() {
         return "htmlWebshop/about";
     }
 
     @GetMapping("/contact")
-    public String contact(Model model) {
-
+    public String contact() {
         return "htmlWebshop/contact";
     }
 
