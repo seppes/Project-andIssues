@@ -25,13 +25,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().permitAll();
         http.formLogin()
-                .loginPage("/user/login");
+                .loginPage("/user/login")
+                .defaultSuccessUrl("/appHome ", true);
         http.logout()
                 .logoutUrl("/user/logout")
                 .logoutSuccessUrl("/");
         http.csrf().ignoringAntMatchers("/h2-console/**")
                 .and().headers().frameOptions().sameOrigin();
     }
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

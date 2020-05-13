@@ -151,16 +151,16 @@ sup {
 }
 
 a {
-    color: #007bff;
+    color: black;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects
 }
 
-a:hover {
-    color: #0056b3;
-    text-decoration: underline
-}
+/*a:hover {*/
+/*    color: #0056b3;*/
+/*    text-decoration: underline*/
+/*}*/
 
 a:not([href]):not([tabindex]) {
     color: inherit;

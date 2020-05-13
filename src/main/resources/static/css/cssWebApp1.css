@@ -133,7 +133,8 @@ iframe {
 
 body {
     font-family: "Roboto Light";
-    width: 100%
+    width: 100%;
+    background-color: #EDE4B8;
 }
 
 nav{
@@ -157,6 +158,12 @@ nav{
 
 .buttons {
     font-size: 24px;
+}
+
+.footer {
+    background-color: #6A97BA;
+    font-weight: bold;
+    text-align: center;
 }
 
 .HoofdTitel {
@@ -209,5 +216,19 @@ nav{
     margin-left: -10px;
     margin-bottom: -20px;
 }
+
+.textLogIn {
+    color: white;
+    float: right;
+    padding-left: 2rem;
+}
+
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
 
 
