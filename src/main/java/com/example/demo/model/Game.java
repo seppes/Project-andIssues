@@ -1,15 +1,13 @@
-package com.example.demo;
+package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Game {
-
     @Id
     private int id;
     private String name;
-
 
     public Game() {
     }
@@ -17,14 +15,11 @@ public class Game {
     public Game(int id, String name) {
         this.id = id;
         this.name = name;
-
     }
 
     public int getId() {
         return id;
     }
-
-
 
     public String getName() {
         return name;

@@ -4,6 +4,9 @@ import com.example.demo.controllers.AdminController;
 import com.example.demo.model.Knuffel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.example.demo.model.Video;
+import com.example.demo.repositories.KnuffelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,9 @@ public class HomeController {
 //    @Autowired
 //    private VideoRepository videoRepository;
 
+    @Autowired
+    private KnuffelRepository knuffelRepository;
+
     private Video[] videos= {
 
             new Video(0,"Waarom spuitje"),
@@ -25,18 +31,18 @@ public class HomeController {
 
     };
     private Knuffel[] knuffels = {
-            new Knuffel(0, "De Egel", "€10"),
-            new Knuffel(1, "De Kangoeroe", "€10"),
-            new Knuffel(2, "De Mol", "€10"),
+            new Knuffel(0, "De Egel", "€10", "knuffel_egel.jpg", "de egel heeft naalden"),
+            new Knuffel(1, "De Kangoeroe", "€10", "knuffel_egel.jpg", "de kangoeroe springt"),
+            new Knuffel(2, "De Mol", "€10", "knuffel_egel.jpg", "de mol graaft"),
     };
 
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
         model.addAttribute("videos", videos);
-        return "htmlHome/Deegel";
+        return "htmlHome/DeegelHome";
     }
 
-    @GetMapping("/VideoEgel")
+    @GetMapping("/VideoPage")
     public String VideoPaginaEgel(Model model) {
         model.addAttribute("videos", videos);
         return "htmlVideoGames/VideoPage";
@@ -50,7 +56,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("knuffels", knuffels);
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
         return "htmlWebshop/index";
     }
 
@@ -69,24 +76,26 @@ public class HomeController {
     }
 
     @GetMapping("/about")
-    public String about(Model model) {
-
+    public String about() {
         return "htmlWebshop/about";
     }
 
     @GetMapping("/contact")
-    public String contact(Model model) {
-
+    public String contact() {
         return "htmlWebshop/contact";
     }
 
-
-//    @GetMapping ("/VideoPagina")
+//    @GetMapping("/VideoPagina")
 //    public String VideoPagina(Model model){
 //        model.addAttribute("videos", videoRepository.findAll());
 //        return "VideoPagina";
 //    }
 
+//    @GetMapping("/Game/Mol")
+//        public String GamePagina(Model model){
+//        model.addAttribute("games", games);
+//        return "SpelDemol";
+//    }
 
 
 }

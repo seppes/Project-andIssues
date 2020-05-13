@@ -1,3 +1,7 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
 INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
 (nextval('USER_SEQ'), 'admin', '$2a$10$9MIX8kYPkuB7uE/H5nHF8.KG6.YdjBA/voOnjSZnZDxLXL/2BIerS', 'ADMIN');
 INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
@@ -26,4 +30,12 @@ INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
 (nextval('USER_SEQ'), 'thomas', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
 INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
 (nextval('USER_SEQ'), 'sammy', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
+
+
+INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
+( 0, 'De Egel ', '€10', 'knuffel_egel.jpg', 'De egel heeft naalden.');
+INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
+( 1, 'De Kangoeroe ', '€10', 'knuffel_egel.jpg', 'De kangoeroe springt.');
+INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
+( 2, 'De Mol ', '€10', 'knuffel_egel.jpg', 'De mol graaft.');
 
