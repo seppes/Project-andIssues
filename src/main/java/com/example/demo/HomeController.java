@@ -61,13 +61,6 @@ public class HomeController {
         return "htmlWebshop/index";
     }
 
-    @GetMapping({"/login", "/Deegel"})
-    public String login(Principal principal, Model model) {
-        String loggedInName = principal!=null ? principal.getName() : "nobody";
-        logger.info("logged in: " + loggedInName);
-        return "htmlHome/Deegel";
-    }
-
 
     @GetMapping("/shoppingcart")
     public String shoppingcart(Model model) {

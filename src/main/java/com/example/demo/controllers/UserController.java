@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/login";
+        if (principal != null) return "redirect:/appHome";
 
 
         return "WebAppLogIn/RegisterPagina";
@@ -63,7 +63,7 @@ public class UserController {
                 autologin(userName, password);
             }
         }
-        return "redirect:/Deegel";
+        return "redirect:/appHome";
     }
 
     private void autologin(String userName, String password) {
@@ -84,7 +84,7 @@ public class UserController {
      //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
-        if (principal != null) return "redirect:/Deegel";
+        if (principal != null) return "redirect:/appHome";
         return "WebAppLogIn/InlogPagina";
     }
 
