@@ -30,11 +30,6 @@ public class HomeController {
             new Video(2,"Waarom spelendd"),
 
     };
-    private Knuffel[] knuffels = {
-            new Knuffel(0, "De Egel", "€10", "knuffel_egel.jpg", "de egel heeft naalden"),
-            new Knuffel(1, "De Kangoeroe", "€10", "knuffel_egel.jpg", "de kangoeroe springt"),
-            new Knuffel(2, "De Mol", "€10", "knuffel_egel.jpg", "de mol graaft"),
-    };
 
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
@@ -64,7 +59,8 @@ public class HomeController {
 
     @GetMapping("/shoppingcart")
     public String shoppingcart(Model model) {
-        model.addAttribute("knuffels", knuffels);
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
         return "htmlWebshop/shoppingcart";
     }
 
