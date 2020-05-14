@@ -55,7 +55,7 @@
 
         <div class="row">
             <div class="col-md text-center">
-                <h1 class="titels" th:text="${knuffel.knuffelNaam}"> naam knuffel</h1>
+                <h1 class="titels"> naam knuffel</h1>
 
 
             </div>
@@ -72,11 +72,68 @@
     </div>
 
 
-    <div th:each="videos:${videos}">
+    <!--    <div class="demolvideo1 pt-5 pb-5">-->
 
-<!--            <h3 th:text="${videos.titel}">Titel</h3>-->
+    <div class="row">
+        <div class="col-md text-center mb-3">
+            <h3 th:text="${videos[0].titel}"> titel video</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e-xxPuSzC2I" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
         </div>
+    </div>
+
+    <!--    </div>-->
+
+    <!--    <div class="demolvideo2 pt-5 pb-5">-->
+
+    <div class="row">
+        <div class="col-md text-center mb-3">
+            <h3 th:text="${videos[1].titel}"> titel video</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e-xxPuSzC2I" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+        </div>
+    </div>
+
+    <!--    </div>-->
+
+
+    <!--    <div class="demolvideo3 pt-5 pb-5">-->
+
+    <div class="row">
+        <div class="col-md text-center mb-3">
+            <h3 th:text="${videos[2].titel}"> titel video</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e-xxPuSzC2I" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <br>
+            <br>
+            <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
+
+
+        </div>
+    </div>
+
+    <!--    </div>-->
+
 
 
 
