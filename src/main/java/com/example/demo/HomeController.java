@@ -60,7 +60,6 @@ public class HomeController {
         return "htmlVideoGames/VideoPage";
     }
 
-
    @GetMapping("/GamePage")
    public String GamePage(Model model) {
        model.addAttribute("videos", videoss);
