@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.Video;
 import org.springframework.stereotype.Controller;
