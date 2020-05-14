@@ -17,13 +17,13 @@ import java.security.Principal;
 public class HomeController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-//    @Autowired
-//    private VideoRepository videoRepository;
+    @Autowired
+   private VideoRepository videoRepository;
 
     @Autowired
     private KnuffelRepository knuffelRepository;
 
-    private Video[] videos= {
+    private Video[] videoss= {
 
             new Video(0,"Waarom spuitje"),
             new Video(1,"Waarom wenen"),
@@ -32,23 +32,37 @@ public class HomeController {
     };
 
 
-    @GetMapping("/appHome")
-    public String VideoPaginaMol(Model model) {
-        model.addAttribute("videos", videos);
-        return "htmlHome/DeegelHome";
-    }
 
-    @GetMapping("/VideoPage")
-    public String VideoPaginaEgel(Model model) {
-        model.addAttribute("videos", videos);
-        return "htmlVideoGames/VideoPage";
-    }
 
-    @GetMapping("/GamePage")
-    public String VideoPaginaKangerou(Model model) {
-        model.addAttribute("videos", videos);
-        return "htmlVideoGames/GamePage";
-    }
+    @GetMapping({"/video/{knuffelId}"})
+   public String VideoPagina(@PathVariable int knuffelId, Model model) {
+       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+     if (optionalKnuffelFromDb.isEmpty()) {
+       model.addAttribute("videos", new Video[]{});
+   } else {
+       Knuffel knuffel = optionalKnuffelFromDb.get();
+         model.addAttribute("knuffel", knuffel);
+         model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
+     }
+        model.addAttribute("knuffel", knuffels[knuffelId]);
+        model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffels[knuffelId]));
+      return "htmlVideoGames/VideoPage";
+   }
+
+
+  @GetMapping("/appHome")
+  public String VideoPaginaMol(Model model) {
+      model.addAttribute("videos", videoss);
+      return "htmlHome/Deegel";
+  }
+
+
+   @GetMapping("/GamePage")
+   public String VideoPaginaKangerou(Model model) {
+       model.addAttribute("videos", knuffels);
+       return "htmlVideoGames/GamePage";
+   }
+
 
     @GetMapping("/")
     public String index(Model model) {
@@ -74,5 +88,9 @@ public class HomeController {
     public String contact() {
         return "htmlWebshop/contact";
     }
+
+
+
+
 
 }
