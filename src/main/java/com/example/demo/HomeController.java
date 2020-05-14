@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -32,21 +35,21 @@ public class HomeController {
 
 
 
-//
-//    @GetMapping({"/video/{knuffelId}"})
-//   public String VideoPagina(@PathVariable int knuffelId, Model model) {
-//       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//     if (optionalKnuffelFromDb.isEmpty()) {
-//       model.addAttribute("videos", new Video[]{});
-//   } else {
-//       Knuffel knuffel = optionalKnuffelFromDb.get();
-//         model.addAttribute("knuffel", knuffel);
-//         model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
-//     }
-//        model.addAttribute("knuffel", knuffels[knuffelId]);
-//        model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffels[knuffelId]));
-//      return "htmlVideoGames/VideoPage";
-//   }
+
+    @GetMapping({"/video/{knuffelId}"})
+   public String VideoPagina(@PathVariable int knuffelId, Model model) {
+       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+     if (optionalKnuffelFromDb.isEmpty()) {
+       model.addAttribute("videos", new Video[]{});
+   } else {
+       Knuffel knuffel = optionalKnuffelFromDb.get();
+         model.addAttribute("knuffel", knuffel);
+         model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
+     }
+//        model.addAttribute("knuffel", knuffel[knuffelId]);
+//       model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel[knuffelId]));
+      return "htmlVideoGames/VideoPage";
+   }
 
 
   @GetMapping("/appHome")
@@ -54,11 +57,11 @@ public class HomeController {
       model.addAttribute("videos", videoss);
       return "htmlHome/DeegelHome";
   }
-    @GetMapping("/VideoPage")
-    public String VideoPaginaEgel(Model model) {
-        model.addAttribute("videos", videoss);
-        return "htmlVideoGames/VideoPage";
-    }
+//    @GetMapping("/VideoPage")
+//    public String VideoPaginaEgel(Model model) {
+//        model.addAttribute("videos", videoss);
+//        return "htmlVideoGames/VideoPage";
+//    }
 
 
    @GetMapping("/GamePage")
