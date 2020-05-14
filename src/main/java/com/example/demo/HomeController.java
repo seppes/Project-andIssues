@@ -25,7 +25,7 @@ public class HomeController {
     @Autowired
     private KnuffelRepository knuffelRepository;
 
-    private Video[] videos= {
+    private Video[] videoss= {
 
             new Video(0,"Waarom spuitje"),
             new Video(1,"Waarom wenen"),
@@ -59,7 +59,7 @@ public class HomeController {
 
   @GetMapping("/appHome")
   public String VideoPaginaMol(Model model) {
-      model.addAttribute("videos", videos);
+      model.addAttribute("videos", videoss);
       return "htmlHome/Deegel";
   }
 
