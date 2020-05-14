@@ -87,7 +87,7 @@ public class HomeController {
         return "htmlWebshop/about";
     }
 
-    
+
     @GetMapping("/contact")
     public String contact() {
         return "htmlWebshop/contact";
