@@ -8,10 +8,9 @@
     <title>De Mol</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/cssVideoGames/bootstrap.css}"href="/css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{/css/cssVideoGames/csseigen.css}" href="/css/cssVideoGames/csseigen.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="/css/cssVideoGames/csseigen.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
 
 
 </head>
@@ -35,11 +34,10 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i><span
-                    class="sr-only">(huidig)</span></a>
+            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i></a>
             <a class="nav-item nav-link" href="/VideoPage"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" href="/GamePage"><i class="fas fa-gamepad fa-3x"></i></a>
-            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-sign-out-alt fa-3x"></i></a>
+            <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
         </div>
 
     </div>
@@ -49,14 +47,11 @@
 <div class="container-fluid">
 
 
-
-
-
     <div class="demolvideos pt-5 pb-5">
 
         <div class="row">
             <div class="col-md text-center">
-                <h1 class="titels">De Mol</h1>
+                <h1 class="titels"> naam knuffel</h1>
 
 
             </div>
@@ -70,7 +65,6 @@
         </div>
 
 
-
     </div>
 
 
@@ -78,7 +72,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3 th:text="${videos[0].name}"> titel video</h3>
+                <h3 th:text="${videos[0].titel}"> titel video</h3>
             </div>
         </div>
 
@@ -97,7 +91,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3 th:text="${videos[1].name}"> titel video</h3>
+                <h3 th:text="${videos[1].titel}"> titelll video</h3>
             </div>
         </div>
 
@@ -117,7 +111,7 @@
 
         <div class="row">
             <div class="col-md text-center mb-3">
-                <h3 th:text="${videos[2].name}"> titel video</h3>
+                <h3 th:text="${videos[2].titel}"> titel video</h3>
             </div>
         </div>
 
@@ -135,7 +129,6 @@
         </div>
 
     </div>
-
 
 </div>
 

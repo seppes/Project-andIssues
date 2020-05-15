@@ -2,10 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>RegisterPagina</title>
+    <title>RegisterPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/cssWebAppLogIn/bootstrap.css">
-    <link rel="stylesheet" href="/css/cssWebAppLogIn/csseigen.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
@@ -20,11 +20,30 @@
 
 
     <h1 class="HoofdTitel">Account Aanmaken</h1>
+    <h4 class="textLogIn">Inloggen</h4>
 </nav>
 
 <div class="container-fluid">
 
-
+    <div class="row">
+        <div class="col text-center mt-5">
+            <form th:action="|/user/register|" method="post">
+                <div class="form-group">
+                    <label for="name">
+                        <h5>Kies een gebruikersnaam:</h5>
+                        <input type="text" id="name" name="userName" class="form-control" placeholder="Gebruikersnaam">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <h5>Kies hier je persoonlijke code:</h5>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Wachtwoord">
+                    </label>
+                </div>
+                <button class="btn btn-primary">Registreren</button>
+            </form>
+        </div>
+    </div>
 
 </div>
 

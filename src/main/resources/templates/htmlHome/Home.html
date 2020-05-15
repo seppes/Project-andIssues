@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link rel="stylesheet" href="../../static/css/cssHome/csseigen.css">
-    <link rel="stylesheet" href="../../static/css/cssHome/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
 
 
 </head>
@@ -19,7 +19,8 @@
 
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="../../static/img/logo.PNG" height="100" width="100"/>
+        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
+
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -31,11 +32,10 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="index.html"><i class="fas fa-home fa-3x"></i><span
-                    class="sr-only">(huidig)</span></a>
-            <a class="nav-item nav-link" href="Home.html"><i class="fas fa-tv fa-3x"></i></a>
-            <a class="nav-item nav-link" href="../htmlVideoGames/SpelDemol.html"><i class="fas fa-gamepad fa-3x"></i></a>
-            <a class="nav-item nav-link" href="login.html"><i class="fas fa-sign-out-alt fa-3x"></i></a>
+            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i></a>
+            <a class="nav-item nav-link" href="/VideoPage"><i class="fas fa-tv fa-3x"></i></a>
+            <a class="nav-item nav-link" href="/GamePage"><i class="fas fa-gamepad fa-3x"></i></a>
+            <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
 
         </div>
 
@@ -55,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="col text-lg-center">
-                    <img class="img-fluid" src="../../static/img/Demol.PNG"/>
+                    <img class="img-fluid pb-5 mb-5" src="/img/Demol.PNG"/>
                 </div>
             </div>
         </div>
@@ -78,20 +78,11 @@
         </div>
     </div>
 
-    <div class="row info text-white">
-        <div class="col-md-6 offset-3 text-lg-center">
-            <h2>Over Ons</h2>
-            <h6>Achter Knús staat een jong en dynamisch team.</h6>
-            <h6>Wij zijn vier studenten Media en Entertainment Business die vol
-                <br>
-                ondernemingszin de start-up Knús hebben opgericht.
-                <br>
-                Met onze verschillende kwaliteiten en inzichten zijn we gekomen tot waar we nu al staan.</h6>
-        </div>
-    </div>
-    <div class="row footer">
-        <div class="col">
-            <p>&copy;Knús2020</p>
+
+
+    <div class="row bg-dark justify-content-center">
+        <div class="col-md-4 text-center">
+            <h6 class="text-white pt-2">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 

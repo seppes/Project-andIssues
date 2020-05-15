@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/contact"><h6 class="whiteText">Contact</h6></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#"><h6 class="whiteText">Login</h6></a>
+                    <a class="nav-link" href="/user/login"><h6 class="whiteText">Login</h6></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/shoppingcart"><h6 class="whiteText"><i class="fas fa-shopping-cart"></i></h6></a>
@@ -48,30 +48,14 @@
 </div> <!--navbar-->
 <div class="container-fluid deck-bg">
     <div class="card-deck deck-layout">
-        <div class="card">
+        <div th:each="Knuffel:${knuffels}" class="card">
             <div class="card-header">
-                <img class="img-fluid" src="/img/knuffel_egel.jpg" alt="egel"/>
+                <img class="img-fluid" th:src="${Knuffel.knuffelFoto}" alt="knuffel"/>
             </div>
             <div class="card-body">
-                <h4 class="card-title">Prijs</h4>
-                <p class="card-text"><button type="button" class="btn btn-layout bg-dark">Bestel</button></p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <img class="img-fluid" src="/img/knuffel_egel.jpg" alt="egel"/>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">Prijs</h4>
-                <p class="card-text"><button type="button" class="btn btn-layout bg-dark">Bestel</button></p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <img class="img-fluid" src="/img/knuffel_egel.jpg" alt="egel"/>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">Prijs</h4>
+                <h3 th:text="${Knuffel.knuffelNaam}">Titel</h3>
+                <p th:text="${Knuffel.knuffelBeschrijving}">knuffel beschrijving</p>
+                <h4 th:text="${Knuffel.knuffelPrijs}" class="card-title">Prijs</h4>
                 <p class="card-text"><button type="button" class="btn btn-layout bg-dark">Bestel</button></p>
             </div>
         </div>
