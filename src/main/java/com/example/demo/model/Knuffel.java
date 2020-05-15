@@ -7,18 +7,18 @@ import javax.persistence.Id;
 public class Knuffel {
     @Id
     private int id;
-    private String KnuffelNaam;
-    private String KnuffelPrijs;
-    private String KnuffelFoto;
-    private String KnuffelBeschrijving;
+    private String animalName;
+    private String animalPrice;
+    private String animalPic;
+    private String animalDescription;
 
 
-    public Knuffel(int id, String KnuffelNaam, String KnuffelPrijs, String KnuffelFoto, String KnuffelBeschrijving) {
+    public Knuffel(int id, String animalName, String animalPrice, String animalPic, String animalDescription) {
         this.id = id;
-        this.KnuffelNaam = KnuffelNaam;
-        this.KnuffelPrijs = KnuffelPrijs;
-        this.KnuffelFoto = KnuffelFoto;
-        this.KnuffelBeschrijving = KnuffelBeschrijving;
+        this.animalName = animalName;
+        this.animalPrice = animalPrice;
+        this.animalPic = animalPic;
+        this.animalDescription = animalDescription;
     }
 
     public Knuffel() {
@@ -32,35 +32,35 @@ public class Knuffel {
         this.id = id;
     }
 
-    public String getKnuffelNaam() {
-        return KnuffelNaam;
+    public String getAnimalName() {
+        return animalName;
     }
 
-    public void setKnuffelNaam(String KnuffelNaam) {
-        this.KnuffelNaam = KnuffelNaam;
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
     }
 
-    public String getKnuffelPrijs() {
-        return KnuffelPrijs;
+    public String getAnimalPrice() {
+        return animalPrice;
     }
 
-    public void setKnuffelPrijs(String KnuffelPrijs) {
-        this.KnuffelPrijs = KnuffelPrijs;
+    public void setAnimalPrice(String animalPrice) {
+        this.animalPrice = animalPrice;
     }
 
-    public String getKnuffelFoto() {
-        return KnuffelFoto;
+    public String getAnimalPic() {
+        return animalPic;
     }
 
-    public void setKnuffelFoto(String knuffelFoto) {
-        KnuffelFoto = knuffelFoto;
+    public void setAnimalPic(String animalPic) {
+        this.animalPic = animalPic;
     }
 
-    public String getKnuffelBeschrijving() {
-        return KnuffelBeschrijving;
+    public String getAnimalDescription() {
+        return animalDescription;
     }
 
-    public void setKnuffelBeschrijving(String knuffelBeschrijving) {
-        KnuffelBeschrijving = knuffelBeschrijving;
+    public void setAnimalDescription(String animalDescription) {
+        this.animalDescription = animalDescription;
     }
 }
