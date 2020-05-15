@@ -58,7 +58,7 @@ public class HomeController {
 
     @GetMapping("/appHome")
     public String VideoPaginaMol(Model model) {
-        model.addAttribute("videos", videos);
+        model.addAttribute("videos", videoss);
         return "htmlHome/Home";
     }
 
