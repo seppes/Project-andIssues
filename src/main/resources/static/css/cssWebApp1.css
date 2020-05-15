@@ -224,12 +224,19 @@ nav{
     padding-left: 2rem;
 }
 
-
 .row {
     margin-left: 0;
     margin-right: 0;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
 
-
-
+a:hover {
+    color: black;
+    text-decoration: none;
+}
