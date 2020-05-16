@@ -1,11 +1,33 @@
 *{
     margin: 0;
     padding: 0;
+}
 
+body {
+    font-family: "Roboto Light";
+    width: 100%;
+    background-color: #EDE4B8;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #EDE4B8;
 }
 
 nav{
     background-color: #E6D16E;
+}
+
+.footer {
+    background-color: rgba(106, 151, 186,1);
+    padding: 20px;
+    color: #efc700;
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
 }
 
 div.info{
@@ -42,10 +64,6 @@ div.info{
     font-size: 24px;
 }
 
-
-/*-------------------------*/
-
-
 ul {
     list-style-type: none;
 }
@@ -54,31 +72,20 @@ ul {
     background-color: rgb(234, 214, 128);
 }
 
-
-.demolvideos {
+.nameVideosAndGames {
     background-color: rgb(245, 236, 199);
 }
 
-.demolvideo1 {
+.row1 {
     background-color: rgb(234, 214, 128);
 }
 
-.demolvideo2 {
+.row2 {
     background-color: rgba(106, 151, 186,1);
 }
 
-.demolvideo3 {
+.row3 {
     background-color: rgb(245, 236, 199);
-}
-
-.footer {
-    background-color: rgba(106, 151, 186,1);
-    padding: 20px;
-    color: #efc700;
-    font-family: "Trebuchet MS";
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
 }
 
 .m-links {
@@ -89,23 +96,6 @@ iframe {
     max-width: 70%;
 }
 
-
-/*-----------------------------*/
-
-
-body {
-    font-family: "Roboto Light";
-    width: 100%;
-    background-color: #EDE4B8;
-}
-
-.container-fluid {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: #EDE4B8;
-}
-
 .btn {
     color: black;
     border-color: #E6D16E;
@@ -114,13 +104,10 @@ body {
     padding-right: 3rem;
 }
 
-
-
 .HoofdTitel {
     color: #DCCA70;
     font-family: Roboto;
 }
-
 
 .speech-bubble {
     color: black;
