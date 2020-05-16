@@ -40,10 +40,6 @@ div.info{
     max-width : 140px;
 }
 
-.backgroundColor {
-    background-color: #EDE4B8;
-}
-
 .bubbleText {
     float: right;
     border-color: #E6D16E;
@@ -66,10 +62,6 @@ div.info{
 
 ul {
     list-style-type: none;
-}
-
-.inhoudPagina {
-    background-color: rgb(234, 214, 128);
 }
 
 .nameVideosAndGames {
