@@ -4,16 +4,6 @@
 
 }
 
-ul {
-    list-style-type: none;
-
-}
-
-div.inhoudPagina{
-    background-color: rgb(234, 214, 128);
-}
-
-
 nav{
     background-color: #E6D16E;
 }
@@ -27,9 +17,6 @@ div.info{
 .img-small {
     max-width : 140px;
 }
-
-/*mijn code*/
-
 
 .backgroundColor {
     background-color: #EDE4B8;
@@ -49,15 +36,6 @@ div.info{
 
 .img-fluid {
     margin-top: 1.5rem;
-}
-
-.btn {
-    border-color: #E6D16E;
-    background: #E6D16E;
-    padding: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    border-radius: 15px;
 }
 
 .buttons {
@@ -83,9 +61,6 @@ div.inhoudPagina {
     background-color: rgb(234, 214, 128);
 }
 
-nav {
-    background-color: rgba(106, 151, 186,1);
-}
 
 div.demolvideos {
     background-color: rgb(245, 236, 199);
@@ -120,10 +95,6 @@ p.porbleemopgelost {
     top: -100px;
 }
 
-.img-small {
-    max-width: 140px;
-}
-
 iframe {
     max-width: 70%;
 }
@@ -136,10 +107,6 @@ body {
     font-family: "Roboto Light";
     width: 100%;
     background-color: #EDE4B8;
-}
-
-nav{
-    background-color: #E6D16E;
 }
 
 .container-fluid {
