@@ -36,10 +36,6 @@ div.info{
     font-size: 12px;
 }
 
-.img-small {
-    max-width : 140px;
-}
-
 .bubbleText {
     float: right;
     border-color: #E6D16E;
@@ -54,10 +50,6 @@ div.info{
 
 .img-fluid {
     margin-top: 1.5rem;
-}
-
-.buttons {
-    font-size: 24px;
 }
 
 ul {
@@ -94,6 +86,7 @@ iframe {
     background: #E6D16E;
     padding-left: 3rem;
     padding-right: 3rem;
+    font-size: 24px;
 }
 
 .HoofdTitel {
@@ -144,12 +137,6 @@ iframe {
     border-right: 0;
     margin-left: -10px;
     margin-bottom: -20px;
-}
-
-.textLogIn {
-    color: white;
-    float: right;
-    padding-left: 2rem;
 }
 
 .row {
