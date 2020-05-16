@@ -42,48 +42,43 @@ div.info{
     font-size: 24px;
 }
 
-.footer {
-    background-color: #6A97BA;
-    font-weight: bold;
-    text-align: center;
-}
-
 
 /*-------------------------*/
-
 
 
 ul {
     list-style-type: none;
 }
 
-div.inhoudPagina {
+.inhoudPagina {
     background-color: rgb(234, 214, 128);
 }
 
 
-div.demolvideos {
+.demolvideos {
     background-color: rgb(245, 236, 199);
 }
 
-div.demolvideo1 {
+.demolvideo1 {
     background-color: rgb(234, 214, 128);
 }
 
-div.demolvideo2 {
+.demolvideo2 {
     background-color: rgba(106, 151, 186,1);
 }
 
-div.demolvideo3 {
+.demolvideo3 {
     background-color: rgb(245, 236, 199);
 }
 
-div.footer {
+.footer {
     background-color: rgba(106, 151, 186,1);
     padding: 20px;
     color: #efc700;
     font-family: "Trebuchet MS";
     font-size: 12px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .m-links {
@@ -124,15 +119,7 @@ body {
     padding-right: 3rem;
 }
 
-.buttons {
-    font-size: 24px;
-}
 
-.footer {
-    background-color: #6A97BA;
-    font-weight: bold;
-    text-align: center;
-}
 
 .HoofdTitel {
     color: #DCCA70;
