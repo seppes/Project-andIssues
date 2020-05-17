@@ -55,33 +55,33 @@
 
         <div class="row">
             <div class="col-md text-center">
-                <h1 class="titels" th: th:text="${knuffel.knuffelNaam}"> naam knuffel</h1>
+                <h1 class="titels" th:text="${knuffel.knuffelNaam}"> naam knuffel</h1>
 
 
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="col-md text-center mt-3">
-                <img class="img-fluid" th:src="${knuffel.knuffelFoto}" alt="knuffel"/>
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md text-center mt-3">-->
+<!--                <img class="img-fluid" th:src="${knuffel.knuffelFoto}" alt="knuffel"/>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
+
+
+
+<!--   <div th:each="Videos:${videos}">-->
+
+<!--        <h3 th:text="${Videos.titel}">Titel</h3>-->
+<!--        <iframe width="560" height="315" th:src="@{https://www.youtube.com/embed/{url} (url=${Videos.videoFileName})}" frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>-->
+
+<!-- </div>-->
 
 
     </div>
-
-
-
-   <div th:each="Videos:${videos}">
-
-        <h3 th:text="${Videos.titel}">Titel</h3>
-        <iframe width="560" height="315" th:src="@{https://www.youtube.com/{url} (url=${Videos.videoFileName})}" frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
-
- </div>
-
-
-
 </div>
 
 <div class="footer text-center text-warning">

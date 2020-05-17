@@ -31,11 +31,11 @@ public class HomeController {
    public String VideoPagina(@PathVariable int knuffelId, Model model) {
        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
      if (optionalKnuffelFromDb.isEmpty()) {
-       model.addAttribute("videos", new Video[]{});
+       model.addAttribute("video", new Video[]{});
    } else {
          Knuffel knuffel = optionalKnuffelFromDb.get();
          model.addAttribute("knuffel", knuffel);
-         model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
+         model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
 
      }
       return "htmlVideoGames/VideoPage";
