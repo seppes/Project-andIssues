@@ -30,9 +30,6 @@ public class Video {
 
     }
 
-    public Video(int i, String waarom_wenen) {
-
-    }
 
     public int getId() {
         return id;

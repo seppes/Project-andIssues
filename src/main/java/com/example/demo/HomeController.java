@@ -25,15 +25,6 @@ public class HomeController {
     @Autowired
     private KnuffelRepository knuffelRepository;
 
-    private Video[] videoss= {
-
-            new Video(0,"Waarom spuitje"),
-            new Video(1,"Waarom wenen"),
-            new Video(2,"Waarom spelendd"),
-
-    };
-
-
 
 
     @GetMapping({"/video/{knuffelId}"})
@@ -42,19 +33,18 @@ public class HomeController {
      if (optionalKnuffelFromDb.isEmpty()) {
        model.addAttribute("videos", new Video[]{});
    } else {
-       Knuffel knuffel = optionalKnuffelFromDb.get();
+         Knuffel knuffel = optionalKnuffelFromDb.get();
          model.addAttribute("knuffel", knuffel);
          model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel));
+
      }
-//        model.addAttribute("knuffel", knuffel[knuffelId]);
-//       model.addAttribute("videos", videoRepository.findVideosByKnuffel(knuffel[knuffelId]));
       return "htmlVideoGames/VideoPage";
    }
 
 
   @GetMapping("/appHome")
   public String apphome(Model model) {
-      model.addAttribute("videos", videoss);
+
       return "htmlHome/DeegelHome";
   }
 //    @GetMapping("/VideoPage")
@@ -64,11 +54,11 @@ public class HomeController {
 //    }
 
 
-   @GetMapping("/GamePage")
-   public String GamePage(Model model) {
-       model.addAttribute("videos", videoss);
-       return "htmlVideoGames/GamePage";
-   }
+//   @GetMapping("/GamePage")
+//   public String GamePage(Model model) {
+//       model.addAttribute("videos", videoss);
+//       return "htmlVideoGames/GamePage";
+//   }
 
 
     @GetMapping("/")
