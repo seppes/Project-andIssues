@@ -18,17 +18,17 @@
     </a>
 
 
-    <h1 class="HoofdTitel">Uitgelogd</h1>
-    <h4 class="textLogIn">Inloggen</h4>
+    <h1 class="HoofdTitel">Uitloggen</h1>
+    <h1 class="HoofdTitel">Inloggen</h1>
 </nav>
 
 
 <div class="container-fluid">
-    <div class="row1content">
+    <div class="row1content text-center">
         <form th:action="@{/user/logout}" method="post">
-            <h2>Ben je zeker?</h2>
-            <input class="btn" type="submit" value="Uitloggen"/>
-            <a href="/Deegel" class="btn">Annuleren</a>
+            <h2 class="mt-4">Ben je zeker?</h2>
+            <input class="btn mt-4" type="submit" value="Uitloggen"/>
+            <a href="/appHome" class="btn mt-4">Annuleren</a>
         </form>
     </div>
 </div>

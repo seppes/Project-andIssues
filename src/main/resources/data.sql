@@ -32,11 +32,11 @@ INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
 (nextval('USER_SEQ'), 'sammy', '$2a$10$pQnldtWyD5CpMBjWJycMW.jmEOY2zKqjSkCo5V2vKqvW44ORrdpAa', 'USER');
 
 
-INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
-( 0, 'De Egel ', '€10', 'img/knuffel_egel.jpg', 'De egel heeft naalden.');
-INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
-( 1, 'De Kangoeroe ', '€10', 'img/knuffel_egel.jpg', 'De kangoeroe springt.');
-INSERT INTO KNUFFEL (ID, KNUFFEL_NAAM, KNUFFEL_PRIJS, KNUFFEL_FOTO, KNUFFEL_BESCHRIJVING) VALUES
-( 2, 'De Mol ', '€10', 'img/knuffel_egel.jpg', 'De mol graaft.');
+INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
+( 0, 'De Egel ', '€10', 'img/knuffel_egel.png', 'De egel heeft naalden.');
+INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
+( 1, 'De Kangoeroe ', '€10', 'img/knuffel_kangoeroe.png', 'De kangoeroe springt.');
+INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
+( 2, 'De Mol ', '€10', 'img/knuffel_mol.png', 'De mol graaft.');
 
 

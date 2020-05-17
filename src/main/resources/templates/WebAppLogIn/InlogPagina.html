@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>InlogPagina</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="/css/cssWebApp1.css">
-    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
@@ -17,8 +17,6 @@
     <a class="navbar-brand" href="index.html">
         <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
     </a>
-
-
     <h1 class="HoofdTitel">Aanmelden</h1>
 </nav>
 
@@ -26,41 +24,20 @@
 
     <div class="container">
         <div class="row">
-            <div class="col mt-3">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="col-3 ml-5">
-                            <p class="speech-bubble-KangoeroeMol p-1">Ben jij er klaar voor?</p>
-                        </div>
-                        <div class="col-9">
-                            <img class="img-fluid" src="/img/Deegel.png" height="319.2" width="319.2"/>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="col-3 ml-5">
-                            <p class="speech-bubble-KangoeroeMol p-2">Eindelijk een dag die eruit springt!</p>
-                        </div>
-                        <div class="col-9 text-lg-right">
-                            <img class="img-fluid"
-                                 src="/img/13-137559_kangaroo-cartoon-free-png-image-kangaroo-quotes-transparent-removebg-preview.png"
-                                 height="399" width="625"/></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col text-center">
                 <form th:action="@{/user/login}" method="post">
                     <div class="form-group">
                         <label for="name">
-                            <h5>Gebruikersnaam:</h5>
-                            <input type="text" id="name" name="username" class="form-control" placeholder="Gebruikersnaam">
+                            <h5 class="mt-4">Gebruikersnaam:</h5>
+                            <input type="text" id="name" name="username" class="form-control"
+                                   placeholder="Gebruikersnaam">
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="password">
                             <h5>Vul hier je persoonlijk code in:</h5>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Wachtwoord">
+                            <input type="password" id="password" name="password" class="form-control"
+                                   placeholder="Wachtwoord">
                         </label>
                     </div>
                     <button class="btn btn-primary">Aanmelden</button>
@@ -92,13 +69,6 @@
             </div>
         </div>
     </div>
-    <div class="row bg-dark justify-content-center">
-        <div class="col-md-4 text-center">
-            <h6 class="text-white pt-2">© Copyright 2020 Knùs</h6>
-        </div>
-    </div>
-
-
 </div>
 
 </body>
