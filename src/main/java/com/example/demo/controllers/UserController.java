@@ -94,4 +94,9 @@ public class UserController {
         return "WebAppLogIn/LogoutPagina";
     }
 
+    @RequestMapping("/register")
+    public String register(Model model) {
+        return "WebAppLogIn/RegisterPagina";
+    }
+
 }
