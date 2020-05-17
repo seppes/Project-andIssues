@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Knuffel;
+import com.example.demo.model.Video;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.VideoRepository;
 import org.slf4j.Logger;
@@ -25,72 +26,25 @@ public class HomeController {
 
 
 
-
-
     @GetMapping({"/video/{knuffelId}"})
-    public String VideoPagina(@PathVariable int knuffelId, Model model) {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-        addKnuffelInModel(model, optionalKnuffelFromDb);
-        return "htmlVideoGames/VideoPage";
-    }
+  public String VideoPagina(@PathVariable int knuffelId, Model model) {
+      Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+     if (optionalKnuffelFromDb.isEmpty()) {
+       model.addAttribute("video", new Video[]{});
+   } else {
+         Knuffel knuffel = optionalKnuffelFromDb.get();
+        model.addAttribute("knuffel", knuffel);
+        model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
 
-    private void addKnuffelInModel(Model model, Optional<Knuffel> optionalKnuffelFromDb) {
+     }
+      return "htmlVideoGames/VideoPage";
+      }
 
-        if (optionalKnuffelFromDb.isPresent()) {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            int knuffelId = knuffel.getId();
-            model.addAttribute("knuffel", knuffel);
-            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
-        } else {
-            model.addAttribute("knuffel", null);
-        }
-    }
+      
 
 
 
-
-
-
-
-//    @GetMapping({"/video/{knuffelId}"})
-//   public String VideoPagina(@PathVariable int knuffelId, Model model) {
-//       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//     if (optionalKnuffelFromDb.isEmpty()) {
-//       model.addAttribute("video", new Video[]{});
-//   } else {
-//         Knuffel knuffel = optionalKnuffelFromDb.get();
-//         model.addAttribute("knuffel", knuffel);
-//         model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
-//
-//     }
-//      return "htmlVideoGames/VideoPage";
-//   }
-
-//    private void addKnuffelInModel(Model model, Optional<Knuffel> optionalKnuffelFromDb) {
-//        if (optionalKnuffelFromDb.isPresent()) {
-//            Knuffel knuffel = optionalKnuffelFromDb.get();
-//            int knuffelId = knuffel.getId();
-//            model.addAttribute("knuffel", knuffel);
-//
-//        } else {
-//            model.addAttribute("knuffel", null);
-//        }
-//   }
-
-//    private void addKnuffelInModel(@PathVariable int knuffelId, Model model, Optional<Knuffel> optionalKnuffelFromDb) {
-//        if (optionalKnuffelFromDb.isPresent()) {
-//            model.addAttribute("knuffel", optionalKnuffelFromDb.get());
-//        } else {
-//            model.addAttribute("knuffel", null);
-//        }
-//    }
-
-
-
-
-
-
-  @GetMapping("/appHome")
+    @GetMapping("/appHome")
   public String apphome(Model model) {
 
       return "htmlHome/DeegelHome";
