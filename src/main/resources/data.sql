@@ -40,3 +40,10 @@ INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTI
 ( 2, 'De Mol ', '€10', 'img/knuffel_mol.png', 'De mol graaft.');
 
 
+
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(0, 'Hondsberoerd', '7UTbpt-56zk', 1);
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(1, 'Hondsberoerd', '7UTbpt-56zk', 0);
