@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{css/bootstrap.css}" href="css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{css/cssWebshop1.css}" href="css/cssWebshop1.css">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{css/cssWebshop1.css}" href="../../static/css/cssWebshop1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
@@ -40,7 +40,8 @@
                     <a class="nav-link" href="/user/login"><h6 class="whiteText">Login</h6></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shoppingcart"><h6 class="whiteText"><i class="fas fa-shopping-cart"></i></h6></a>
+                    <a class="nav-link" href="/shoppingcart"><h6 class="whiteText"><i class="fas fa-shopping-cart"></i>
+                    </h6></a>
                 </li>
             </ul>
         </div>
@@ -56,7 +57,9 @@
                 <h3 th:text="${Knuffel.animalName}">Titel</h3>
                 <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
                 <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
-                <p class="card-text"><button type="button" class="btn btn-layout bg-dark">Bestel</button></p>
+                <p class="card-text">
+                    <button type="button" class="btn btn-layout bg-dark">Bestel</button>
+                </p>
             </div>
         </div>
     </div>
