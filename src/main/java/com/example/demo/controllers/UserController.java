@@ -49,6 +49,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerPost(@RequestParam String userName,
                                @RequestParam String password,
+                               @RequestParam String email,
                                Principal principal, Model model) {
         if (principal == null && !userName.isBlank()) {
             Optional<User> userWithUserName = userRepository.findByUsername(userName);
@@ -59,6 +60,7 @@ public class UserController {
                 logger.info(String.format("password %s\n", encode));
                 newUser.setPassword(encode);
                 newUser.setRole("USER");
+                newUser.setEmail(email);
                 userRepository.save(newUser);
                 autologin(userName, password);
             }
