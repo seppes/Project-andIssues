@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -40,7 +39,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/egelHome";
+        if (principal != null) return "redirect:/user/appHome";//na het registreren
 
 
         return "WebAppLogIn/RegisterPagina";
@@ -65,7 +64,7 @@ public class UserController {
                 autologin(userName, password);
             }
         }
-        return "redirect:/user/egelHome";
+        return "redirect:/user/appHome";
     }
 
     private void autologin(String userName, String password) {
@@ -86,7 +85,7 @@ public class UserController {
      //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/egelHome";
+        if (principal != null) return "redirect:/user/appHome";
         return "WebAppLogIn/InlogPagina";
     }
 
@@ -101,19 +100,11 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
-    @GetMapping("/kangarooHome")
-    public String kangarooHome(Model model) {
-        return "htmlHome/kangaroohome";
-    }
 
-    @GetMapping("/molHome")
-    public String molHome(Model model) {
-        return "htmlHome/molhome";
-    }
 
-    @GetMapping("/egelHome")
-    public String egelHome(Model model) {
-        return "htmlHome/DeegelHome";
+    @GetMapping("/appHome")
+    public String appHome(Model model) {
+        return "htmlHome/appHome";
     }
 
 }
