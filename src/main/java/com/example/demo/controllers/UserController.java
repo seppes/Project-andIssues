@@ -111,4 +111,9 @@ public class UserController {
         return "htmlHome/molhome";
     }
 
+    @GetMapping("/egelHome")
+    public String egelHome(Model model) {
+        return "htmlHome/DeegelHome";
+    }
+
 }

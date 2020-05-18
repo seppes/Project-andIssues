@@ -49,11 +49,6 @@ public class HomeController {
 //   }
 
 
-  @GetMapping("/appHome")
-  public String apphome(Model model) {
-      model.addAttribute("videos", videoss);
-      return "htmlHome/DeegelHome";
-  }
     @GetMapping("/VideoPage")
     public String VideoPaginaEgel(Model model) {
         model.addAttribute("videos", videoss);
