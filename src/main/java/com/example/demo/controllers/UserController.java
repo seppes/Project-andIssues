@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -41,9 +40,7 @@ public class UserController {
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
         if (principal != null) return "redirect:/appHome";
-
-
-        return "WebAppLogIn/RegisterPagina";
+        return "RegisterPage";
     }
 
     @PostMapping("/register")
@@ -85,18 +82,18 @@ public class UserController {
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
         if (principal != null) return "redirect:/appHome";
-        return "WebAppLogIn/InlogPagina";
+        return "WebAppLogIn/LogInPage";
     }
 
     // Logout form
     @RequestMapping("/logout")
     public String logout(Model model) {
-        return "WebAppLogIn/LogoutPagina";
+        return "WebAppLogIn/LogoutPage";
     }
 
     @RequestMapping("/register")
     public String register(Model model) {
-        return "WebAppLogIn/RegisterPagina";
+        return "WebAppLogIn/RegisterPage";
     }
 
 }
