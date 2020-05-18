@@ -82,7 +82,7 @@ public class UserController {
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
         if (principal != null) return "redirect:/appHome";
-        return "WebAppLogIn/LogInPage";
+        return "InlogPagina";
     }
 
     // Logout form
@@ -93,7 +93,7 @@ public class UserController {
 
     @RequestMapping("/register")
     public String register(Model model) {
-        return "WebAppLogIn/RegisterPage";
+        return "RegisterPagina";
     }
 
 }
