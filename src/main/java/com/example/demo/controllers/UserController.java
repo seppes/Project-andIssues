@@ -101,4 +101,9 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
+    @GetMapping("/kangarooHome")
+    public String kangarooHome(Model model) {
+        return "htmlHome/kangaroohome";
+    }
+
 }
