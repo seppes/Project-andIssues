@@ -106,4 +106,9 @@ public class UserController {
         return "htmlHome/kangaroohome";
     }
 
+    @GetMapping("/molHome")
+    public String molHome(Model model) {
+        return "htmlHome/molhome";
+    }
+
 }
