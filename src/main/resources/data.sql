@@ -33,17 +33,30 @@ INSERT INTO USER (ID, USERNAME, PASSWORD, ROLE) VALUES
 
 
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
-( 0, 'De Egel ', '€10', 'img/knuffel_egel.png', 'De egel heeft naalden.');
+( 0, 'De Egel ', '€10', 'img/knuffel_egel.png ', 'De egel heeft naalden.');
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
 ( 1, 'De Kangoeroe ', '€10', 'img/knuffel_kangoeroe.png', 'De kangoeroe springt.');
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
 ( 2, 'De Mol ', '€10', 'img/knuffel_mol.png', 'De mol graaft.');
 
 
-
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(0, 'Hondsberoerd', '7UTbpt-56zk', 0);
 
 INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
-(0, 'Hondsberoerd', '7UTbpt-56zk', 1);
+(1, 'Maya de Bij', '0k93k4rOgJc', 0);
 
 INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
-(1, 'Hondsberoerd', '7UTbpt-56zk', 0);
+(2, 'Bumba', 'Q-CMnpctd-0', 1);
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(3, 'Jokie', 'c6bBzjy1rHk', 1);
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(4, 'Nijntje', 'XHKk4wts3vY', 1);
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(5, 'Juf Roosje', '9x9dP4Zad6s', 2);
+
+INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
+(6, 'Bing', 'eP1rt7GcTuc', 2);

@@ -38,34 +38,43 @@
     <div class="nameVideosAndGames pt-5 pb-5">
         <div class="row">
             <div class="col-md text-center">
-            <h1 class="titels" th:text="${knuffel.animalName}"> naam knuffel</h1>
+                <h1 class="titels" th:text="${knuffel.animalName}"> naam knuffel</h1>
 
 
             </div>
         </div>
 
 
-<!--        <div class="row">-->
-<!--            <div class="col-md text-center mt-3">-->
-<!--                <img class="img-fluid" th:src="${knuffel.knuffelFoto}" alt="knuffel"/>-->
-<!--            </div>-->
-<!--        </div>-->
-
-
-<!--    </div>-->
-
-
-
-<!--   <div th:each="Videos:${videos}">-->
-
-<!--        <h3 th:text="${Videos.titel}">Titel</h3>-->
-<!--        <iframe width="560" height="315" th:src="@{https://www.youtube.com/embed/{url} (url=${Videos.videoFileName})}" frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>-->
-
-<!-- </div>-->
+        <div class="row">
+            <div class="col-md text-center mt-3">
+                <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel"/>
+            </div>
+        </div>
 
 
     </div>
+
+    <div class="row">
+        <div class="col-md text-center mb-5">
+            <div th:each="video:${video}">
+
+
+                <h3 th:text="${video.titel}">Titel</h3>
+                <iframe width="560" height="315"
+                        th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
+                        frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
+
+
+            </div>
+            <br>
+            <br>
+            <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
+        </div>
+    </div>
+
+
 </div>
+
 
 <div class="footer text-center text-warning">
     <footer>© Knus Knus 2020

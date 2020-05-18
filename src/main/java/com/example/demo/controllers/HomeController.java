@@ -40,7 +40,14 @@ public class HomeController {
       return "htmlVideoGames/VideoPage";
       }
 
-      
+
+   
+
+
+
+
+
+
 
 
 
@@ -49,18 +56,6 @@ public class HomeController {
 
       return "htmlHome/DeegelHome";
   }
-//    @GetMapping("/VideoPage")
-//    public String VideoPaginaEgel(Model model) {
-//        model.addAttribute("videos", videoss);
-//        return "htmlVideoGames/VideoPage";
-//    }
-
-
-//   @GetMapping("/GamePage")
-//   public String GamePage(Model model) {
-//       model.addAttribute("videos", videoss);
-//       return "htmlVideoGames/GamePage";
-//   }
 
 
     @GetMapping("/")
