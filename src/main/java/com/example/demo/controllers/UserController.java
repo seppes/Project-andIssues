@@ -1,7 +1,9 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
+import com.example.demo.model.Video;
 import com.example.demo.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Optional;
@@ -106,5 +105,19 @@ public class UserController {
     public String appHome(Model model) {
         return "htmlHome/appHome";
     }
+
+//    @GetMapping({"/{knuffelId}"})
+//    public String userPage(@PathVariable int knuffelId, Model model) {
+//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+//        if (optionalKnuffelFromDb.isEmpty()) {
+//            model.addAttribute("video", new Video[]{});
+//        } else {
+//            Knuffel knuffel = optionalKnuffelFromDb.get();
+//            model.addAttribute("knuffel", knuffel);
+//            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
+//
+//        }
+//        return "htmlVideoGames/VideoPage";
+//    }
 
 }
