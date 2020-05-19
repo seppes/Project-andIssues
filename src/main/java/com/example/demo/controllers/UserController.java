@@ -99,4 +99,4 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
-}
+} ;
