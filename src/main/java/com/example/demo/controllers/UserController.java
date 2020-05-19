@@ -4,6 +4,7 @@ package com.example.demo.controllers;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
 import com.example.demo.model.Video;
+import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,9 @@ public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private KnuffelRepository knuffelRepository;
 
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
@@ -101,11 +105,11 @@ public class UserController {
 
 
 
-    @GetMapping("/appHome")
-    public String appHome(Model model) {
-        return "htmlHome/appHome";
-    }
-
+//    @GetMapping("/appHome")
+//    public String appHome(Model model) {
+//        return "htmlHome/appHome";
+//    }
+//
 //    @GetMapping({"/{knuffelId}"})
 //    public String userPage(@PathVariable int knuffelId, Model model) {
 //        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
@@ -114,7 +118,7 @@ public class UserController {
 //        } else {
 //            Knuffel knuffel = optionalKnuffelFromDb.get();
 //            model.addAttribute("knuffel", knuffel);
-//            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
+//            model.addAttribute("user", userRepository.findVideosByKnuffel(knuffel));
 //
 //        }
 //        return "htmlVideoGames/VideoPage";
