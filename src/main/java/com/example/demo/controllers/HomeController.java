@@ -31,7 +31,7 @@ public class HomeController {
 
 
 
-    @GetMapping({"/video/{knuffelId}"})
+    @GetMapping({"/VideoPage/{knuffelId}"})
   public String VideoPagina(@PathVariable int knuffelId, Model model) {
       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
      if (optionalKnuffelFromDb.isEmpty()) {
@@ -47,7 +47,7 @@ public class HomeController {
 
 
 
-    @GetMapping({"/game/{knuffelId}"})
+    @GetMapping({"/GamePage/{knuffelId}"})
     public String GamePagina(@PathVariable int knuffelId, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
         if (optionalKnuffelFromDb.isEmpty()) {

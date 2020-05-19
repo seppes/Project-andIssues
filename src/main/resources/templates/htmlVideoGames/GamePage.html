@@ -40,7 +40,7 @@
 
         <div class="row">
             <div class="col-md text-center">
-                <h1 class="titels" th:text="${knuffel.animalName}"> naam knuffel</h1>
+                <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> naam knuffel</h1>
 
 
             </div>
@@ -61,7 +61,7 @@
             <div th:each="game:${game}">
 
 
-                <h3 th:text="${game.titelGame}">Titel</h3>
+                <h3 class="animalTitleVideoGamePage" th:text="${game.titelGame}">Titel</h3>
                 <img class="img-fluid" th:src="${game.pictureGame}" alt="knuffel"  width="600" height="350"/>
 
 
@@ -74,11 +74,10 @@
 
 
 </div>
-<div class="row justify-content-center footer">
-    <div class="col-md-4 text-center">
-        <h6 class="text-white pt-2">© Copyright 2020 Knùs</h6>
-    </div>
-</div>
+
+<div class="footer text-center text-warning">
+    <footer>© Copyright 2020 Knùs
+    </footer>
 </div>
 
 <!-- ******************* -->
