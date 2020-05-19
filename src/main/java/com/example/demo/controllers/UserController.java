@@ -105,23 +105,23 @@ public class UserController {
 
 
 
-//    @GetMapping("/appHome")
-//    public String appHome(Model model) {
-//        return "htmlHome/appHome";
-//    }
-//
-//    @GetMapping({"/{knuffelId}"})
-//    public String userPage(@PathVariable int knuffelId, Model model) {
-//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//        if (optionalKnuffelFromDb.isEmpty()) {
-//            model.addAttribute("video", new Video[]{});
-//        } else {
-//            Knuffel knuffel = optionalKnuffelFromDb.get();
-//            model.addAttribute("knuffel", knuffel);
-//            model.addAttribute("user", userRepository.findVideosByKnuffel(knuffel));
-//
-//        }
-//        return "htmlVideoGames/VideoPage";
-//    }
+    @GetMapping("/appHome")
+    public String appHome(Model model) {
+        return "htmlHome/appHome";
+    }
+
+    @GetMapping({"/{knuffelId}"})
+    public String userPage(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("user", new User[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+
+        }
+        return "htmlHome/appHome";
+    }
 
 }
