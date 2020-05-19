@@ -1,9 +1,7 @@
 .whiteText{
     color: white;
 }
-.deck-layout{
-    padding: 5% 15% 30%;
-}
+
 .deck-bg{
     background-color: #E5D06C;
 }
@@ -19,9 +17,13 @@
 
 .fa-twitter:hover {
     opacity: 0.7;
+    text-decoration: none;
+    color: white;
 }
 .fa-facebook:hover {
     opacity: 0.7;
+    text-decoration: none;
+    color: white;
 }
 
 .fa-facebook {
@@ -49,7 +51,31 @@ li{
     list-style-type: none;
 }
 
-
 .card-deck1{
-    height: 82vh;
+    height: 90vh;
+}
+
+.deck-layout {
+    padding-top: 5%;
+    padding-bottom: 20%;
+}
+
+.navH{
+    height: 20vh;
+}
+.footH{
+    height: 10vh;
+}
+.panel-title {
+    display: inline;font-weight: bold;
+}
+.checkbox.pull-right {
+    margin: 0;
+}
+.pl-ziro {
+    padding-left: 0;
+}
+.no-space{
+    padding: 0;
+    margin: 0;
 }

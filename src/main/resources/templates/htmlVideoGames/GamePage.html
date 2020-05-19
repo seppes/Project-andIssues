@@ -2,23 +2,18 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>De Mol</title>
+    <title>GamePage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="/css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="/css/cssWebApp1.css">
-
-
 </head>
 <body>
+
 <a name="top"></a>
-<!--content here-->
-
-
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
         <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
-
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -31,25 +26,20 @@
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i></a>
-            <a class="nav-item nav-link" href="/VideoPage"><i class="fas fa-tv fa-3x"></i></a>
-            <a class="nav-item nav-link" href="/GamePage"><i class="fas fa-gamepad fa-3x"></i></a>
+            <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
+            <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
-
         </div>
-
     </div>
 </nav>
 
-
 <div class="container-fluid">
 
-
-
-    <div class="demolvideos pt-5 pb-5">
+    <div class="nameVideosAndGames pt-5 pb-5">
 
         <div class="row">
             <div class="col-md text-center">
-                <h1>De Mol</h1>
+                <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> naam knuffel</h1>
 
 
             </div>
@@ -58,6 +48,7 @@
 
         <div class="row">
             <div class="col-md text-center mt-3">
+                <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel"  width="500" height="500"/>
                 <img class="img-fluid rounded" src="/img/Demol.PNG"/>
             </div>
         </div>
@@ -118,7 +109,17 @@
             </div>
         </div>
 
+
     </div>
+
+    <div class="row">
+        <div class="col-md text-center mb-5">
+            <div th:each="game:${game}">
+
+
+                <h3 class="animalTitleVideoGamePage" th:text="${game.titelGame}">Titel</h3>
+                <img class="img-fluid" th:src="${game.pictureGame}" alt="knuffel"  width="600" height="350"/>
+
 
 
     <div class="demolvideo3 pt-5 pb-5">
@@ -127,37 +128,24 @@
             <div class="col-md text-center mb-3">
                 <h3 th:text="${games[2].name}">De titel van spel 3</h3>
             </div>
+            <br>
+            <br>
+            <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
         </div>
-
-        <div class="row">
-            <div class="col-md text-center">
-                <img class="img-fluid" src="/img/maxresdefault.jpg"/>
-                <br>
-                <br>
-                <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
-
-
-            </div>
-        </div>
-
     </div>
 
 
 </div>
 
-    <div class="footer text-center text-warning">
-        <footer>© Knus Knus 2020
-        </footer>
-    </div>
-
+<div class="footer text-center text-warning">
+    <footer>© Copyright 2020 Knùs
+    </footer>
+</div>
 <!-- ******************* -->
 <!-- Scripts -->
 <!-- ******************* -->
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script>
-
-</script>
 
 </body>
 </html>
