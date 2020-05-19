@@ -52,11 +52,12 @@ li{
 }
 
 .card-deck1{
-    height: 70vh;
+    height: 90vh;
 }
 
 .deck-layout {
-    padding: 12vh 21vh 32vh;
+    padding-top: 5%;
+    padding-bottom: 20%;
 }
 
 .navH{
@@ -64,4 +65,17 @@ li{
 }
 .footH{
     height: 10vh;
+}
+.panel-title {
+    display: inline;font-weight: bold;
+}
+.checkbox.pull-right {
+    margin: 0;
+}
+.pl-ziro {
+    padding-left: 0;
+}
+.no-space{
+    padding: 0;
+    margin: 0;
 }
