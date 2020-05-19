@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
@@ -12,6 +13,9 @@
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
 </head>
 <body>
+<script
+        src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+</script>
 <div class="jumbotron-fluid">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark navH">
         <a class="navbar-brand" href="/">
@@ -59,98 +63,32 @@
                     <li class="text-center">- knuffel mol
                         <!--dit is een test, hier moet een opspmming komen van gekozen producten--></li>
                 </ul>
-                <p class="card-text text-right">
-                    <button type="button" class="btn btn-layout bg-dark" data-toggle="modal"
-                            data-target="#mijnModal">Betalen
-                    </button>
-                </p>
+            </div>
+            <div class="card-footer">
+                <div id="paymentButtons" class="text-right">
 
+                <script>
+                    paypal.Buttons({ createOrder: function(data, actions) {
+                            // This function sets up the details of the transaction, including the amount and line item details.
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: '0.01'
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            // This function captures the funds from the transaction.
+                            return actions.order.capture().then(function(details) {
+                                // This function shows a transaction success message to your buyer.
+                                alert('Transaction completed by ' + details.payer.name.given_name);
+                            });
+                        }
+                    }).render('#paymentButtons');
+                </script>
 
-                <div class="modal fade" id="mijnModal">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="container blue-bg">
-                                <div class='row'>
-                                    <div class='col-md-4'></div>
-                                    <div class='col-md-4'>
-                                        <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
-                                        <div class="modal-header">
-                                            <form accept-charset="UTF-8" action="/" class="require-validation"
-                                                  data-cc-on-file="false"
-                                                  data-stripe-publishable-key="pk_bQQaTxnaZlzv4FnnuZ28LFHccVSaj"
-                                                  id="payment-form" method="post">
-                                                <div style="margin:0;padding:0;display:inline"><input name="utf8"
-                                                                                                      type="hidden"
-                                                                                                      value="✓"/><input
-                                                        name="_method" type="hidden" value="PUT"/><input
-                                                        name="authenticity_token" type="hidden"
-                                                        value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8="/></div>
-                                                <div class='form-row'>
-                                                    <div class='col-xs-12 form-group required'>
-                                                        <label class='control-label'>Name on Card</label>
-                                                        <input class='form-control' size='4' type='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='form-row'>
-                                                    <div class='col-xs-12 form-group card required'>
-                                                        <label class='control-label'>Card Number</label>
-                                                        <input autocomplete='off' class='form-control card-number'
-                                                               size='20' type='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='form-row'>
-                                                    <div class='col-xs-4 form-group cvc required'>
-                                                        <label class='control-label'>CVC</label>
-                                                        <input autocomplete='off' class='form-control card-cvc'
-                                                               placeholder='ex. 311' size='4' type='text'>
-                                                    </div>
-                                                    <div class='col-xs-4 form-group expiration required'>
-                                                        <label class='control-label'>Expiration</label>
-                                                        <input class='form-control card-expiry-month' placeholder='MM'
-                                                               size='2' type='text'>
-                                                    </div>
-                                                    <div class='col-xs-4 form-group expiration required'>
-                                                        <label class='control-label'> </label>
-                                                        <input class='form-control card-expiry-year' placeholder='YYYY'
-                                                               size='4' type='text'>
-                                                    </div>
-                                                </div>
-                                                <div class='form-row'>
-                                                    <div class='col-md-12'>
-                                                        <div class='form-control total btn btn-info'>
-                                                            Total:
-                                                            <span class='amount'>$300</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class='form-row'>
-                                                    <div class='col-md-12 form-group'>
-                                                        <button class='form-control btn btn-primary submit-button'
-                                                                type='submit'>Pay »
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class='form-row'>
-                                                    <div class='col-md-12 error form-group hide'>
-                                                        <div class='alert-danger alert'>
-                                                            Please correct the errors and try again.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class='col-md-4'></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>
