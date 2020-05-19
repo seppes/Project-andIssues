@@ -82,6 +82,7 @@
         <div class="row">
             <div class="col-md text-center mb-3">
                 <h3 th:text="${game[0].titelGame}">De titel van spel 1</h3>
+                <img class="img-fluid" th:src="${game[0].pictureGame}" alt="knuffel"  width="600" height="350"/>
             </div>
         </div>
 
@@ -100,6 +101,7 @@
         <div class="row">
             <div class="col-md text-center mb-3">
                 <h3 th:text="${game[1].titelGame}">De titel van spel 2</h3>
+                <img class="img-fluid" th:src="${game[1].pictureGame}" alt="knuffel"  width="600" height="350"/>
             </div>
         </div>
 
@@ -111,22 +113,11 @@
 
 
     </div>
-
-    <div class="row">
-        <div class="col-md text-center mb-5">
-            <div th:each="game:${game}">
-
-
-                <h3 class="animalTitleVideoGamePage" th:text="${game.titelGame}">Titel</h3>
-                <img class="img-fluid" th:src="${game.pictureGame}" alt="knuffel"  width="600" height="350"/>
-            </div>
-        </div>
-    </div>
     <div class="demolvideo3 pt-5 pb-5">
-
         <div class="row">
             <div class="col-md text-center mb-3">
                 <h3 th:text="${game[2].titelGame}">De titel van spel 3</h3>
+                <img class="img-fluid" th:src="${game[2].pictureGame}" alt="knuffel"  width="600" height="350"/>
             </div>
             <br>
             <br>
