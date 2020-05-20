@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
@@ -12,6 +13,9 @@
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
 </head>
 <body>
+<script
+        src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+</script>
 <div class="jumbotron-fluid">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark navH">
         <a class="navbar-brand" href="/">
@@ -59,9 +63,32 @@
                     <li class="text-center">- knuffel mol
                         <!--dit is een test, hier moet een opspmming komen van gekozen producten--></li>
                 </ul>
-                <p class="card-text text-right">
-                    <button type="button" class="btn btn-layout bg-dark">Betalen</button>
-                </p>
+            </div>
+            <div class="card-footer">
+                <div id="paymentButtons" class="text-right">
+
+                <script>
+                    paypal.Buttons({ createOrder: function(data, actions) {
+                            // This function sets up the details of the transaction, including the amount and line item details.
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: '0.01'
+                                    }
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            // This function captures the funds from the transaction.
+                            return actions.order.capture().then(function(details) {
+                                // This function shows a transaction success message to your buyer.
+                                alert('Transaction completed by ' + details.payer.name.given_name);
+                            });
+                        }
+                    }).render('#paymentButtons');
+                </script>
+
+                </div>
             </div>
         </div>
     </div>
@@ -69,7 +96,7 @@
 <div class="container-fluid">
     <div class="row bg-dark justify-content-center footH">
         <div class="col-md-4 text-center">
-            <h6 class="whiteText pt-2">© Copyright 2020 Knùs</h6>
+            <h6 class="whiteText pt-4 mt-2">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 </div> <!--footer-->
