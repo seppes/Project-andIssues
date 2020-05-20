@@ -15,6 +15,9 @@ public class Video {
     @ManyToOne(fetch = FetchType.LAZY)
     private Knuffel knuffel;
 
+//    private String name;
+//    private String fotoDier;
+
     public Video() {
     }
 
@@ -23,10 +26,10 @@ public class Video {
         this.titel = titel;
         this.videoFileName = videoFileName;
         this.knuffel = knuffel;
+
+
     }
 
-    public Video(int i, String waarom_wenen) {
-    }
 
     public int getId() {
         return id;
@@ -36,6 +39,7 @@ public class Video {
         this.id = id;
     }
 
+
     public String getTitel() {
         return titel;
     }
@@ -44,6 +48,7 @@ public class Video {
         this.titel = titel;
     }
 
+
     public String getVideoFileName() {
         return videoFileName;
     }
@@ -51,6 +56,7 @@ public class Video {
     public void setVideoFileName(String videoFileName) {
         this.videoFileName = videoFileName;
     }
+
 
     public Knuffel getKnuffel() {
         return knuffel;

@@ -156,6 +156,14 @@ a:hover {
     text-decoration: none;
 }
 
+.animalNameTitleVideoGamePage{
+font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.animalTitleVideoGamePage{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 .footer1 {
     position: absolute;
     right: 0;
