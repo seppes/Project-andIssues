@@ -62,12 +62,6 @@ public class HomeController {
     }
 
 
-    @GetMapping("/appHome")
-  public String apphome(Model model) {
-
-      return "htmlHome/DeegelHome";
- }
-
 
     @GetMapping("/")
     public String index(Model model) {

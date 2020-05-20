@@ -12,6 +12,8 @@ public class User {
     private String password;
     private String email;
     private String role;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Knuffel knuffel;
 
     public User() {
     }
@@ -54,5 +56,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Knuffel getKnuffel() {
+        return knuffel;
+    }
+
+    public void setKnuffel(Knuffel knuffel) {
+        this.knuffel = knuffel;
     }
 }

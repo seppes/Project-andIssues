@@ -1,7 +1,10 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
+import com.example.demo.model.Video;
+import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +18,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -38,9 +37,12 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private KnuffelRepository knuffelRepository;
+
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/appHome";
+        if (principal != null) return "redirect:/user/appHome";//na het registreren
 
 
         return "WebAppLogIn/RegisterPagina";
@@ -65,7 +67,7 @@ public class UserController {
                 autologin(userName, password);
             }
         }
-        return "redirect:/appHome";
+        return "redirect:/user/appHome";
     }
 
     private void autologin(String userName, String password) {
@@ -86,7 +88,7 @@ public class UserController {
      //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
-        if (principal != null) return "redirect:/appHome";
+        if (principal != null) return "redirect:/user/appHome";
         return "WebAppLogIn/InlogPagina";
     }
 
@@ -99,6 +101,27 @@ public class UserController {
     @RequestMapping("/register")
     public String register(Model model) {
         return "WebAppLogIn/RegisterPagina";
+    }
+
+
+//
+//    @GetMapping("/appHome")
+//    public String appHome(Model model) {
+//        return "htmlHome/appHome";
+//    }
+
+    @GetMapping({"/appHome/{knuffelId}"})
+    public String appHome(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("user", new User[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+
+        }
+        return "htmlHome/appHome";
     }
 
 }
