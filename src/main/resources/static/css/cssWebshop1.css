@@ -76,3 +76,8 @@ li{
     padding: 0;
     margin: 0;
 }
+
+/*extraWi geeft extra breedte want anders kwam het p element naast het h5 element*/
+.extraWi{
+    width: 800px;
+}
