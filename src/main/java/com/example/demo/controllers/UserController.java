@@ -126,15 +126,15 @@ public class UserController {
 
     @GetMapping("/appHome")
     public String appHome(Principal principal, Model model) {
-        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//
-        if (optionalUserFromDb.isEmpty()) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//Zoek de username op in de database
+        if (optionalUserFromDb.isEmpty()) {//Als username niet in de database.
             model.addAttribute("user", new User[]{});
         } else {
-            User user = optionalUserFromDb.get();
-            model.addAttribute("user", user);
+            User user = optionalUserFromDb.get();//Als username in de database is dan pak die de user.
+            model.addAttribute("user", user);//Zet de user die gepakt is in de model.
 
         }
-        return "htmlHome/appHome";
+        return "htmlHome/appHome";//Gaat naar de appHome.
     }
 
 }
