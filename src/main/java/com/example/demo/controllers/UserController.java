@@ -85,7 +85,7 @@ public class UserController {
     }
 
 
-     //Login form
+    //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
         if (principal != null) return "redirect:/user/appHome/0";
@@ -110,15 +110,28 @@ public class UserController {
 //        return "htmlHome/appHome";
 //    }
 
-    @GetMapping({"/appHome/{knuffelId}"})
-    public String appHome(@PathVariable int knuffelId, Model model) {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-        if (optionalKnuffelFromDb.isEmpty()) {
+//    @GetMapping({"/appHome/{knuffelId}"})
+//    public String appHome(@PathVariable int knuffelId, Model model) {
+//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+//        if (optionalKnuffelFromDb.isEmpty()) {
+//            model.addAttribute("user", new User[]{});
+//        } else {
+//            Knuffel knuffel = optionalKnuffelFromDb.get();
+//            model.addAttribute("knuffel", knuffel);
+//            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+//
+//        }
+//        return "htmlHome/appHome";
+//    }
+
+    @GetMapping("/appHome")
+    public String appHome(Principal principal, Model model) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//
+        if (optionalUserFromDb.isEmpty()) {
             model.addAttribute("user", new User[]{});
         } else {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            model.addAttribute("knuffel", knuffel);
-            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+            User user = optionalUserFromDb.get();
+            model.addAttribute("user", user);
 
         }
         return "htmlHome/appHome";
