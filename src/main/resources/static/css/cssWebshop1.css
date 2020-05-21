@@ -55,6 +55,10 @@ li{
 .deck-layout {
     padding: 12vh 21vh 32vh;
 }
+.deck-layout2 {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
 
 .footH{
     height: 8.5vh;
