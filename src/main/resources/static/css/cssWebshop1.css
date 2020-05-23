@@ -49,35 +49,36 @@ li{
 }
 
 .card-deck1{
-    height: 90vh;
+    height: 120vh;
 }
 
 .deck-layout {
+    margin-top: -4%;
     max-width: 70%;
     align-items: center;
     margin-left: 15%;
 }
 .deck-layout2 {
-    padding-top: 5%;
-    padding-bottom: 10%;
+padding-top: 5%;
+padding-bottom: 10%;
 }
 
 .footH{
-    height: 8.5vh;
+height: 8.5vh;
 }
 
 .panel-title {
-    display: inline;font-weight: bold;
+display: inline;font-weight: bold;
 }
 .checkbox.pull-right {
-    margin: 0;
+margin: 0;
 }
 .pl-ziro {
-    padding-left: 0;
+padding-left: 0;
 }
 .no-space{
-    padding: 0;
-    margin: 0;
+padding: 0;
+margin: 0;
 }
 
 /*extraWi geeft extra breedte want anders kwam het p element naast het h5 element*/
