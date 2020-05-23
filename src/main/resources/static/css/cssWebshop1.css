@@ -53,7 +53,9 @@ li{
 }
 
 .deck-layout {
-    padding: 12vh 21vh 32vh;
+    max-width: 70%;
+    align-items: center;
+    margin-left: 15%;
 }
 .deck-layout2 {
     padding-top: 5%;
@@ -81,4 +83,11 @@ li{
 /*extraWi geeft extra breedte want anders kwam het p element naast het h5 element*/
 .extraWi{
     width: 800px;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: none;
+    padding: 1.25rem;
 }
