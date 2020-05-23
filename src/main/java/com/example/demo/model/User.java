@@ -65,4 +65,8 @@ public class User {
     public void setKnuffel(Knuffel knuffel) {
         this.knuffel = knuffel;
     }
+
+//    public void setKnuffel(Knuffel knuffel) {
+//        this.knuffel = knuffel;
+//    }
 }

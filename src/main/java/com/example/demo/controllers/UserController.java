@@ -42,7 +42,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/appHome/0";//na het registreren
+        if (principal != null) return "redirect:/user/appHome";//na het registreren
 
 
         return "WebAppLogIn/RegisterPagina";
@@ -52,6 +52,7 @@ public class UserController {
     public String registerPost(@RequestParam String userName,
                                @RequestParam String password,
                                @RequestParam String email,
+                               @RequestParam Knuffel knuffelId,
                                Principal principal, Model model) {
         if (principal == null && !userName.isBlank()) {
             Optional<User> userWithUserName = userRepository.findByUsername(userName);
@@ -63,11 +64,12 @@ public class UserController {
                 newUser.setPassword(encode);
                 newUser.setRole("USER");
                 newUser.setEmail(email);
+                newUser.setKnuffel(knuffelId);
                 userRepository.save(newUser);
                 autologin(userName, password);
             }
         }
-        return "redirect:/user/appHome/0";
+        return "redirect:/user/appHome";
     }
 
     private void autologin(String userName, String password) {
