@@ -1,0 +1,84 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body>
+
+<a name="top"></a>
+<nav class="nav navbar navbar-expand-md navbar-dark">
+    <a class="navbar-brand" href="#">
+        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-toggle="collapse"
+            data-target="#navbarDeWebAppVideos"
+            aria-controls="navbarDeWebAppVideos" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
+        <div class="navbar-nav mr-auto">
+<!--            <a class="nav-item nav-link" th:href="'/VideoPage/' + ${knuffelId}" href="/VideoPage.html"><i class="fas fa-undo-alt"></i></a>-->
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+
+
+    <div class="row1">
+        <div class="row1content">
+            <div>
+                <h2>Nieuwe video toevoegen</h2>
+                <form th:action="|/admin/new-video|" method="post">
+
+                    <div class="venueinfo">
+                        <div class="infoLine">
+                            <div class="infoLineName"><label for="titleVideo">Titel video:</label></div>
+                            <div class="infoLineValue">
+                                <input id="titleVideo" name="videoTitle"/>
+                            </div>
+                        </div>
+
+                        <div class="infoLine">
+                            <div class="infoLineName"><label for="urlVideo">Url van de video:</label></div>
+                            <div class="infoLineValue">
+                                <input id="urlVideo" name="videoUrl"/>
+                            </div>
+                        </div>
+
+                         <h4>Je kiest een video op youtube en klikt op delen, dan kiest u insluiten en kopieer je de code achter embed/</h4>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+</div>
+
+<div class="footer text-center text-warning">
+    <footer>© Copyright 2020 Knùs
+    </footer>
+</div>
+<!-- ******************* -->
+<!-- Scripts -->
+<!-- ******************* -->
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>
