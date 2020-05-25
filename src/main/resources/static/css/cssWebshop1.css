@@ -1,14 +1,16 @@
-.whiteText{
+.whiteText {
     color: white;
 }
 
-.deck-bg{
+.deck-bg {
     background-color: #E5D06C;
 }
-.blue-bg{
+
+.blue-bg {
     background-color: #7195b8;
 }
-.btn-layout{
+
+.btn-layout {
     color: #E5D06C;
 }
 
@@ -17,6 +19,7 @@
     text-decoration: none;
     color: white;
 }
+
 .fa-facebook:hover {
     opacity: 0.7;
     text-decoration: none;
@@ -43,12 +46,12 @@
     text-decoration: none;
 }
 
-li{
+li {
     text-decoration: none;
     list-style-type: none;
 }
 
-.card-deck1{
+.card-deck1 {
     height: 120vh;
 }
 
@@ -58,31 +61,36 @@ li{
     align-items: center;
     margin-left: 15%;
 }
+
 .deck-layout2 {
-padding-top: 5%;
-padding-bottom: 10%;
+    padding-top: 5%;
+    padding-bottom: 10%;
 }
 
-.footH{
-height: 8.5vh;
+.footH {
+    height: 8.5vh;
 }
 
 .panel-title {
-display: inline;font-weight: bold;
+    display: inline;
+    font-weight: bold;
 }
+
 .checkbox.pull-right {
-margin: 0;
+    margin: 0;
 }
+
 .pl-ziro {
-padding-left: 0;
+    padding-left: 0;
 }
-.no-space{
-padding: 0;
-margin: 0;
+
+.no-space {
+    padding: 0;
+    margin: 0;
 }
 
 /*extraWi geeft extra breedte want anders kwam het p element naast het h5 element*/
-.extraWi{
+.extraWi {
     width: 800px;
 }
 
