@@ -22,7 +22,7 @@
 
 <div class="container-fluid">
 
-    <div class="container">
+    <div class="container pb-5">
         <div class="row">
             <div class="col text-center">
                 <form th:action="@{/user/login}" method="post">
@@ -41,6 +41,8 @@
                         </label>
                     </div>
                     <button class="btn btn-primary">Aanmelden</button>
+                    <br>
+                    <a href="/user/register" class="btn mt-2">Registreren</a>
                 </form>
             </div>
         </div>
@@ -67,6 +69,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="row bg-dark justify-content-center fixed-bottom">
+        <div class="col-md-4 text-center">
+            <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title th:text="${appName}">app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
@@ -25,14 +25,13 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i></a>
-            <a class="nav-item nav-link" href="/VideoPage"><i class="fas fa-tv fa-3x"></i></a>
-            <a class="nav-item nav-link" href="/GamePage"><i class="fas fa-gamepad fa-3x"></i></a>
+            <a class="nav-item nav-link" th:href="'/user/appHome/'+${knuffelId}" href="/appHome.html"><i class="fas fa-home fa-3x"></i></a>
+            <a class="nav-item nav-link"  th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
+            <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
         </div>
     </div>
 </nav>
-
 
 <div class="container-fluid">
 
@@ -46,7 +45,8 @@
             </div>
             <div class="row">
                 <div class="col text-lg-center">
-                    <img class="img-fluid pb-5 mb-5" src="/img/Demol.PNG"/>
+<!--                    <img class="img-fluid pb-5 mb-5" src="/img/knuffel_egel.png"/>-->
+                <img class="img-fluid pb-5 mb-5" th:src="${knuffel.animalPic}" alt="knuffel"/>
                 </div>
             </div>
         </div>
@@ -58,12 +58,12 @@
             </div>
             <div class="row">
                 <div class="col m-5 text-lg-center">
-                    <button type="button" class="btn buttons"><a href="/GamePage">  <h4>Knús games</h4></a></button>
+                    <button type="button" class="btn buttons"><a  th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html">  <h4>Knús games</h4></a></button>
                 </div>
             </div>
             <div class="row">
                 <div class="col m-5 text-lg-center">
-                    <button type="button" class="btn buttons"><a href="/VideoPage">  <h4>Knús TV</h4></a></button>
+                    <button type="button" class="btn buttons"><a  th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html">  <h4>Knús TV</h4></a></button>
                 </div>
             </div>
         </div>

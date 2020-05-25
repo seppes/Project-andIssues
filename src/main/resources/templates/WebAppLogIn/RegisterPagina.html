@@ -20,12 +20,11 @@
 
 
     <h1 class="HoofdTitel">Registreren</h1>
-    <h4 class="HoofdTitel">Inloggen</h4>
 </nav>
 
 <div class="container-fluid">
 
-    <div class="row">
+    <div class="row pb-5">
         <div class="col text-center mt-5">
             <form th:action="|/user/register|" method="post">
                 <div class="form-group">
@@ -40,8 +39,20 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="Wachtwoord">
                     </label>
                 </div>
+                <div class="form-group">
+                    <label for="email">
+                        <h5>E-mail:</h5>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Wachtwoord">
+                    </label>
+                </div>
                 <button class="btn btn-primary">Registreren</button>
             </form>
+        </div>
+    </div>
+
+    <div class="row footer1 bg-dark justify-content-center fixed-bottom">
+        <div class="col-md-4 text-center">
+            <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 

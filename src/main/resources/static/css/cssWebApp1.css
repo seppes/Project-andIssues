@@ -30,6 +30,22 @@ nav{
     text-align: center;
 }
 
+div.layoutVideoPage{
+    background: url("/img/backgroundVideo.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div.layoutGamePage{
+    background: url("/img/backgroundVideo.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 div.info{
     background-color: #E6D16E;
     padding: 2.4rem;
@@ -162,4 +178,13 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 
 .animalTitleVideoGamePage{
     font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.footer1 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #efefef;
+    text-align: center;
 }

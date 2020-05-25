@@ -2,12 +2,11 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>GamePage</title>
+    <title th:text="${appName}">app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
     <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
 </head>
 <body>
 
@@ -26,7 +25,7 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="/appHome"><i class="fas fa-home fa-3x"></i></a>
+            <a class="nav-item nav-link"  th:href="'/user/appHome/'+${knuffelId}" href="/appHome.html"><i class="fas fa-home fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
@@ -35,7 +34,7 @@
 </nav>
 
 <div class="container-fluid">
-
+<div class="layoutGamePage">
     <div class="nameVideosAndGames pt-5 pb-5">
 
         <div class="row">
@@ -72,14 +71,13 @@
         </div>
     </div>
 
-
+</div>
 </div>
 
 <div class="footer text-center text-warning">
     <footer>© Copyright 2020 Knùs
     </footer>
 </div>
-
 <!-- ******************* -->
 <!-- Scripts -->
 <!-- ******************* -->
