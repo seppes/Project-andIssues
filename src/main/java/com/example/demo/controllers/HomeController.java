@@ -20,6 +20,8 @@ import java.util.Optional;
 public class HomeController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
 
+    private String applicationName = "Knùs";
+
     @Autowired
    private VideoRepository videoRepository;
 
@@ -46,7 +48,6 @@ public class HomeController {
       }
 
 
-
     @GetMapping({"/GamePage/{knuffelId}"})
     public String GamePagina(@PathVariable int knuffelId, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
@@ -62,11 +63,11 @@ public class HomeController {
     }
 
 
-
     @GetMapping("/")
     public String index(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
         model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
         return "htmlWebshop/index";
     }
 
@@ -75,17 +76,20 @@ public class HomeController {
     public String shoppingcart(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
         model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
         return "htmlWebshop/shoppingcart";
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model) {
+        model.addAttribute("appName", applicationName);
         return "htmlWebshop/about";
     }
 
 
     @GetMapping("/contact")
-    public String contact() {
+    public String contact(Model model) {
+        model.addAttribute("appName", applicationName);
         return "htmlWebshop/contact";
     }
 }

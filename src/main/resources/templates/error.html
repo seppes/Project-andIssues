@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${appName}">app</title>
+    <title>error</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{css/bootstrap.css}" href="../../static/css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{css/cssWebshop1.css}" href="../../static/css/cssWebshop1.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/cssWebshop1.css}" href="../static/css/cssWebshop1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
@@ -17,7 +17,6 @@
         <a class="navbar-brand" href="/">
             <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
         </a>
-
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse"
                 data-target="#navbarKnus"
@@ -47,23 +46,13 @@
         </div>
     </nav>
 </div> <!--navbar-->
-<div class="container-fluid deck-bg">
-    <div class="card-deck deck-layout2">
-        <div th:each="Knuffel:${knuffels}" class="card">
-            <div class="card-header">
-                <img class="img-fluid" th:src="${Knuffel.animalPic}" alt="knuffel"/>
-            </div>
-            <div class="card-body">
-                <h3 th:text="${Knuffel.animalName}">Titel</h3>
-                <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
-                <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
-                <p class="card-text">
-                    <button type="button" class="btn btn-layout bg-dark">Bestel</button>
-                </p>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <h1>Whoops! er ging iets fout!</h1>
         </div>
     </div>
-</div> <!--webshop-->
+</div>
 <div class="container-fluid fixed-bottom">
     <div class="row bg-dark justify-content-center">
         <div class="col-md-4 text-center">

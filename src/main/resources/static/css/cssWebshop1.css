@@ -11,9 +11,6 @@
 .btn-layout{
     color: #E5D06C;
 }
-.contact-layout{
-    margin-left: 43%;
-}
 
 .fa-twitter:hover {
     opacity: 0.7;
@@ -56,16 +53,17 @@ li{
 }
 
 .deck-layout {
+    padding: 12vh 21vh 32vh;
+}
+.deck-layout2 {
     padding-top: 5%;
-    padding-bottom: 20%;
+    padding-bottom: 10%;
 }
 
-.navH{
-    height: 20vh;
-}
 .footH{
-    height: 10vh;
+    height: 8.5vh;
 }
+
 .panel-title {
     display: inline;font-weight: bold;
 }
@@ -78,4 +76,9 @@ li{
 .no-space{
     padding: 0;
     margin: 0;
+}
+
+/*extraWi geeft extra breedte want anders kwam het p element naast het h5 element*/
+.extraWi{
+    width: 800px;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title th:text="${appName}">app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
     <link rel="stylesheet" th:href="@{/css/cssWebshop1.css}" href="../../static/css/cssWebshop1.css">
@@ -93,7 +93,7 @@
         </div>
     </div>
 </div> <!--webshop-->
-<div class="container-fluid">
+<div class="container-fluid  fixed-bottom">
     <div class="row bg-dark justify-content-center footH">
         <div class="col-md-4 text-center">
             <h6 class="whiteText pt-4 mt-2">© Copyright 2020 Knùs</h6>
