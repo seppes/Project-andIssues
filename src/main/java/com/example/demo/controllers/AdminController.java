@@ -27,9 +27,10 @@ public class AdminController {
         } else {
             User user = optionalUserFromDb.get();
             model.addAttribute("user", user);
-
         }
         return "admins/AdminOrders";
     }
+
+
 
 }
