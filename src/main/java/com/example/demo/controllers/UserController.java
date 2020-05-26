@@ -90,7 +90,7 @@ public class UserController {
     //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/appHome/0";
+        if (principal != null) return "redirect:/user/appHome";
         return "WebAppLogIn/InlogPagina";
     }
 
