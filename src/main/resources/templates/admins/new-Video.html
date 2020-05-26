@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <title th:text="${appName}">app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/static/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 <body>
 
+
+
+
+
 <a name="top"></a>
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
+        <img class="rounded" src="/static/img/logo.PNG" height="100" width="100"/>
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -40,7 +44,7 @@
         <div class="row1content">
             <div>
                 <h2>Nieuwe video toevoegen</h2>
-                <form th:action="|/admin/new-video|" method="post">
+                <form th:action="|/admins/new-Video|" method="post">
 
                     <div class="venueinfo">
                         <div class="infoLine">
@@ -77,8 +81,8 @@
 <!-- ******************* -->
 <!-- Scripts -->
 <!-- ******************* -->
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 
 </body>
 </html>
