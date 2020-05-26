@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>RegisterPage</title>
+    <title>AddUser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/cssWebApp1.css">
     <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
@@ -17,42 +17,27 @@
     <a class="navbar-brand" href="index.html">
         <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
     </a>
-
-
-    <h1 class="HoofdTitel">Registreren</h1>
+    <h1 class="HoofdTitel">Orders</h1>
 </nav>
 
 <div class="container-fluid">
-
     <div class="row pb-5">
         <div class="col text-center mt-5">
-            <form th:action="|/user/register|" method="post">
+            <form th:action="|/admins/addUser|" method="post">
                 <div class="form-group">
-                    <label for="name">
-                        <h5>Gebruikersnaam:</h5>
-                        <input type="text" id="name" name="userName" class="form-control" placeholder="Gebruikersnaam">
+                    <label for="password">
+                        <h5>Code :</h5>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Code">
                     </label>
                 </div>
                 <div class="form-group">
-                    <label for="adress">
-                        <h5>E-mail:</h5>
-                        <input type="text" id="adress" name="adress" class="form-control" placeholder="Adres">
+                    <label for="knuffel">
+                        <h5>Knuffel :</h5>
+                        <input type="text" id="knuffel" name="knuffel" class="form-control" placeholder="Knuffel">
                     </label>
                 </div>
-                <div class="form-group">
-                    <label for="email">
-                        <h5>E-mail:</h5>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail">
-                    </label>
-                </div>
-                <button class="btn btn-primary">Registreren</button>
+                <button class="btn btn-primary">Klant Registreren</button>
             </form>
-        </div>
-    </div>
-
-    <div class="row footer1 bg-dark justify-content-center fixed-bottom">
-        <div class="col-md-4 text-center">
-            <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 </div>

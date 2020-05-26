@@ -50,23 +50,18 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerPost(@RequestParam String userName,
-                               @RequestParam String password,
                                @RequestParam String email,
-                               @RequestParam Knuffel knuffelId,
+                               @RequestParam String adress,
                                Principal principal, Model model) {
         if (principal == null && !userName.isBlank()) {
             Optional<User> userWithUserName = userRepository.findByUsername(userName);
             if (!userWithUserName.isPresent()) {
                 User newUser = new User();
                 newUser.setUsername(userName);
-                String encode = passwordEncoder.encode(password);
-                logger.info(String.format("password %s\n", encode));
-                newUser.setPassword(encode);
                 newUser.setRole("USER");
                 newUser.setEmail(email);
-                newUser.setKnuffel(knuffelId);
+                newUser.setAdress(adress);
                 userRepository.save(newUser);
-                autologin(userName, password);
             }
         }
         return "redirect:/user/payment";
@@ -143,5 +138,8 @@ public class UserController {
     public String payment(Model model) {
         return "WebAppLogIn/Payment";
     }
+
+
+
 
 }
