@@ -9,10 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admins")
@@ -42,6 +41,15 @@ public class AdminController {
     public String newKnuffel(Model model) {
         model.addAttribute("knuffel", knuffelRepository.findAll());
         return "admins/new-Knuffel";
+    }
+
+    @GetMapping({"/edit-Knuffel", "/edit-knuffel/{id}"})
+    public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
+        Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
+        model.addAttribute("knuffel", knuffel);
+        model.addAttribute("knuffel", knuffelRepository.findAll());
+        return "admins/edit-Knuffel";
     }
 
     @PostMapping({"/new-Knuffel"})
