@@ -3,7 +3,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
 
-
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
 (nextval('KNUFFEL_SEQ'), 'De Egel', '€10', '/img/knuffel_egel.png ', 'De egel kan je kind leren om geen bang te hebben van naalden.');
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES

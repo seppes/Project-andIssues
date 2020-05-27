@@ -30,7 +30,8 @@
             <a class="nav-item nav-link"  th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
-            <a class="nav-item nav-link" th:href="|/admins/new-Knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
+            <a class="nav-item nav-link" th:href="|/admins/new-Knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
+            <a class="nav-item nav-link" th:href="|/admins/edit-Knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
         </div>
     </div>
 </nav>
