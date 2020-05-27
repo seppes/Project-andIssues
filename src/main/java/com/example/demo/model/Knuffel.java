@@ -1,10 +1,11 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Knuffel {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "knuffel_generator")
+    @SequenceGenerator(name = "knuffel_generator", sequenceName = "knuffel_seq", initialValue = 0, allocationSize = 1)
     @Id
     private int id;
     private String animalName;
