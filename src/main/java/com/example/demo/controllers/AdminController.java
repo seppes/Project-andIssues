@@ -43,7 +43,7 @@ public class AdminController {
         return "admins/new-Knuffel";
     }
 
-    @GetMapping({"/edit-Knuffel", "/edit-knuffel/{id}"})
+    @GetMapping({"/edit-Knuffel", "/edit-Knuffel/{id}"})
     public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
@@ -74,18 +74,18 @@ public class AdminController {
 
 
 
-    @PostMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
-    public String editKnuffelPost(@PathVariable(required = false) int id,
+    @PostMapping({"/edit-knuffel", "/edit-knuffel/{knuffelId}"})
+    public String editKnuffelPost(@PathVariable(required = false) int knuffelId,
                                   @RequestParam String NameKnuffel,
                                   @RequestParam String PriceKnuffel,
                                   @RequestParam String PicKnuffel,
                                   @RequestParam String KnuffelDescription,
                                 Model model) {
-        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", id, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
+        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
 
-        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(id);
+        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
 
-        if (knuffelFromDb.isPresent() && !NameKnuffel.isBlank()) {
+        if (knuffelFromDb.isPresent()) {
             Knuffel knuffel = knuffelFromDb.get();
             knuffel.setAnimalName(NameKnuffel);
             knuffel.setAnimalPrice(PriceKnuffel);
@@ -93,7 +93,7 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-Knuffel/"+id;
+        return "redirect:/admins/edit-Knuffel/"+knuffelId;
     }
 
 }
