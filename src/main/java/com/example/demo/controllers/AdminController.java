@@ -45,8 +45,11 @@ public class AdminController {
         return "admins/new-Knuffel";
     }
 
-    @GetMapping({"/edit-Knuffel"})
-    public String editKnuffel(Model model) {
+    @GetMapping({"/edit-Knuffel", "/edit-knuffel/{id}"})
+    public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
+        Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
+        model.addAttribute("knuffel", knuffel);
         model.addAttribute("knuffel", knuffelRepository.findAll());
         return "admins/edit-Knuffel";
     }
