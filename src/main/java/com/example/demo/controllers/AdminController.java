@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.Video;
 import com.example.demo.repositories.GameRepository;
@@ -38,6 +39,15 @@ public class AdminController {
         model.addAttribute("knuffel", knuffelRepository.findAll());
         return "admins/new-Video";
     }
+
+
+    @GetMapping({"/new-Game"})
+    public String newGame(Model model) {
+        model.addAttribute("game", gameRepository.findAll());
+        model.addAttribute("knuffel", knuffelRepository.findAll());
+        return "admins/new-Game";
+    }
+
 
     @GetMapping({"/new-Knuffel"})
     public String newKnuffel(Model model) {
@@ -79,6 +89,27 @@ public class AdminController {
         return "redirect:/admins/new-Video";
 
     }
+
+
+    @PostMapping({"/new-Game"})
+    public String newGamePost(@RequestParam String gamePicture,
+                               @RequestParam String gameTitle,
+                               Model model) {
+        logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s\n", gamePicture, gameTitle));
+        Game game = new Game();
+        game.setPictureGame(gamePicture);
+        game.setTitelGame(gameTitle);
+
+        gameRepository.save(game);
+        return "redirect:/admins/new-Game";
+
+    }
+
+
+
+
+
+
 
 
 //    @PostMapping({"/edit-party/{partyId}"})

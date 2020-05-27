@@ -3,7 +3,7 @@
       xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Nieuw video toevoegen</title>
+    <title>Nieuw game toevoegen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/cssWebApp1.css">
     <link rel="stylesheet" th:href="@{/css/cssWebApp1.css}" href="../../static/css/cssWebApp1.css">
@@ -23,7 +23,7 @@
         <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
     </a>
     <h1 class="HoofdTitel">Nieuw video</h1>
-<!--    <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><h6 class="whiteText">Terug</h6></a>-->
+<!--    <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><h6 class="whiteText">Terug</h6></a>-->
 </nav>
 
 
@@ -31,39 +31,38 @@
 
 
 
-        <div class="row1content">
-            <div>
-                <h2>Nieuwe video toevoegen</h2>
-                <form th:action="|/admins/new-Video|" method="post">
+    <div class="row1content">
+        <div>
+            <h2>Nieuwe game toevoegen</h2>
+            <form th:action="|/admins/new-Game|" method="post">
 
-                    <div class="titleNewVideo">
-                        <div class="infoLine">
-                            <div class="infoLineName"><label for="titleVideo">Titel video:</label></div>
-                            <div class="infoLineValue">
-                                <input id="titleVideo" name="videoTitle"/>
-                            </div>
+                <div class="titleNewVideo">
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="titleGame">Titel game:</label></div>
+                        <div class="infoLineValue">
+                            <input id="titleGame" name="gameTitle"/>
                         </div>
-
-                        <div class="infoLine">
-                            <div class="infoLineName"><label for="urlVideo">Url van de video:</label></div>
-                            <div class="infoLineValue">
-                                <input id="urlVideo" name="videoUrl"/>
-                            </div>
-                        </div>
-
-
-                        <div class="buton">
-                            <input class="buttonLook editButton" type="submit" value="Voeg video toe"/>
-                        </div>
-
-
-                         <h6>Je kiest een video op youtube en klikt op delen, dan kiest u insluiten en kopieer je de code achter embed/</h6>
-
-
                     </div>
-                </form>
-            </div>
+
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="gamePicture">source game:</label></div>
+                        <div class="infoLineValue">
+                            <input id="gamePicture" name="pictureGame"/>
+                        </div>
+                    </div>
+
+
+                    <div class="buton">
+                        <input class="buttonLook editButton" type="submit" value="Voeg game toe"/>
+                    </div>
+
+
+
+
+                </div>
+            </form>
         </div>
+    </div>
 
 
 

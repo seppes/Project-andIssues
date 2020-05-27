@@ -34,19 +34,19 @@ INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
 
 
 INSERT INTO GAME (ID, PICTURE_GAME, TITEL_GAME, KNUFFEL_ID) VALUES
-(0, '/img/game5.png', 'Zoekspel', 0);
+(nextval('GAME_SEQ'), '/img/game5.png', 'Zoekspel', 0);
 
 INSERT INTO GAME (ID, PICTURE_GAME, TITEL_GAME, KNUFFEL_ID) VALUES
-(1, '/img/game1.jpg', 'Cave Man', 0);
+(nextval('GAME_SEQ'), '/img/game1.jpg', 'Cave Man', 0);
 
 INSERT INTO GAME (ID, PICTURE_GAME, TITEL_GAME, KNUFFEL_ID) VALUES
-(2, '/img/game2.jpg', 'Puzzle game', 1);
+(nextval('GAME_SEQ'), '/img/game2.jpg', 'Puzzle game', 1);
 
 INSERT INTO GAME (ID, PICTURE_GAME, TITEL_GAME, KNUFFEL_ID) VALUES
-(3, '/img/game3.jpg', 'Fun Math', 2);
+(nextval('GAME_SEQ'), '/img/game3.jpg', 'Fun Math', 2);
 
 INSERT INTO GAME (ID, PICTURE_GAME, TITEL_GAME, KNUFFEL_ID) VALUES
-(4, '/img/game4.png', 'Zoeken', 2);
+(nextval('GAME_SEQ'), '/img/game4.png', 'Zoeken', 2);
 
 
 
