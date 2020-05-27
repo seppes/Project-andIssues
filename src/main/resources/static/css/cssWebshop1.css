@@ -65,6 +65,13 @@ li {
 .deck-layout2 {
     padding-top: 5%;
     padding-bottom: 10%;
+    max-width: 100%;
+    margin-left: 4%;
+}
+
+.cardW{
+    min-width: 30%;
+    max-width: 30%;
 }
 
 .footH {

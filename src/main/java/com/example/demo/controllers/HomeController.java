@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.Video;
+import com.example.demo.model.Winkelwagen;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.VideoRepository;
