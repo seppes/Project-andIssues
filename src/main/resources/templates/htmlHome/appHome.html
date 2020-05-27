@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title th:text="${appName}">app</title>
@@ -29,6 +30,7 @@
             <a class="nav-item nav-link"  th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
+            <a class="nav-item nav-link" th:href="|/admins/new-Knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
         </div>
     </div>
 </nav>

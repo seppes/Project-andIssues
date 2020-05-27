@@ -48,21 +48,26 @@
     </nav>
 </div> <!--navbar-->
 <div class="container-fluid deck-bg">
-    <div class="card-deck deck-layout2">
-        <div th:each="Knuffel:${knuffels}" class="card">
-            <div class="card-header">
-                <img class="img-fluid" th:src="${Knuffel.animalPic}" alt="knuffel"/>
-            </div>
-            <div class="card-body">
-                <h3 th:text="${Knuffel.animalName}">Titel</h3>
-                <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
-                <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
-                <p class="card-text">
-                    <button type="button" class="btn btn-layout bg-dark">Bestel</button>
-                </p>
+    <div class="justify-content-center">
+        <div class="card-deck deck-layout2">
+            <div th:each="Knuffel:${knuffels}" class="card cardW mb-3" >
+                <div class="card-header">
+                    <img class="img-fluid" th:src="${Knuffel.animalPic}" alt="knuffel"/>
+                </div>
+                <div class="card-body">
+                    <h3 th:text="${Knuffel.animalName}">Titel</h3>
+                    <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
+                    <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
+                    <p class="card-text">
+                        <button type="button" class="btn btn-layout bg-dark">Bestel</button>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+
+</div>
+</div>
 </div> <!--webshop-->
 <div class="container-fluid fixed-bottom">
     <div class="row bg-dark justify-content-center">

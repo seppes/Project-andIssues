@@ -5,11 +5,11 @@
 
 
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
-( 0, 'De Egel', '€10', '/img/knuffel_egel.png ', 'De egel kan je kind leren om geen bang te hebben van naalden.');
+(nextval('KNUFFEL_SEQ'), 'De Egel', '€10', '/img/knuffel_egel.png ', 'De egel kan je kind leren om geen bang te hebben van naalden.');
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
-( 1, 'De Kangoeroe', '€10', '/img/knuffel_kangoeroe.png', 'De kangoeroe maakt je kind blij door altijd vrolijk in het rond te huppelen.');
+(nextval('KNUFFEL_SEQ'), 'De Kangoeroe', '€10', '/img/knuffel_kangoeroe.png', 'De kangoeroe maakt je kind blij door altijd vrolijk in het rond te huppelen.');
 INSERT INTO KNUFFEL (ID, ANIMAL_NAME, ANIMAL_PRICE, ANIMAL_PIC, ANIMAL_DESCRIPTION) VALUES
-( 2, 'De Mol', '€10', '/img/knuffel_mol.png', 'De mol kan je kind leren om niet bang te zijn in het donker..');
+(nextval('KNUFFEL_SEQ'), 'De Mol', '€10', '/img/knuffel_mol.png', 'De mol kan je kind leren om niet bang te zijn in het donker..');
 
 
 INSERT INTO VIDEO (ID, TITEL, VIDEO_FILE_NAME, KNUFFEL_ID) VALUES
