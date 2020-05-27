@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Knuffel;
+import com.example.demo.model.Video;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.VideoRepository;
@@ -9,9 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/admins")
@@ -43,14 +45,6 @@ public class AdminController {
         return "admins/new-Knuffel";
     }
 
-    @GetMapping({"/edit-Knuffel", "/edit-knuffel/{id}"})
-    public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
-        Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
-        model.addAttribute("knuffel", knuffel);
-        model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/edit-Knuffel";
-    }
 
     @PostMapping({"/new-Knuffel"})
     public String newKnuffelPost(@RequestParam String NameKnuffel,
@@ -59,8 +53,6 @@ public class AdminController {
                                  @RequestParam String KnuffelDescription,
                                  Model model) {
         logger.info(String.format("newKnuffelPost ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
-
-//        Optional<Knuffel> knuffelFromDb = knuffelRepository.findKnuffelByName(knuffelName);
 
         Knuffel knuffel = new Knuffel();
         knuffel.setAnimalName(NameKnuffel);
@@ -73,6 +65,20 @@ public class AdminController {
         return "redirect:/admins/new-Knuffel";
     }
 
+
+    @PostMapping({"/new-Video"})
+    public String newVideoPost(@RequestParam String videoTitle,
+                               @RequestParam String videoUrl,
+                               Model model) {
+        logger.info(String.format("newVideoPost TITEL=%s, VIDEO_FILE_NAME=%s\n", videoTitle, videoUrl));
+        Video video = new Video();
+        video.setTitel(videoTitle);
+        video.setVideoFileName(videoUrl);
+
+        videoRepository.save(video);
+        return "redirect:/admins/new-Video";
+
+    }
 
 
 //    @PostMapping({"/edit-party/{partyId}"})
@@ -112,16 +118,5 @@ public class AdminController {
 
 
 
-
-//    @PostMapping({"/new-Video"})
-//    public String newVideoPost(@RequestParam String videoTitle,
-//                                  @RequestParam String videoUrl,
-//                                  Model model) {
-//        logger.info(String.format("newVideo videoTitle=%s, videoUrl=%s", videoTitle, videoUrl));
-//
-//
-//        return "redirect:/htmlVideoGames/VideoPage";
-//
-//    }
 
 
