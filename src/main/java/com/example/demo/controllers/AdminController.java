@@ -6,11 +6,13 @@ import com.example.demo.repositories.VideoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/admins")
 public class AdminController {
 
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
@@ -30,18 +32,18 @@ public class AdminController {
     public String newVideo(Model model) {
         model.addAttribute("video", videoRepository.findAll());
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admin/new-Video";
+        return "admins/new-Video";
     }
 
-    @PostMapping({"/new-Video"})
-    public String newVideoPost(@RequestParam String videoTitle,
-                                  @RequestParam String videoUrl,
-                                  Model model) {
-        logger.info(String.format("newVideo videoTitle=%s, videoUrl=%s", videoTitle, videoUrl));
-
-
-        return "redirect:/VideoPage";
-
-    }
+//    @PostMapping({"/new-Video"})
+//    public String newVideoPost(@RequestParam String videoTitle,
+//                                  @RequestParam String videoUrl,
+//                                  Model model) {
+//        logger.info(String.format("newVideo videoTitle=%s, videoUrl=%s", videoTitle, videoUrl));
+//
+//
+//        return "redirect:/htmlVideoGames/VideoPage";
+//
+//    }
 }
 
