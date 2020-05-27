@@ -37,22 +37,22 @@ public class AdminController {
         return "admins/new-Video";
     }
 
-    @GetMapping({"/new-Knuffel"})
+    @GetMapping({"/new-knuffel"})
     public String newKnuffel(Model model) {
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/new-Knuffel";
+        return "admins/new-knuffel";
     }
 
-    @GetMapping({"/edit-Knuffel", "/edit-knuffel/{id}"})
+    @GetMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
     public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/edit-Knuffel";
+        return "admins/edit-knuffel";
     }
 
-    @PostMapping({"/new-Knuffel"})
+    @PostMapping({"/new-knuffel"})
     public String newKnuffelPost(@RequestParam String NameKnuffel,
                                  @RequestParam String PriceKnuffel,
                                  @RequestParam String PicKnuffel,
@@ -69,7 +69,7 @@ public class AdminController {
 
 
         knuffelRepository.save(knuffel);
-        return "redirect:/admins/new-Knuffel";
+        return "redirect:/admins/new-knuffel";
     }
 
 
@@ -93,7 +93,7 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-Knuffel/"+id;
+        return "redirect:/admins/edit-knuffel/"+id;
     }
 
 }
