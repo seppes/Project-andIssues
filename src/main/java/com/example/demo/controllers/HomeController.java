@@ -37,7 +37,7 @@ public class HomeController {
   public String VideoPagina(@PathVariable int knuffelId, Model model) {
       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
 //        Iterable<Video> videoFromDb = videoRepository.findAll();
-      
+
      if (optionalKnuffelFromDb.isEmpty()) {
        model.addAttribute("video", new Video[]{});
    } else {
