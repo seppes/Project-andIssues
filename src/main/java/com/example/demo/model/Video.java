@@ -1,13 +1,11 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Video {
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "video_generator")
+    @SequenceGenerator(name = "video_generator", sequenceName = "video_seq", initialValue = 0, allocationSize = 1)
     @Id
     private int id;
     private String titel;

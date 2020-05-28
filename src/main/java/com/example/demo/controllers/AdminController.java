@@ -1,7 +1,10 @@
 package com.example.demo.controllers;
 
+import com.example.demo.model.Game;
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
+import com.example.demo.model.Video;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.UserRepository;
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/admins")
@@ -60,6 +67,13 @@ public class AdminController {
     public String newKnuffel(Model model) {
         model.addAttribute("knuffel", knuffelRepository.findAll());
         return "admins/new-knuffel";
+    }
+
+    @GetMapping({"/new-Game"})
+    public String newGame(Model model) {
+        model.addAttribute("game", gameRepository.findAll());
+        model.addAttribute("knuffel", knuffelRepository.findAll());
+        return "admins/new-Game";
     }
 
     @GetMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
@@ -115,16 +129,39 @@ public class AdminController {
     }
 
 
-//    @PostMapping({"/new-Video"})
-//    public String newVideoPost(@RequestParam String videoTitle,
-//                                  @RequestParam String videoUrl,
-//                                  Model model) {
-//        logger.info(String.format("newVideo videoTitle=%s, videoUrl=%s", videoTitle, videoUrl));
-//
-//
-//        return "redirect:/htmlVideoGames/VideoPage";
-//
-//    }
+    @PostMapping({"/new-Video"})
+    public String newVideoPost(@RequestParam String videoTitle,
+                               @RequestParam String videoUrl,
+                               Model model) {
+        logger.info(String.format("newVideoPost TITEL=%s, VIDEO_FILE_NAME=%s\n", videoTitle, videoUrl));
+        Video video = new Video();
+        video.setTitel(videoTitle);
+        video.setVideoFileName(videoUrl);
+
+        videoRepository.save(video);
+        return "redirect:/admins/new-Video";
+
+    }
+
+
+    @PostMapping({"/new-Game"})
+    public String newGamePost(@RequestParam String gamePicture,
+                              @RequestParam String gameTitle,
+                              Model model) {
+        logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s\n", gamePicture, gameTitle));
+        Game game = new Game();
+        game.setPictureGame(gamePicture);
+        game.setTitelGame(gameTitle);
+
+        gameRepository.save(game);
+        return "redirect:/admins/new-Game";
+
+    }
+
+
+
+
+
 
 
     @GetMapping("/addUser")

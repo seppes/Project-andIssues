@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title th:text="${appName}">app</title>
@@ -49,6 +50,16 @@
         <div class="row">
             <div class="col-md text-center mt-3">
                 <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel"  width="500" height="500"/>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md text-center mt-3">
+                <div class="editButtonColumn">
+                    <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Game|"
+                       class="buttonLook editButton">nieuw game toevoegen</a>
+                </div>
             </div>
         </div>
 

@@ -1,14 +1,12 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Game {
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "game_generator")
+    @SequenceGenerator(name = "game_generator", sequenceName = "game_seq", initialValue = 0, allocationSize = 1)
     @Id
-
     private int id;
     private String titelGame;
     private String pictureGame;
