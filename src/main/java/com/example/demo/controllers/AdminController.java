@@ -1,8 +1,10 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Knuffel;
+import com.example.demo.model.User;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
+import com.example.demo.repositories.UserRepository;
 import com.example.demo.repositories.VideoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Controller
@@ -30,6 +33,22 @@ public class AdminController {
     @Autowired
     private GameRepository gameRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+
+    @GetMapping("/Orders")
+    public String appHome(Principal principal, Model model) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());
+        if (optionalUserFromDb.isEmpty()) {
+            model.addAttribute("user", "Geen bestellingen");
+        } else {
+            User user = optionalUserFromDb.get();
+            model.addAttribute("user", user);
+        }
+        return "admins/AdminOrders";
+    }
+
     @GetMapping({"/new-Video"})
     public String newVideo(Model model) {
         model.addAttribute("video", videoRepository.findAll());
@@ -44,7 +63,7 @@ public class AdminController {
     }
 
     @GetMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
-    public String editKnuffel(@PathVariable(required = false) int id, Model model)  {
+    public String editKnuffel(@PathVariable(required = false) int id, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
         model.addAttribute("knuffel", knuffel);
@@ -73,14 +92,13 @@ public class AdminController {
     }
 
 
-
     @PostMapping({"/edit-knuffel", "/edit-knuffel/{knuffelId}"})
     public String editKnuffelPost(@PathVariable(required = false) int knuffelId,
                                   @RequestParam String NameKnuffel,
                                   @RequestParam String PriceKnuffel,
                                   @RequestParam String PicKnuffel,
                                   @RequestParam String KnuffelDescription,
-                                Model model) {
+                                  Model model) {
         logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
 
         Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
@@ -93,13 +111,8 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-Knuffel/"+knuffelId;
+        return "redirect:/admins/edit-Knuffel/" + knuffelId;
     }
-
-}
-
-
-
 
 
 //    @PostMapping({"/new-Video"})
@@ -114,3 +127,31 @@ public class AdminController {
 //    }
 
 
+    @GetMapping("/addUser")
+    public String addUser(Principal principal, Model model) {
+        if (principal != null) return "redirect:/user/appHome";//na het registreren
+
+
+        return "admins/AdminAddUser";
+    }
+
+    @PostMapping("/addUser")
+    public String addUser(@RequestParam String userName,
+                          @RequestParam String password,
+                          @RequestParam Knuffel knuffel,
+                          Principal principal, Model model) {
+        if (principal == null && !userName.isBlank()) {
+            Optional<User> userWithUserName = userRepository.findByUsername(userName);
+            if (!userWithUserName.isPresent()) {
+                User newUser = new User();
+                newUser.setUsername(userName);
+                newUser.setRole("USER");
+                newUser.setPassword(password);
+                newUser.setKnuffel(knuffel);
+                userRepository.save(newUser);
+            }
+        }
+        return "admins/AdminAddUser";
+    }
+
+}
