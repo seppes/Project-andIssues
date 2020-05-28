@@ -57,7 +57,7 @@
                 <div class="card-body">
                     <h3 th:text="${Knuffel.animalName}">Titel</h3>
                     <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
-                    <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
+                    <h4 th:text="'€'+${Knuffel.animalPrice}" class="card-title">Prijs</h4>
                     <p class="card-text">
                         <button type="button" class="btn btn-layout bg-dark">Bestel</button>
                     </p>
@@ -66,9 +66,7 @@
         </div>
     </div>
 
-</div>
-</div>
-</div> <!--webshop-->
+</div><!--webshop-->
 <div class="container-fluid fixed-bottom">
     <div class="row bg-dark justify-content-center">
         <div class="col-md-4 text-center">
