@@ -77,7 +77,16 @@ public class AdminController {
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("knuffel", knuffelRepository.findAll());
+        model.addAttribute("appName", applicationName);
         return "admins/edit-knuffel";
+    }
+
+    @GetMapping({"/overzicht-knuffels"})
+    public String overzichtKnuffels(Model model) {
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
+        return "admins/overzicht-knuffels";
     }
 
     @PostMapping({"/new-knuffel"})
