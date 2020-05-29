@@ -129,7 +129,7 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-Knuffel/" + knuffelId;
+        return "redirect:/admins/edit-knuffel/" + knuffelId;
     }
 
 
