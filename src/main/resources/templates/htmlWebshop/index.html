@@ -59,7 +59,7 @@
                     <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
                     <h4 th:text="${Knuffel.animalPrice}" class="card-title">Prijs</h4>
                     <p class="card-text">
-                        <button type="button" class="btn btn-layout bg-dark">Bestel</button>
+                        <a th:href="'/user/register/'+${Knuffel.getId()}" href="/RegisterPagina.html">Bestel</a>
                     </p>
                 </div>
             </div>

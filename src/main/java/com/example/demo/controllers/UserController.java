@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
 import com.example.demo.model.Video;
@@ -52,6 +53,7 @@ public class UserController {
     public String registerPost(@RequestParam String userName,
                                @RequestParam String email,
                                @RequestParam String adress,
+                               @RequestParam Knuffel knuffelId,
                                Principal principal, Model model) {
         if (principal == null && !userName.isBlank()) {
             Optional<User> userWithUserName = userRepository.findByUsername(userName);
@@ -61,6 +63,7 @@ public class UserController {
                 newUser.setRole("USER");
                 newUser.setEmail(email);
                 newUser.setAdress(adress);
+                newUser.setKnuffel(knuffelId);
                 userRepository.save(newUser);
             }
         }
@@ -81,6 +84,18 @@ public class UserController {
         }
     }
 
+    @GetMapping({"/register/{knuffelId}"})
+    public String register(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("video", new Video[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+        }
+        return "WebAppLogIn/RegisterPagina";
+    }
+
 
     //Login form
     @RequestMapping("/login")
@@ -93,11 +108,6 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(Model model) {
         return "WebAppLogIn/LogoutPagina";
-    }
-
-    @RequestMapping("/register")
-    public String register(Model model) {
-        return "WebAppLogIn/RegisterPagina";
     }
 
 
@@ -138,7 +148,6 @@ public class UserController {
     public String payment(Model model) {
         return "WebAppLogIn/Payment";
     }
-
 
 
 

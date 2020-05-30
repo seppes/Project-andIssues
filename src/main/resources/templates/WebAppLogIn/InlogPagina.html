@@ -24,7 +24,13 @@
 
     <div class="container pb-5">
         <div class="row">
-            <div class="col text-center">
+            <div class="col-4">
+                <div class="col">
+                    <p class="speech-bubble-KangoeroeMol p-1 mt-5">Wereld vol Verwondering!!!</p>
+                    <img class="img-fluid" src="/img/Dekangerou.png" height="333" width="333"/>
+                </div>
+            </div>
+            <div class="col-4 text-center">
                 <form th:action="@{/user/login}" method="post">
                     <div class="form-group">
                         <label for="name">
@@ -41,32 +47,14 @@
                         </label>
                     </div>
                     <button class="btn btn-primary">Aanmelden</button>
-                    <br>
-                    <a href="/user/register" class="btn btn-primary mt-2">Registreren</a>
                 </form>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="col-3 ml-5">
-                            <p class="speech-bubble-KangoeroeMol p-1">Wereld vol Verwondering!!!</p>
-                        </div>
-                        <div class="col-9">
-                            <img class="img-fluid" src="/img/Dekangerou.png" height="333" width="333"/>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="col-3 ml-5">
-                            <p class="speech-bubble-KangoeroeMol p-1">Kom met ons spelen!!!</p>
-                        </div>
-                        <div class="col-9 text-lg-right">
-                            <img class="img-fluid"
-                                 src="/img/cartoon-mol-zwaaien_29190-3021-removebg-preview.png" height="319"
-                                 width="347"/>
-                        </div>
-                    </div>
+            <div class="col-4">
+                <div class="col text-lg-right">
+                    <p class="speech-bubble-KangoeroeMol p-1 mt-5 text-left">Kom met ons spelen!!!</p>
+                    <img class="img-fluid"
+                         src="/img/cartoon-mol-zwaaien_29190-3021-removebg-preview.png" height="319"
+                         width="347"/>
                 </div>
             </div>
         </div>
