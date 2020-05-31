@@ -86,6 +86,20 @@ public class AdminController {
         return "admins/edit-knuffel";
     }
 
+//    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
+//    public String editVideo(@PathVariable(required = false) int id, Model model) {
+//        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
+//        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
+//        model.addAttribute("video", video);
+//        model.addAttribute("video", videoRepository.findAll());
+//
+//        return "admins/edit-Video";
+//    }
+
+
+
+
+
     @GetMapping({"/overzicht-knuffels"})
     public String overzichtKnuffels(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
@@ -110,8 +124,6 @@ public class AdminController {
         model.addAttribute("appName", applicationName);
         return "htmlWebshop/index";
     }
-
-
 
 
 
@@ -158,6 +170,30 @@ public class AdminController {
         }
         return "redirect:/admins/edit-knuffel/" + knuffelId;
     }
+
+
+//    @PostMapping({"/edit-Video", "/edit-Video/{knuffelId}"})
+//    public String editVideoPost(@PathVariable(required = false) int videoId,
+//                                  @RequestParam String NameKnuffel,
+//                                  @RequestParam String PriceKnuffel,
+//                                  @RequestParam String PicKnuffel,
+//                                  @RequestParam String KnuffelDescription,
+//                                  Model model) {
+//        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
+//
+//        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
+//
+//        if (knuffelFromDb.isPresent()) {
+//            Knuffel knuffel = knuffelFromDb.get();
+//            knuffel.setAnimalName(NameKnuffel);
+//            knuffel.setAnimalPrice(PriceKnuffel);
+//            knuffel.setAnimalPic(PicKnuffel);
+//            knuffel.setAnimalDescription(KnuffelDescription);
+//            knuffelRepository.save(knuffel);
+//        }
+//        return "redirect:/admins/edit-knuffel/" + knuffelId;
+//    }
+
 
 
     @PostMapping({"/new-Video"})
