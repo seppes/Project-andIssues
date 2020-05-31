@@ -12,6 +12,7 @@ public class User {
     private String password;
     private String email;
     private String role;
+    private String adress;
     @ManyToOne(fetch = FetchType.LAZY)
     private Knuffel knuffel;
 
@@ -65,4 +66,16 @@ public class User {
     public void setKnuffel(Knuffel knuffel) {
         this.knuffel = knuffel;
     }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    //    public void setKnuffel(Knuffel knuffel) {
+//        this.knuffel = knuffel;
+//    }
 }

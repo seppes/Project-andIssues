@@ -27,7 +27,7 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
-
+    private String applicationName = "Knùs";
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -42,7 +42,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/appHome/0";//na het registreren
+        if (principal != null) return "redirect:/user/payment";//na het registreren
 
 
         return "WebAppLogIn/RegisterPagina";
@@ -50,24 +50,21 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerPost(@RequestParam String userName,
-                               @RequestParam String password,
                                @RequestParam String email,
+                               @RequestParam String adress,
                                Principal principal, Model model) {
         if (principal == null && !userName.isBlank()) {
             Optional<User> userWithUserName = userRepository.findByUsername(userName);
             if (!userWithUserName.isPresent()) {
                 User newUser = new User();
                 newUser.setUsername(userName);
-                String encode = passwordEncoder.encode(password);
-                logger.info(String.format("password %s\n", encode));
-                newUser.setPassword(encode);
                 newUser.setRole("USER");
                 newUser.setEmail(email);
+                newUser.setAdress(adress);
                 userRepository.save(newUser);
-                autologin(userName, password);
             }
         }
-        return "redirect:/user/appHome/0";
+        return "redirect:/user/payment";
     }
 
     private void autologin(String userName, String password) {
@@ -88,7 +85,7 @@ public class UserController {
     //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/appHome/0";
+        if (principal != null) return "redirect:/user/appHome";
         return "WebAppLogIn/InlogPagina";
     }
 
@@ -110,18 +107,42 @@ public class UserController {
 //        return "htmlHome/appHome";
 //    }
 
-    @GetMapping({"/appHome/{knuffelId}"})
-    public String appHome(@PathVariable int knuffelId, Model model) {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-        if (optionalKnuffelFromDb.isEmpty()) {
+//    @GetMapping({"/appHome/{knuffelId}"})
+//    public String appHome(@PathVariable int knuffelId, Model model) {
+//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+//        if (optionalKnuffelFromDb.isEmpty()) {
+//            model.addAttribute("user", new User[]{});
+//        } else {
+//            Knuffel knuffel = optionalKnuffelFromDb.get();
+//            model.addAttribute("knuffel", knuffel);
+//            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+//
+//        }
+//        return "htmlHome/appHome";
+//    }
+
+    @GetMapping("/appHome")
+    public String appHome(Principal principal, Model model) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//Zoek de username op in de database
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
+        if (optionalUserFromDb.isEmpty()) {//Als username niet in de database.
             model.addAttribute("user", new User[]{});
         } else {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            model.addAttribute("knuffel", knuffel);
-            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
+            User user = optionalUserFromDb.get();//Als username in de database is dan pak die de user.
+            model.addAttribute("user", user);//Zet de user die gepakt is in de model.
 
         }
-        return "htmlHome/appHome";
+        return "htmlHome/appHome";//Gaat naar de appHome.
     }
+
+    @RequestMapping("/payment")
+    public String payment(Model model) {
+        return "WebAppLogIn/Payment";
+    }
+
+
+
 
 }

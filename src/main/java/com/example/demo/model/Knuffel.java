@@ -7,14 +7,14 @@ public class Knuffel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "knuffel_generator")
     @SequenceGenerator(name = "knuffel_generator", sequenceName = "knuffel_seq", initialValue = 0, allocationSize = 1)
     @Id
-    private int id;
+    private Integer id;
     private String animalName;
     private String animalPrice;
     private String animalPic;
     private String animalDescription;
 
 
-    public Knuffel(int id, String animalName, String animalPrice, String animalPic, String animalDescription) {
+    public Knuffel(Integer id, String animalName, String animalPrice, String animalPic, String animalDescription) {
         this.id = id;
         this.animalName = animalName;
         this.animalPrice = animalPrice;
@@ -25,11 +25,11 @@ public class Knuffel {
     public Knuffel() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

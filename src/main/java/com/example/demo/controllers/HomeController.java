@@ -93,4 +93,8 @@ public class HomeController {
         model.addAttribute("appName", applicationName);
         return "htmlWebshop/contact";
     }
+
+
+
+
 }
