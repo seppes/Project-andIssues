@@ -79,11 +79,13 @@ public class AdminController {
     @PostMapping({"/new-Video"})
     public String newVideoPost(@RequestParam String videoTitle,
                                @RequestParam String videoUrl,
+                               @RequestParam Knuffel knuffelID,
                                Model model) {
-        logger.info(String.format("newVideoPost TITEL=%s, VIDEO_FILE_NAME=%s\n", videoTitle, videoUrl));
+        logger.info(String.format("newVideoPost TITEL=%s, VIDEO_FILE_NAME=%s, KNUFFEL_ID=%s\n", videoTitle, videoUrl, knuffelID));
         Video video = new Video();
         video.setTitel(videoTitle);
         video.setVideoFileName(videoUrl);
+        video.setKnuffel(knuffelID);
 
         videoRepository.save(video);
         return "redirect:/admins/new-Video";
@@ -93,8 +95,8 @@ public class AdminController {
 
     @PostMapping({"/new-Game"})
     public String newGamePost(@RequestParam String gamePicture,
-                               @RequestParam String gameTitle,
-                               Model model) {
+                              @RequestParam String gameTitle,
+                              Model model) {
         logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s\n", gamePicture, gameTitle));
         Game game = new Game();
         game.setPictureGame(gamePicture);
@@ -104,47 +106,10 @@ public class AdminController {
         return "redirect:/admins/new-Game";
 
     }
-
-
-
-
-
-
-
-
-//    @PostMapping({"/edit-party/{partyId}"})
-//    public String editPartyPost(@PathVariable(required = false) int partyId,
-//                                @RequestParam String partyName,
-//                                @RequestParam String partyDate,
-//                                @RequestParam String partyVenue,
-//                                @RequestParam String[] partyArtists,
-//                                Model model) {
-//        logger.info(String.format("editParty %d -- name=%s, date=%s, venue=%s, artists=%s\n", partyId, partyName, partyDate, partyVenue, Arrays.toString(partyArtists)));
-//
-//        Optional<Party> partyFromDb = partyRepository.findById(partyId);
-//        if (partyFromDb.isPresent() && !partyName.isBlank()) {
-//            Party party = partyFromDb.get();
-//            party.setName(partyName);
-//            party.setDateFromString(partyDate);
-//            if (!party.getVenue().getVenueName().equals(partyVenue)) {
-//                Optional<Venue> venueFromDb = venueRepository.findVenueByVenueName(partyVenue);
-//                if (venueFromDb.isPresent()) {
-//                    party.setVenue(venueFromDb.get());
-//                }
-//            }
-//            ArrayList<Artist> artistList = new ArrayList<>();
-//            for (String artistNameString : partyArtists) {
-//                Optional<Artist> artistFromDb = artistRepository.findArtistByName(artistNameString);
-//                if (artistFromDb.isPresent())
-//                    artistList.add(artistFromDb.get());
-//            }
-//            party.setArtists(artistList);
-//            partyRepository.save(party);
-//        }
-//        return "redirect:/party/" + partyId;
-//    }
-
 }
+
+
+
 
 
 

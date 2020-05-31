@@ -36,16 +36,14 @@ public class HomeController {
     @GetMapping({"/VideoPage/{knuffelId}"})
   public String VideoPagina(@PathVariable int knuffelId, Model model) {
       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//        Iterable<Video> videoFromDb = videoRepository.findAll();
-
+//
      if (optionalKnuffelFromDb.isEmpty()) {
        model.addAttribute("video", new Video[]{});
    } else {
          Knuffel knuffel = optionalKnuffelFromDb.get();
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
-//         model.addAttribute("videos", videoFromDb);
-
+//
      }
       return "htmlVideoGames/VideoPage";
       }
