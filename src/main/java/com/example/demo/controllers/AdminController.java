@@ -94,6 +94,28 @@ public class AdminController {
         return "admins/overzicht-knuffels";
     }
 
+    @GetMapping({"/overviewVideo"})
+    public String overviewVideos(Model model) {
+        Iterable<Video> videosFromDb = videoRepository.findAll();
+        model.addAttribute("videos", videosFromDb);
+        return "admins/overviewVideo";
+    }
+
+
+
+    @GetMapping("/")
+    public String index(Model model) {
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
+        return "htmlWebshop/index";
+    }
+
+
+
+
+
+
     @PostMapping({"/new-knuffel"})
     public String newKnuffelPost(@RequestParam String NameKnuffel,
                                  @RequestParam String PriceKnuffel,
