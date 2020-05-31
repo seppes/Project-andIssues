@@ -96,11 +96,13 @@ public class AdminController {
     @PostMapping({"/new-Game"})
     public String newGamePost(@RequestParam String gamePicture,
                               @RequestParam String gameTitle,
+                              @RequestParam Knuffel knuffelIDgame,
                               Model model) {
-        logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s\n", gamePicture, gameTitle));
+        logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s, KNUFFEL_ID=%s\n", gamePicture, gameTitle, knuffelIDgame));
         Game game = new Game();
         game.setPictureGame(gamePicture);
         game.setTitelGame(gameTitle);
+        game.setKnuffel(knuffelIDgame);
 
         gameRepository.save(game);
         return "redirect:/admins/new-Game";
