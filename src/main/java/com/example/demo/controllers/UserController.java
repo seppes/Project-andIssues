@@ -49,50 +49,29 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register")// Om gegevens van de klant op te slaan in de database
     public String registerPost(@RequestParam String userName,
                                @RequestParam String email,
                                @RequestParam String adress,
-                               @RequestParam Knuffel knuffelId,
                                Principal principal, Model model) {
-        if (principal == null && !userName.isBlank()) {
-            Optional<User> userWithUserName = userRepository.findByUsername(userName);
-            if (!userWithUserName.isPresent()) {
-                User newUser = new User();
-                newUser.setUsername(userName);
-                newUser.setRole("USER");
-                newUser.setEmail(email);
-                newUser.setAdress(adress);
-                newUser.setKnuffel(knuffelId);
-                userRepository.save(newUser);
-            }
-        }
+        User newUser = new User();
+        newUser.setUsername(userName);
+        newUser.setRole("USER");
+        newUser.setEmail(email);
+        newUser.setAdress(adress);
+        userRepository.save(newUser);
         return "redirect:/user/payment";
     }
 
-    private void autologin(String userName, String password) {
-        UsernamePasswordAuthenticationToken token
-                = new UsernamePasswordAuthenticationToken(userName, password);
 
-        try {
-            Authentication auth = authenticationManager.authenticate(token);
-            logger.info("authentication done - result is " + auth.isAuthenticated());
-            SecurityContext sc = SecurityContextHolder.getContext();
-            sc.setAuthentication(auth);
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @GetMapping({"/register/{knuffelId}"})
+    @GetMapping({"/register/{knuffelId}"})// om de juiste knuffelid in de url te teke
     public String register(@PathVariable int knuffelId, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-        if (optionalKnuffelFromDb.isEmpty()) {
-            model.addAttribute("video", new Video[]{});
-        } else {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            model.addAttribute("knuffel", knuffel);
-        }
+        Knuffel knuffel = optionalKnuffelFromDb.get();
+        User newUser = new User();
+        newUser.setKnuffel(knuffel);
+        userRepository.save(newUser);
+        model.addAttribute("knuffel", knuffel);
         return "WebAppLogIn/RegisterPagina";
     }
 
@@ -148,7 +127,6 @@ public class UserController {
     public String payment(Model model) {
         return "WebAppLogIn/Payment";
     }
-
 
 
 }
