@@ -5,8 +5,10 @@ import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
 import com.example.demo.model.Video;
+import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.VideoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ public class UserController {
     private String applicationName = "Knùs";
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private VideoRepository videoRepository;
+
+    @Autowired
+    private GameRepository gameRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -90,26 +98,6 @@ public class UserController {
     }
 
 
-//
-//    @GetMapping("/appHome")
-//    public String appHome(Model model) {
-//        return "htmlHome/appHome";
-//    }
-
-//    @GetMapping({"/appHome/{knuffelId}"})
-//    public String appHome(@PathVariable int knuffelId, Model model) {
-//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//        if (optionalKnuffelFromDb.isEmpty()) {
-//            model.addAttribute("user", new User[]{});
-//        } else {
-//            Knuffel knuffel = optionalKnuffelFromDb.get();
-//            model.addAttribute("knuffel", knuffel);
-//            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
-//
-//        }
-//        return "htmlHome/appHome";
-//    }
-
     @GetMapping("/appHome")
     public String appHome(Principal principal, Model model) {
         Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//Zoek de username op in de database
@@ -131,5 +119,33 @@ public class UserController {
         return "WebAppLogIn/Payment";
     }
 
+    @GetMapping({"/VideoPage/{knuffelId}"})
+    public String VideoPagina(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("video", new Video[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
+
+        }
+        return "htmlVideoGames/VideoPage";
+    }
+
+    @GetMapping({"/GamePage/{knuffelId}"})
+    public String GamePagina(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("game", new Game[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+            model.addAttribute("game", gameRepository.findGameByKnuffel(knuffel));
+
+        }
+        return "htmlVideoGames/GamePage";
+    }
 
 }

@@ -33,36 +33,6 @@ public class HomeController {
     @Autowired
     private GameRepository gameRepository;
 
-
-    @GetMapping({"/VideoPage/{knuffelId}"})
-    public String VideoPagina(@PathVariable int knuffelId, Model model) {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-
-        if (optionalKnuffelFromDb.isEmpty()) {
-            model.addAttribute("video", new Video[]{});
-        } else {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            model.addAttribute("knuffel", knuffel);
-            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
-
-        }
-        return "htmlVideoGames/VideoPage";
-    }
-
-    @GetMapping({"/GamePage/{knuffelId}"})
-    public String GamePagina(@PathVariable int knuffelId, Model model) {
-        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-        if (optionalKnuffelFromDb.isEmpty()) {
-            model.addAttribute("game", new Game[]{});
-        } else {
-            Knuffel knuffel = optionalKnuffelFromDb.get();
-            model.addAttribute("knuffel", knuffel);
-            model.addAttribute("game", gameRepository.findGameByKnuffel(knuffel));
-
-        }
-        return "htmlVideoGames/GamePage";
-    }
-
     @GetMapping("/")
     public String index(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
