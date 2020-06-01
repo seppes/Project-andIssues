@@ -3,8 +3,10 @@ package com.example.demo.controllers;
 import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.Video;
+import com.example.demo.model.*;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
+import com.example.demo.repositories.UserRepository;
 import com.example.demo.repositories.VideoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,16 +38,12 @@ public class HomeController {
     @GetMapping({"/VideoPage/{knuffelId}"})
   public String VideoPagina(@PathVariable int knuffelId, Model model) {
       Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//        Iterable<Video> videoFromDb = videoRepository.findAll();
-
      if (optionalKnuffelFromDb.isEmpty()) {
        model.addAttribute("video", new Video[]{});
    } else {
          Knuffel knuffel = optionalKnuffelFromDb.get();
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
-//         model.addAttribute("videos", videoFromDb);
-
      }
       return "htmlVideoGames/VideoPage";
       }

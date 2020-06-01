@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
 import com.example.demo.model.Video;
@@ -48,37 +49,30 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register")// Om gegevens van de klant op te slaan in de database
     public String registerPost(@RequestParam String userName,
                                @RequestParam String email,
                                @RequestParam String adress,
                                Principal principal, Model model) {
-        if (principal == null && !userName.isBlank()) {
-            Optional<User> userWithUserName = userRepository.findByUsername(userName);
-            if (!userWithUserName.isPresent()) {
-                User newUser = new User();
-                newUser.setUsername(userName);
-                newUser.setRole("USER");
-                newUser.setEmail(email);
-                newUser.setAdress(adress);
-                userRepository.save(newUser);
-            }
-        }
+        User newUser = new User();
+        newUser.setUsername(userName);
+        newUser.setRole("USER");
+        newUser.setEmail(email);
+        newUser.setAdress(adress);
+        userRepository.save(newUser);
         return "redirect:/user/payment";
     }
 
-    private void autologin(String userName, String password) {
-        UsernamePasswordAuthenticationToken token
-                = new UsernamePasswordAuthenticationToken(userName, password);
 
-        try {
-            Authentication auth = authenticationManager.authenticate(token);
-            logger.info("authentication done - result is " + auth.isAuthenticated());
-            SecurityContext sc = SecurityContextHolder.getContext();
-            sc.setAuthentication(auth);
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        }
+    @GetMapping({"/register/{knuffelId}"})// om de juiste knuffelid in de url te teke
+    public String register(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+        Knuffel knuffel = optionalKnuffelFromDb.get();
+        User newUser = new User();
+        newUser.setKnuffel(knuffel);
+        userRepository.save(newUser);
+        model.addAttribute("knuffel", knuffel);
+        return "WebAppLogIn/RegisterPagina";
     }
 
 
@@ -93,11 +87,6 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(Model model) {
         return "WebAppLogIn/LogoutPagina";
-    }
-
-    @RequestMapping("/register")
-    public String register(Model model) {
-        return "WebAppLogIn/RegisterPagina";
     }
 
 
@@ -141,8 +130,6 @@ public class UserController {
     public String payment(Model model) {
         return "WebAppLogIn/Payment";
     }
-
-
 
 
 }

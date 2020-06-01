@@ -138,6 +138,7 @@ iframe {
     background: #E6D16E;
     border-radius: .4em;
     font-size: large;
+    width: 130px;
 }
 
 .speech-bubble-KangoeroeMol:after {
