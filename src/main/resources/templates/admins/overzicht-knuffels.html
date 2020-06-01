@@ -1,4 +1,4 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -47,57 +47,33 @@
         </div>
     </nav>
 </div> <!--navbar-->
-<div class="container-fluid">
-    <div class="row1content">
-        <div>
-            <h2>knuffel aanpassen</h2>
-            <form th:action="|/admins/edit-knuffel/${id}|" method="post">
-                <div class="NewKnuffel">
-                    <div class="infoLine">
-                        <div class="infoLineName"><label for="NameKnuffel">Naam knuffel: </label></div>
-                        <div class="infoLineValue">
-                            <input id="NameKnuffel" name="NameKnuffel"/>
-                        </div>
-                    </div>
-
-                    <div class="infoLine">
-                        <div class="infoLineName"><label for="PriceKnuffel">Prijs knuffel: </label></div>
-                        <div class="infoLineValue">
-                            <input id="PriceKnuffel" name="PriceKnuffel"/>
-                        </div>
-                    </div>
-                    <div class="infoLine">
-                        <div class="infoLineName"><label for="PicKnuffel">naam bestand foto: </label></div>
-                        <div class="infoLineValue">
-                            <input id="PicKnuffel" name="PicKnuffel"/>
-                        </div>
-                    </div>
-                    <div class="infoLine">
-                        <div class="infoLineName"><label for="KnuffelDescription">extra info bij knuffel: </label></div>
-                        <div class="infoLineValue">
-                            <input id="KnuffelDescription" name="KnuffelDescription"/>
-                        </div>
-                    </div>
-
-                    <div class="button">
-                        <input class="buttonLook editButton" type="submit" value="Edit knuffel"/>
-                        <a th:href="|/edit-knuffel/${id}|" class="buttonLook editButton">cancel</a>
-                    </div>
+<div class="container-fluid deck-bg">
+    <h2>Pas hier de knuffels aan.</h2>
+    <div class="justify-content-center">
+        <div class="card-deck deck-layout2">
+            <div th:each="Knuffel:${knuffels}" class="card cardW mb-3" >
+                <div class="card-header">
+                    <img class="img-fluid" th:src="${Knuffel.animalPic}" alt="knuffel"/>
                 </div>
-            </form>
+                <div class="card-body">
+                    <h3 th:text="${Knuffel.animalName}">Titel</h3>
+                    <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
+                    <h4 th:text="'€'+${Knuffel.animalPrice}" class="card-title">Prijs</h4>
+                    <p class="card-text">
+                        <a class="btn btn-layout bg-dark" th:href="@{|/admins/edit-knuffel/${Knuffel.id}|}">Edit</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row bg-dark justify-content-center fixed-bottom">
-        <div class="col-md-4 text-center">
-            <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>
-        </div>
-    </div>
-</div>
-<!-- ******************* -->
-<!-- Scripts -->
-<!-- ******************* -->
-<script src="/static/js/jquery-3.2.1.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
 
+</div><!--webshop-->
+<div class="container-fluid fixed-bottom">
+    <div class="row bg-dark justify-content-center">
+        <div class="col-md-4 text-center">
+            <h6 class="whiteText pt-4 mt-2">© Copyright 2020 Knùs</h6>
+        </div>
+    </div>
+</div> <!--footer-->
 </body>
 </html>

@@ -14,21 +14,15 @@
 </head>
 <body>
 
-
-
-
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">
         <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
     </a>
     <h1 class="HoofdTitel">Nieuw video</h1>
+
 </nav>
 
-
 <div class="container-fluid">
-
-
 
         <div class="row1content">
             <div>
@@ -50,24 +44,26 @@
                             </div>
                         </div>
 
+                        <div class="infoLine">
+                            <div class="infoLineName"><label for="idKnuffel">ID van de knuffel:</label></div>
+                            <div class="infoLineValue">
+                                <input id="idKnuffel" name="knuffelID"/>
+                            </div>
+                        </div>
+
 
                         <div class="buton">
                             <input class="buttonLook editButton" type="submit" value="Voeg video toe"/>
+                            <a th:href="|/VideoPage/0|" class="buttonLook editButton">cancel</a>
                         </div>
 
 
                          <h6>Je kiest een video op youtube en klikt op delen, dan kiest u insluiten en kopieer je de code achter embed/</h6>
 
-
                     </div>
                 </form>
             </div>
         </div>
-
-
-
-
-
 
     <div class="row bg-dark justify-content-center fixed-bottom">
         <div class="col-md-4 text-center">

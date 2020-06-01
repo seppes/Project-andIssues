@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,67 +24,49 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="/user/appHome"><i class="fas fa-home fa-3x"></i></a>
-            <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
-            <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
         </div>
     </div>
 </nav>
 
+
 <div class="container-fluid">
-<div class="layoutGamePage">
-    <div class="nameVideosAndGames pt-5 pb-5">
+    <div class="layoutVideoPage">
+        <div class="nameVideosAndGames pt-5 pb-5">
+            <div class="row">
+                <div class="col-md text-center">
+                    <h1 class="animalNameTitleVideoGamePage">Alle video's</h1>
 
-        <div class="row">
-            <div class="col-md text-center">
-                <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> naam knuffel</h1>
-
-
-            </div>
-        </div>
 
 
         <div class="row">
-            <div class="col-md text-center mt-3">
-                <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel"  width="500" height="500"/>
-            </div>
-        </div>
+            <div class="col-md text-center mb-5">
+                <div th:each="video:${videos}">
 
 
-        <div class="row">
-            <div class="col-md text-center mt-3">
-                <div class="editButtonColumn">
-                    <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Game|"
-                       class="buttonLook editButton">nieuw game toevoegen</a>
+                    <h3 class="animalTitleVideoGamePage" th:text="${video.titel}">Titel</h3>
+                    <iframe width="560" height="315"
+                            th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
+                            frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
+                    <br>
+
+                    <a class="btn btn-layout bg-transparent " th:href="@{|/admins/edit-Video/|}">Edit video</a>
                 </div>
+                <br>
+                <br>
+                <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
             </div>
         </div>
 
 
     </div>
-
-    <div class="row">
-        <div class="col-md text-center mb-5">
-            <div th:each="game:${game}">
-
-
-                <h3 class="animalTitleVideoGamePage" th:text="${game.titelGame}">Titel</h3>
-                <img class="img-fluid" th:src="${game.pictureGame}" alt="knuffel"  width="600" height="350"/>
-
-
-            </div>
-            <br>
-            <br>
-            <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
+</div>
         </div>
     </div>
-
 </div>
-</div>
-
 <div class="footer text-center text-warning">
     <footer>© Copyright 2020 Knùs
     </footer>

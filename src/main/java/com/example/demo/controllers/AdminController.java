@@ -1,7 +1,9 @@
 package com.example.demo.controllers;
 
+import com.example.demo.model.Game;
 import com.example.demo.model.Knuffel;
 import com.example.demo.model.User;
+import com.example.demo.model.Video;
 import com.example.demo.repositories.GameRepository;
 import com.example.demo.repositories.KnuffelRepository;
 import com.example.demo.repositories.UserRepository;
@@ -11,10 +13,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/admins")
@@ -62,14 +69,64 @@ public class AdminController {
         return "admins/new-knuffel";
     }
 
+    @GetMapping({"/new-Game"})
+    public String newGame(Model model) {
+        model.addAttribute("game", gameRepository.findAll());
+        model.addAttribute("knuffel", knuffelRepository.findAll());
+        return "admins/new-Game";
+    }
+
     @GetMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
     public String editKnuffel(@PathVariable(required = false) int id, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("knuffel", knuffelRepository.findAll());
+        model.addAttribute("appName", applicationName);
         return "admins/edit-knuffel";
     }
+
+//    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
+//    public String editVideo(@PathVariable(required = false) int id, Model model) {
+//        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
+//        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
+//        model.addAttribute("video", video);
+//        model.addAttribute("video", videoRepository.findAll());
+//
+//        return "admins/edit-Video";
+//    }
+
+
+
+
+
+    @GetMapping({"/overzicht-knuffels"})
+    public String overzichtKnuffels(Model model) {
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
+        return "admins/overzicht-knuffels";
+    }
+
+    @GetMapping({"/overviewVideo"})
+    public String overviewVideos(Model model) {
+        Iterable<Video> videosFromDb = videoRepository.findAll();
+        model.addAttribute("videos", videosFromDb);
+        return "admins/overviewVideo";
+    }
+
+
+
+    @GetMapping("/")
+    public String index(Model model) {
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
+        return "htmlWebshop/index";
+    }
+
+
+
 
     @PostMapping({"/new-knuffel"})
     public String newKnuffelPost(@RequestParam String NameKnuffel,
@@ -111,20 +168,66 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-Knuffel/" + knuffelId;
+        return "redirect:/admins/edit-knuffel/" + knuffelId;
     }
 
 
-//    @PostMapping({"/new-Video"})
-//    public String newVideoPost(@RequestParam String videoTitle,
-//                                  @RequestParam String videoUrl,
+//    @PostMapping({"/edit-Video", "/edit-Video/{knuffelId}"})
+//    public String editVideoPost(@PathVariable(required = false) int videoId,
+//                                  @RequestParam String NameKnuffel,
+//                                  @RequestParam String PriceKnuffel,
+//                                  @RequestParam String PicKnuffel,
+//                                  @RequestParam String KnuffelDescription,
 //                                  Model model) {
-//        logger.info(String.format("newVideo videoTitle=%s, videoUrl=%s", videoTitle, videoUrl));
+//        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
 //
+//        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
 //
-//        return "redirect:/htmlVideoGames/VideoPage";
-//
+//        if (knuffelFromDb.isPresent()) {
+//            Knuffel knuffel = knuffelFromDb.get();
+//            knuffel.setAnimalName(NameKnuffel);
+//            knuffel.setAnimalPrice(PriceKnuffel);
+//            knuffel.setAnimalPic(PicKnuffel);
+//            knuffel.setAnimalDescription(KnuffelDescription);
+//            knuffelRepository.save(knuffel);
+//        }
+//        return "redirect:/admins/edit-knuffel/" + knuffelId;
 //    }
+
+
+
+    @PostMapping({"/new-Video"})
+    public String newVideoPost(@RequestParam String videoTitle,
+                               @RequestParam String videoUrl,
+                               @RequestParam Knuffel knuffelID,
+                               Model model) {
+        logger.info(String.format("newVideoPost TITEL=%s, VIDEO_FILE_NAME=%s, KNUFFEL_ID=%s\n", videoTitle, videoUrl, knuffelID));
+        Video video = new Video();
+        video.setTitel(videoTitle);
+        video.setVideoFileName(videoUrl);
+        video.setKnuffel(knuffelID);
+
+        videoRepository.save(video);
+        return "redirect:/admins/new-Video";
+
+    }
+
+
+    @PostMapping({"/new-Game"})
+    public String newGamePost(@RequestParam String gamePicture,
+                              @RequestParam String gameTitle,
+                              @RequestParam Knuffel knuffelIDgame,
+                              Model model) {
+        logger.info(String.format("newGamePost PICTURE_GAME=%s, TITEL_GAME=%s, KNUFFEL_ID=%s\n", gamePicture, gameTitle, knuffelIDgame));
+        Game game = new Game();
+        game.setPictureGame(gamePicture);
+        game.setTitelGame(gameTitle);
+        game.setKnuffel(knuffelIDgame);
+
+        gameRepository.save(game);
+        return "redirect:/admins/new-Game";
+
+    }
 
 
 //    @GetMapping("/addUser")

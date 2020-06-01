@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title th:text="${appName}">app</title>
@@ -31,7 +31,7 @@
             <a class="nav-item nav-link" th:href="'/GamePage/'+${user.getKnuffel().getId()}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
-            <a class="nav-item nav-link" th:href="|/admins/edit-knuffel/${knuffelId}|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
+            <a class="nav-item nav-link" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
         </div>
     </div>
 </nav>

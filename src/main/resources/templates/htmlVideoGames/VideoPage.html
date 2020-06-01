@@ -61,7 +61,9 @@
                 <div class="col-md text-center mt-3">
                     <div class="editButtonColumn">
                         <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Video|"
-                           class="buttonLook editButton">nieuw video toevoegen</a>
+                           class="buttonLook editButton">nieuw video toevoegen</a><br><br>
+                        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/overviewVideo|"
+                           class="buttonLook editButton">video's wijzigen</a>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
-
+    private String applicationName = "Knùs";
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -112,6 +112,9 @@ public class UserController {
     @GetMapping("/appHome")
     public String appHome(Principal principal, Model model) {
         Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//Zoek de username op in de database
+        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
+        model.addAttribute("knuffels", knuffelsFromDb);
+        model.addAttribute("appName", applicationName);
         if (optionalUserFromDb.isEmpty()) {//Als username niet in de database.
             model.addAttribute("user", new User[]{});
         } else {
