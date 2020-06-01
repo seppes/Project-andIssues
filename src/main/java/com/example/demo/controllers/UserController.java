@@ -53,12 +53,14 @@ public class UserController {
     public String registerPost(@RequestParam String userName,
                                @RequestParam String email,
                                @RequestParam String adress,
+                               @RequestParam Knuffel knuffelId,
                                Principal principal, Model model) {
         User newUser = new User();
         newUser.setUsername(userName);
         newUser.setRole("USER");
         newUser.setEmail(email);
         newUser.setAdress(adress);
+        newUser.setKnuffel(knuffelId);
         userRepository.save(newUser);
         return "redirect:/user/payment";
     }
@@ -68,9 +70,6 @@ public class UserController {
     public String register(@PathVariable int knuffelId, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
         Knuffel knuffel = optionalKnuffelFromDb.get();
-        User newUser = new User();
-        newUser.setKnuffel(knuffel);
-        userRepository.save(newUser);
         model.addAttribute("knuffel", knuffel);
         return "WebAppLogIn/RegisterPagina";
     }
