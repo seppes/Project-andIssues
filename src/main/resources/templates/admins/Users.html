@@ -21,6 +21,9 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div th:each="User:${users}">
+            <h3 th:text="${User.username}">User</h3>
+        </div>
     </div>
 </div>
 
