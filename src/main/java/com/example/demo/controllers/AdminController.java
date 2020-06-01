@@ -101,7 +101,7 @@ public class AdminController {
     public String overviewUsers(Model model) {
         Iterable<User> userFromDb = userRepository.findAll();
         model.addAttribute("users", userFromDb);
-        return "admins/overview-users";
+        return "admins/Users";
     }
 
 
