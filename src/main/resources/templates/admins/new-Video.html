@@ -19,7 +19,7 @@
         <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
     </a>
     <h1 class="HoofdTitel">Nieuw video</h1>
-<!--    <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><h6 class="whiteText">Terug</h6></a>-->
+
 </nav>
 
 <div class="container-fluid">
@@ -44,9 +44,17 @@
                             </div>
                         </div>
 
+                        <div class="infoLine">
+                            <div class="infoLineName"><label for="idKnuffel">ID van de knuffel:</label></div>
+                            <div class="infoLineValue">
+                                <input id="idKnuffel" name="knuffelID"/>
+                            </div>
+                        </div>
+
 
                         <div class="buton">
                             <input class="buttonLook editButton" type="submit" value="Voeg video toe"/>
+                            <a th:href="|/VideoPage/0|" class="buttonLook editButton">cancel</a>
                         </div>
 
 

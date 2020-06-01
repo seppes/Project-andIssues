@@ -45,18 +45,28 @@
                     </div>
 
                     <div class="infoLine">
-                        <div class="infoLineName"><label for="gamePicture">source game:</label></div>
+                        <div class="infoLineName"><label for="pictureGame">source game:</label></div>
                         <div class="infoLineValue">
-                            <input id="gamePicture" name="pictureGame"/>
+                            <input id="pictureGame" name="gamePicture"/>
+                        </div>
+                    </div>
+
+                    <div class="infoLine">
+                        <div class="infoLineName"><label for="idKnuffelgame">ID van de knuffel:</label></div>
+                        <div class="infoLineValue">
+                            <input id="idKnuffelgame" name="knuffelIDgame"/>
                         </div>
                     </div>
 
 
+
                     <div class="buton">
                         <input class="buttonLook editButton" type="submit" value="Voeg game toe"/>
+                        <a th:href="|/GamePage/0|" class="buttonLook editButton">cancel</a>
                     </div>
 
-
+                    <h6>zo moet je de image ingeven (voorbeeld) : /img/game3.jpg</h6>
+                    <h6>DUS /img/ + naam van foto </h6>
 
 
                 </div>
