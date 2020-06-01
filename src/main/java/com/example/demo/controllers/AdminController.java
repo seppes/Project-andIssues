@@ -97,7 +97,12 @@ public class AdminController {
 //    }
 
 
-
+    @GetMapping({"/overview-users"})
+    public String overviewUsers(Model model) {
+        Iterable<User> userFromDb = userRepository.findAll();
+        model.addAttribute("users", userFromDb);
+        return "admins/overview-users";
+    }
 
 
     @GetMapping({"/overzicht-knuffels"})
