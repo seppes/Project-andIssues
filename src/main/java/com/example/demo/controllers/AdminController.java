@@ -172,27 +172,25 @@ public class AdminController {
     }
 
 
-//    @PostMapping({"/edit-Video", "/edit-Video/{knuffelId}"})
-//    public String editVideoPost(@PathVariable(required = false) int videoId,
-//                                  @RequestParam String NameKnuffel,
-//                                  @RequestParam String PriceKnuffel,
-//                                  @RequestParam String PicKnuffel,
-//                                  @RequestParam String KnuffelDescription,
-//                                  Model model) {
-//        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
-//
-//        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
-//
-//        if (knuffelFromDb.isPresent()) {
-//            Knuffel knuffel = knuffelFromDb.get();
-//            knuffel.setAnimalName(NameKnuffel);
-//            knuffel.setAnimalPrice(PriceKnuffel);
-//            knuffel.setAnimalPic(PicKnuffel);
-//            knuffel.setAnimalDescription(KnuffelDescription);
-//            knuffelRepository.save(knuffel);
-//        }
-//        return "redirect:/admins/edit-knuffel/" + knuffelId;
-//    }
+    @PostMapping({"/edit-Video", "/edit-Video/{videoId}"})
+    public String editVideoPost(@PathVariable(required = false) int videoId,
+                                @RequestParam String videoTitleEdit,
+                                @RequestParam String videoUrlEdit,
+                                @RequestParam Knuffel knuffelIDEdit,
+                                Model model) {
+        logger.info(String.format("editVideoPost %d -- TITEL=%s, VIDEO_FILE_NAME=%s, KNUFFEL_ID=%s\n", videoId, videoTitleEdit, videoUrlEdit, knuffelIDEdit));
+        Optional<Video> videoFromDb = videoRepository.findById(videoId);
+
+        if (videoFromDb.isPresent()) {
+            Video video = videoFromDb.get();
+            video.setTitel(videoTitleEdit);
+            video.setVideoFileName(videoUrlEdit);
+            video.setKnuffel(knuffelIDEdit);
+
+            videoRepository.save(video);
+        }
+        return "redirect:/admins/edit-Video/" + videoId;
+    }
 
 
 
