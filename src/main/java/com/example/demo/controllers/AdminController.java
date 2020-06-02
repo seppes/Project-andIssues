@@ -263,13 +263,13 @@ public class AdminController {
 //    }
 
 
-    @GetMapping({"/addUser", "/addUser/{id}"})
-    public String editUser(@PathVariable(required = false) int id, Model model) {
-        Optional<User> optionalUserFromDb = userRepository.findById(id);
+    @GetMapping({"/addUser", "/addUser/{username}"})
+    public String editUser(@PathVariable(required = false) String username, Model model) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(username);
         User user = (optionalUserFromDb.isPresent()) ? optionalUserFromDb.get() : null;
         model.addAttribute("user", user);
         model.addAttribute("user", userRepository.findAll());
-        return "admins/addUser";
+        return "admins/AdminAddUser";
     }
 
 
@@ -287,7 +287,7 @@ public class AdminController {
             user.setPassword(password);
             userRepository.save(user);
         }
-        return "redirect:/admins/addUser/" + username;
+        return "redirect:/admins/AdminAddUser/" + username;
     }
 
 }
