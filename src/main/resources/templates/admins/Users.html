@@ -12,19 +12,48 @@
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">
-        <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
-    </a>
-    <h1 class="HoofdTitel">Orders</h1>
-</nav>
+<div class="jumbotron-fluid">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navbarKnus"
+                aria-controls="navbarKnus" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarKnus">
+            <ul class="nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><h6 class="whiteText">Home</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about"><h6 class="whiteText">About</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact"><h6 class="whiteText">Contact</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/login"><h6 class="whiteText">Login</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/shoppingcart"><h6 class="whiteText"><i class="fas fa-shopping-cart"></i>
+                    </h6></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div> <!--navbar-->
 
 <div class="container-fluid">
     <div class="row">
         <div th:each="User:${users}">
             <h3 th:text="${User.username}">User</h3>
             <p>
-                <a class="btn btn-layout bg-dark" th:href="@{|/admins/addUser/${User.username}|}">Edit</a>
+                <a class="btn btn-layout m-2" th:href="@{|/admins/addUser/${User.username}|}">Edit</a>
             </p>
         </div>
     </div>

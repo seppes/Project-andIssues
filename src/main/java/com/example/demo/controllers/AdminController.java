@@ -286,7 +286,7 @@ public class AdminController {
             user.setPassword(password);
             userRepository.save(user);
         }
-        return "redirect:/admins/AdminAddUser/" + username;
+        return "redirect:/admins/overview-users";
     }
 
 }
