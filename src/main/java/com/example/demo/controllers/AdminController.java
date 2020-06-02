@@ -96,7 +96,15 @@ public class AdminController {
         return "admins/edit-Video";
     }
 
+    @GetMapping({"/edit-Game", "/edit-Game/{id}"})
+    public String editGame(@PathVariable(required = false) int id, Model model) {
+        Optional<Game> optionalGameFromDb = gameRepository.findById(id);
+        Game game = (optionalGameFromDb.isPresent()) ? optionalGameFromDb.get() : null;
+        model.addAttribute("game", game);
+        model.addAttribute("game", gameRepository.findAll());
 
+        return "admins/edit-Game";
+    }
 
 
 
@@ -115,6 +123,13 @@ public class AdminController {
         return "admins/overviewVideo";
     }
 
+
+    @GetMapping({"/overviewGame"})
+    public String overviewGames(Model model) {
+        Iterable<Game> gamesFromDb = gameRepository.findAll();
+        model.addAttribute("games", gamesFromDb);
+        return "admins/overviewGame";
+    }
 
 
     @GetMapping("/")
@@ -191,6 +206,31 @@ public class AdminController {
         }
         return "redirect:/admins/edit-Video/" + videoId;
     }
+
+
+
+
+    @PostMapping({"/edit-Game", "/edit-Game/{gameId}"})
+    public String editGamePost(@PathVariable(required = false) int gameId,
+                               @RequestParam String gameTitleEdit,
+                               @RequestParam String gamePictureEdit,
+                               @RequestParam Knuffel knuffelIDgameEdit,
+                               Model model) {
+        logger.info(String.format("editGamePost %d -- TITEL_GAME=%s, PICTURE_GAME=%s, KNUFFEL_ID=%s\n", gameId, gameTitleEdit, gamePictureEdit, knuffelIDgameEdit));
+        Optional<Game> gameFromDb = gameRepository.findById(gameId);
+
+        if (gameFromDb.isPresent()) {
+            Game game = gameFromDb.get();
+            game.setTitelGame(gameTitleEdit);
+            game.setPictureGame(gamePictureEdit);
+            game.setKnuffel(knuffelIDgameEdit);
+
+            gameRepository.save(game);
+        }
+        return "redirect:/admins/edit-Game/" + gameId;
+    }
+
+
 
 
 
