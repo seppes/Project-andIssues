@@ -86,15 +86,15 @@ public class AdminController {
         return "admins/edit-knuffel";
     }
 
-//    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
-//    public String editVideo(@PathVariable(required = false) int id, Model model) {
-//        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
-//        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
-//        model.addAttribute("video", video);
-//        model.addAttribute("video", videoRepository.findAll());
-//
-//        return "admins/edit-Video";
-//    }
+    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
+    public String editVideo(@PathVariable(required = false) int id, Model model) {
+        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
+        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
+        model.addAttribute("video", video);
+        model.addAttribute("video", videoRepository.findAll());
+
+        return "admins/edit-Video";
+    }
 
 
 
