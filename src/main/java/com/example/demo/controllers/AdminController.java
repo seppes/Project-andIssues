@@ -277,7 +277,6 @@ public class AdminController {
     public String addUserPost(@PathVariable(required = false) String username,
                                   @RequestParam String password,
                                   Model model) {
-        logger.info(String.format("addUserPost %d -- USERNAME=%s, PASSWORD\n", username, password));
 
         Optional<User> userFromDb = userRepository.findByUsername(username);
 
