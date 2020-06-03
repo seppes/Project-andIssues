@@ -23,6 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admins/**").hasAuthority("ADMIN")
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/user/register").permitAll()
                 .antMatchers("/user/**").hasAnyAuthority("USER","ADMIN")
                 .anyRequest().permitAll();
         http.formLogin()
