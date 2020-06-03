@@ -54,6 +54,8 @@ public class UserController {
                                @RequestParam String email,
                                @RequestParam String adress,
                                @RequestParam Knuffel knuffelId,
+                               @RequestParam String postcode,
+                               @RequestParam String stadGemeente,
                                Principal principal, Model model) {
         User newUser = new User();
         newUser.setUsername(userName);
@@ -61,6 +63,8 @@ public class UserController {
         newUser.setEmail(email);
         newUser.setAdress(adress);
         newUser.setKnuffel(knuffelId);
+        newUser.setPostcode(postcode);
+        newUser.setStadGemeente(stadGemeente);
         userRepository.save(newUser);
         return "redirect:/user/payment";
     }
