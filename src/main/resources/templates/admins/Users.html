@@ -51,7 +51,10 @@
 <div class="container-fluid">
     <div class="row">
         <div th:each="User:${users}">
-            <h3 th:text="${User.username}">User</h3>
+            <h3 th:text="${User.getUsername()}">User</h3><br>
+            <h3 th:text="${User.getAdress()}">User</h3><br>
+            <h3 th:text="${User.getEmail()}">User</h3><br>
+            <h3 th:text="${User.getRole()}">User</h3>
             <p>
                 <a class="btn btn-layout m-2" th:href="@{|/admins/addUser/${User.username}|}">Edit</a>
             </p>

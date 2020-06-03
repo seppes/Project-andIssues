@@ -89,26 +89,6 @@ public class UserController {
     }
 
 
-//
-//    @GetMapping("/appHome")
-//    public String appHome(Model model) {
-//        return "htmlHome/appHome";
-//    }
-
-//    @GetMapping({"/appHome/{knuffelId}"})
-//    public String appHome(@PathVariable int knuffelId, Model model) {
-//        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
-//        if (optionalKnuffelFromDb.isEmpty()) {
-//            model.addAttribute("user", new User[]{});
-//        } else {
-//            Knuffel knuffel = optionalKnuffelFromDb.get();
-//            model.addAttribute("knuffel", knuffel);
-//            model.addAttribute("user", userRepository.findUsersByKnuffel(knuffel));
-//
-//        }
-//        return "htmlHome/appHome";
-//    }
-
     @GetMapping("/appHome")
     public String appHome(Principal principal, Model model) {
         Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());//Zoek de username op in de database
