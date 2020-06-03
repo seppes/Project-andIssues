@@ -57,51 +57,40 @@ public class AdminController {
             User user = optionalUserFromDb.get();
             model.addAttribute("user", user);
         }
-        return "admins/AdminOrders";
+        return "admins/adminOrders";
     }
 
-    @GetMapping({"/new-Video"})
+    @GetMapping({"/newVideo"})
     public String newVideo(Model model) {
         model.addAttribute("video", videoRepository.findAll());
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/new-Video";
+        return "admins/newVideo";
     }
 
-    @GetMapping({"/new-knuffel"})
+    @GetMapping({"/newKnuffel"})
     public String newKnuffel(Model model) {
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/new-knuffel";
+        return "admins/newKnuffel";
     }
 
-    @GetMapping({"/new-Game"})
+    @GetMapping({"/newGame"})
     public String newGame(Model model) {
         model.addAttribute("game", gameRepository.findAll());
         model.addAttribute("knuffel", knuffelRepository.findAll());
-        return "admins/new-Game";
+        return "admins/newGame";
     }
 
-    @GetMapping({"/edit-knuffel", "/edit-knuffel/{id}"})
+    @GetMapping({"/editKnuffel", "/editKnuffel/{id}"})
     public String editKnuffel(@PathVariable(required = false) int id, Model model) {
         Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(id);
         Knuffel knuffel = (optionalKnuffelFromDb.isPresent()) ? optionalKnuffelFromDb.get() : null;
         model.addAttribute("knuffel", knuffel);
         model.addAttribute("knuffel", knuffelRepository.findAll());
         model.addAttribute("appName", applicationName);
-        return "admins/edit-knuffel";
+        return "admins/editKnuffel";
     }
 
-//    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
-//    public String editVideo(@PathVariable(required = false) int id, Model model) {
-//        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
-//        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
-//        model.addAttribute("video", video);
-//        model.addAttribute("video", videoRepository.findAll());
-//
-//        return "admins/edit-Video";
-//    }
-
-
-    @GetMapping({"/overview-users"})
+    @GetMapping({"/overviewUsers"})
     public String overviewUsers(Model model) {
         Iterable<User> userFromDb = userRepository.findAll();
         model.addAttribute("users", userFromDb);
@@ -109,12 +98,12 @@ public class AdminController {
     }
 
 
-    @GetMapping({"/overzicht-knuffels"})
+    @GetMapping({"/overzichtKnuffels"})
     public String overzichtKnuffels(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
         model.addAttribute("knuffels", knuffelsFromDb);
         model.addAttribute("appName", applicationName);
-        return "admins/overzicht-knuffels";
+        return "admins/overzichtKnuffels";
     }
 
     @GetMapping({"/overviewVideo"})
@@ -123,7 +112,6 @@ public class AdminController {
         model.addAttribute("videos", videosFromDb);
         return "admins/overviewVideo";
     }
-
 
 
     @GetMapping("/")
@@ -135,9 +123,7 @@ public class AdminController {
     }
 
 
-
-
-    @PostMapping({"/new-knuffel"})
+    @PostMapping({"/newKnuffel"})
     public String newKnuffelPost(@RequestParam String NameKnuffel,
                                  @RequestParam String PriceKnuffel,
                                  @RequestParam String PicKnuffel,
@@ -154,11 +140,11 @@ public class AdminController {
 
 
         knuffelRepository.save(knuffel);
-        return "redirect:/admins/new-knuffel";
+        return "redirect:/admins/newKnuffel";
     }
 
 
-    @PostMapping({"/edit-knuffel", "/edit-knuffel/{knuffelId}"})
+    @PostMapping({"/editKnuffel", "/editKnuffel/{knuffelId}"})
     public String editKnuffelPost(@PathVariable(required = false) int knuffelId,
                                   @RequestParam String NameKnuffel,
                                   @RequestParam String PriceKnuffel,
@@ -177,35 +163,10 @@ public class AdminController {
             knuffel.setAnimalDescription(KnuffelDescription);
             knuffelRepository.save(knuffel);
         }
-        return "redirect:/admins/edit-knuffel/" + knuffelId;
+        return "redirect:/admins/editKnuffel/" + knuffelId;
     }
 
-
-//    @PostMapping({"/edit-Video", "/edit-Video/{knuffelId}"})
-//    public String editVideoPost(@PathVariable(required = false) int videoId,
-//                                  @RequestParam String NameKnuffel,
-//                                  @RequestParam String PriceKnuffel,
-//                                  @RequestParam String PicKnuffel,
-//                                  @RequestParam String KnuffelDescription,
-//                                  Model model) {
-//        logger.info(String.format("editKnuffelPost %d -- ANIMAL_NAME=%s, ANIMAL_PRICE=%s, ANIMAL_PIC=%s, ANIMAL_DESCRIPTION=%s\n", knuffelId, NameKnuffel, PriceKnuffel, PicKnuffel, KnuffelDescription));
-//
-//        Optional<Knuffel> knuffelFromDb = knuffelRepository.findById(knuffelId);
-//
-//        if (knuffelFromDb.isPresent()) {
-//            Knuffel knuffel = knuffelFromDb.get();
-//            knuffel.setAnimalName(NameKnuffel);
-//            knuffel.setAnimalPrice(PriceKnuffel);
-//            knuffel.setAnimalPic(PicKnuffel);
-//            knuffel.setAnimalDescription(KnuffelDescription);
-//            knuffelRepository.save(knuffel);
-//        }
-//        return "redirect:/admins/edit-knuffel/" + knuffelId;
-//    }
-
-
-
-    @PostMapping({"/new-Video"})
+    @PostMapping({"/newVideo"})
     public String newVideoPost(@RequestParam String videoTitle,
                                @RequestParam String videoUrl,
                                @RequestParam Knuffel knuffelID,
@@ -217,12 +178,11 @@ public class AdminController {
         video.setKnuffel(knuffelID);
 
         videoRepository.save(video);
-        return "redirect:/admins/new-Video";
+        return "redirect:/admins/newVideo";
 
     }
 
-
-    @PostMapping({"/new-Game"})
+    @PostMapping({"/newGame"})
     public String newGamePost(@RequestParam String gamePicture,
                               @RequestParam String gameTitle,
                               @RequestParam Knuffel knuffelIDgame,
@@ -234,38 +194,9 @@ public class AdminController {
         game.setKnuffel(knuffelIDgame);
 
         gameRepository.save(game);
-        return "redirect:/admins/new-Game";
+        return "redirect:/admins/newGame";
 
     }
-
-
-//    @GetMapping("/addUser")
-//    public String addUser(Principal principal, Model model) {
-//        if (principal != null) return "redirect:/user/appHome";//na het registreren
-//
-//
-//        return "admins/AdminAddUser";
-//    }
-//
-//    @PostMapping("/addUser")
-//    public String addUser(@RequestParam String userName,
-//                          @RequestParam String password,
-//                          @RequestParam Knuffel knuffel,
-//                          Principal principal, Model model) {
-//        if (principal == null && !userName.isBlank()) {
-//            Optional<User> userWithUserName = userRepository.findByUsername(userName);
-//            if (!userWithUserName.isPresent()) {
-//                User newUser = new User();
-//                newUser.setUsername(userName);
-//                newUser.setRole("USER");
-//                newUser.setPassword(password);
-//                newUser.setKnuffel(knuffel);
-//                userRepository.save(newUser);
-//            }
-//        }
-//        return "admins/AdminAddUser";
-//    }
-
 
     @GetMapping({"/addUser", "/addUser/{username}"})
     public String editUser(@PathVariable(required = false) String username, Model model) {
@@ -273,14 +204,14 @@ public class AdminController {
         User user = (optionalUserFromDb.isPresent()) ? optionalUserFromDb.get() : null;
         model.addAttribute("user", user);
         model.addAttribute("user", userRepository.findAll());
-        return "admins/AdminAddUser";
+        return "admins/adminAddUser";
     }
 
 
     @PostMapping({"/addUser", "/addUser/{username}"})
     public String addUserPost(@PathVariable(required = false) String username,
-                                  @RequestParam String password,
-                                  Model model) {
+                              @RequestParam String password,
+                              Model model) {
 
         Optional<User> userFromDb = userRepository.findByUsername(username);
 
@@ -291,6 +222,6 @@ public class AdminController {
             user.setPassword(encode);
             userRepository.save(user);
         }
-        return "redirect:/admins/overview-users";
+        return "redirect:/admins/overviewUsers";
     }
 }

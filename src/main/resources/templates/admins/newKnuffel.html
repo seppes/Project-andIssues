@@ -52,7 +52,7 @@
     <div class="row1content">
         <div>
             <h2>Nieuwe knuffel toevoegen</h2>
-            <form th:action="|/admins/new-knuffel|" method="post">
+            <form th:action="|/admins/newKnuffel|" method="post">
 
                 <div class="NewKnuffel">
                     <div class="infoLine">
@@ -85,7 +85,7 @@
                     <p>DUS /img/ + naam van foto </p>
                     <div class="buton">
                         <input class="buttonLook editButton" type="submit" value="Voeg knuffel toe"/>
-                        <a th:href="|/parties|" class="buttonLook editButton">cancel</a>
+                        <a th:href="|/admins/newKnuffel|" class="buttonLook editButton">cancel</a>
                     </div>
                 </div>
             </form>

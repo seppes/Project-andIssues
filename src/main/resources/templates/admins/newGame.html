@@ -25,12 +25,7 @@
     <h1 class="HoofdTitel">Nieuw video</h1>
 <!--    <a class="nav-item nav-link" th:href="'/GamePage/'+${knuffelId}" href="/GamePage.html"><h6 class="whiteText">Terug</h6></a>-->
 </nav>
-
-
 <div class="container-fluid">
-
-
-
     <div class="row1content">
         <div>
             <h2>Nieuwe game toevoegen</h2>
@@ -43,42 +38,28 @@
                             <input id="titleGame" name="gameTitle"/>
                         </div>
                     </div>
-
                     <div class="infoLine">
                         <div class="infoLineName"><label for="pictureGame">source game:</label></div>
                         <div class="infoLineValue">
                             <input id="pictureGame" name="gamePicture"/>
                         </div>
                     </div>
-
                     <div class="infoLine">
                         <div class="infoLineName"><label for="idKnuffelgame">ID van de knuffel:</label></div>
                         <div class="infoLineValue">
                             <input id="idKnuffelgame" name="knuffelIDgame"/>
                         </div>
                     </div>
-
-
-
                     <div class="buton">
                         <input class="buttonLook editButton" type="submit" value="Voeg game toe"/>
                         <a th:href="|/GamePage/0|" class="buttonLook editButton">cancel</a>
                     </div>
-
                     <h6>zo moet je de image ingeven (voorbeeld) : /img/game3.jpg</h6>
                     <h6>DUS /img/ + naam van foto </h6>
-
-
                 </div>
             </form>
         </div>
     </div>
-
-
-
-
-
-
     <div class="row bg-dark justify-content-center fixed-bottom">
         <div class="col-md-4 text-center">
             <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>
