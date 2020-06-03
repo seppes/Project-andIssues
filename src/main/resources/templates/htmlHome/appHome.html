@@ -33,7 +33,7 @@
             <a class="nav-item nav-link adminNavH" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/overview-users|"><div sec:authorize="hasAuthority('ADMIN')" >edit user</div></a>
-            <h2 class="nav-item nav-link mb-4 adminNavH visitorName" th:text="${user.getUsername()}"></h2>
+            <h2 class="nav-item nav-link mb-4 adminNavH visitorName" th:text= "hey" + "${user.getUsername()}"></h2>
 
         </div>
     </div>
