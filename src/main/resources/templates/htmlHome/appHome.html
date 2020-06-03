@@ -14,7 +14,7 @@
 <a name="top"></a>
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
+        <img class="rounded" src="/img/logo_Transparant1.png" height="100" width="100"/>
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -33,7 +33,7 @@
             <a class="nav-item nav-link adminNavH" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/overview-users|"><div sec:authorize="hasAuthority('ADMIN')" >edit user</div></a>
-            <a class="nav-item nav-link mb-4 adminNavH" th:text="${user.getUsername()}"></a>
+            <h2 class="nav-item nav-link mb-4 adminNavH visitorName" th:text="${user.getUsername()}"></h2>
 
         </div>
     </div>

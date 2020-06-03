@@ -197,4 +197,10 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 
 .adminNavH{
     padding-top: 3%;
+    min-width: 16%;
+}
+
+.visitorName{
+    margin-left: 70%;
+    color: black !important;
 }
