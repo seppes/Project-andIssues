@@ -97,7 +97,12 @@ public class AdminController {
 //    }
 
 
-
+    @GetMapping({"/overview-users"})
+    public String overviewUsers(Model model) {
+        Iterable<User> userFromDb = userRepository.findAll();
+        model.addAttribute("users", userFromDb);
+        return "admins/Users";
+    }
 
 
     @GetMapping({"/overzicht-knuffels"})
@@ -230,30 +235,57 @@ public class AdminController {
     }
 
 
-    @GetMapping("/addUser")
-    public String addUser(Principal principal, Model model) {
-        if (principal != null) return "redirect:/user/appHome";//na het registreren
+//    @GetMapping("/addUser")
+//    public String addUser(Principal principal, Model model) {
+//        if (principal != null) return "redirect:/user/appHome";//na het registreren
+//
+//
+//        return "admins/AdminAddUser";
+//    }
+//
+//    @PostMapping("/addUser")
+//    public String addUser(@RequestParam String userName,
+//                          @RequestParam String password,
+//                          @RequestParam Knuffel knuffel,
+//                          Principal principal, Model model) {
+//        if (principal == null && !userName.isBlank()) {
+//            Optional<User> userWithUserName = userRepository.findByUsername(userName);
+//            if (!userWithUserName.isPresent()) {
+//                User newUser = new User();
+//                newUser.setUsername(userName);
+//                newUser.setRole("USER");
+//                newUser.setPassword(password);
+//                newUser.setKnuffel(knuffel);
+//                userRepository.save(newUser);
+//            }
+//        }
+//        return "admins/AdminAddUser";
+//    }
 
 
+    @GetMapping({"/addUser", "/addUser/{username}"})
+    public String editUser(@PathVariable(required = false) String username, Model model) {
+        Optional<User> optionalUserFromDb = userRepository.findByUsername(username);
+        User user = (optionalUserFromDb.isPresent()) ? optionalUserFromDb.get() : null;
+        model.addAttribute("user", user);
+        model.addAttribute("user", userRepository.findAll());
         return "admins/AdminAddUser";
     }
 
-    @PostMapping("/addUser")
-    public String addUser(@RequestParam String userName,
-                          @RequestParam String password,
-                          @RequestParam Knuffel knuffel,
-                          Principal principal, Model model) {
-        if (principal == null && !userName.isBlank()) {
-            Optional<User> userWithUserName = userRepository.findByUsername(userName);
-            if (!userWithUserName.isPresent()) {
-                User newUser = new User();
-                newUser.setUsername(userName);
-                newUser.setRole("USER");
-                newUser.setPassword(password);
-                newUser.setKnuffel(knuffel);
-                userRepository.save(newUser);
-            }
+
+    @PostMapping({"/addUser", "/addUser/{username}"})
+    public String addUserPost(@PathVariable(required = false) String username,
+                                  @RequestParam String password,
+                                  Model model) {
+
+        Optional<User> userFromDb = userRepository.findByUsername(username);
+
+        if (userFromDb.isPresent()) {
+            User user = userFromDb.get();
+            user.setUsername(username);
+            user.setPassword(password);
+            userRepository.save(user);
         }
-        return "admins/AdminAddUser";
+        return "redirect:/admins/overview-users";
     }
 }

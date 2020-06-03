@@ -23,17 +23,17 @@
 <div class="container-fluid">
     <div class="row pb-5">
         <div class="col text-center mt-5">
-            <form th:action="|/admins/addUser|" method="post">
+            <form th:action="|/admins/addUser/${username}|" method="post">
+                <div class="form-group">
+                    <label for="username">
+                        <h5>Knuffel :</h5>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="username">
+                    </label>
+                </div>
                 <div class="form-group">
                     <label for="password">
                         <h5>Code :</h5>
                         <input type="password" id="password" name="password" class="form-control" placeholder="Code">
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="knuffel">
-                        <h5>Knuffel :</h5>
-                        <input type="text" id="knuffel" name="knuffel" class="form-control" placeholder="Knuffel">
                     </label>
                 </div>
                 <button class="btn btn-primary">Klant Registreren</button>
