@@ -26,6 +26,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/register").permitAll()
                 .antMatchers("/user/payment").permitAll()
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/GamePage/{knuffelId}").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/VideoPage/{knuffelId}").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/user/**").hasAnyAuthority("USER","ADMIN")
                 .anyRequest().permitAll();
         http.formLogin()
