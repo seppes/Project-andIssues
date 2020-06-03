@@ -24,7 +24,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="/user/appHome"><i class="fas fa-home fa-3x"></i></a>
@@ -37,15 +36,12 @@
     </div>
 </nav>
 
-
 <div class="container-fluid">
     <div class="layoutVideoPage">
         <div class="nameVideosAndGames pt-5 pb-5">
             <div class="row">
                 <div class="col-md text-center">
                     <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> Knuffel name</h1>
-
-
                 </div>
             </div>
 
@@ -55,39 +51,21 @@
                     <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel" width="500" height="500"/>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md text-center mt-3">
-                    <div class="editButtonColumn">
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Video|"
-                           class="buttonLook editButton">nieuw video toevoegen</a><br><br>
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/overviewVideo|"
-                           class="buttonLook editButton">video's wijzigen</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
         <div class="row">
             <div class="col-md text-center mb-5">
                 <div th:each="video:${video}">
-
-
                     <h3 class="animalTitleVideoGamePage" th:text="${video.titel}">Titel</h3>
                     <iframe width="560" height="315"
                             th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
                             frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
-
-
                 </div>
                 <br>
                 <br>
                 <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
             </div>
         </div>
-
-
     </div>
 </div>
 <div class="footer text-center text-white">
