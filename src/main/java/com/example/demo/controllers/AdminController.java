@@ -276,6 +276,7 @@ public class AdminController {
     @PostMapping({"/addUser", "/addUser/{username}"})
     public String addUserPost(@PathVariable(required = false) String username,
                                   @RequestParam String password,
+                              @RequestParam String stadGemeente,
                                   Model model) {
 
         Optional<User> userFromDb = userRepository.findByUsername(username);
@@ -284,6 +285,7 @@ public class AdminController {
             User user = userFromDb.get();
             user.setUsername(username);
             user.setPassword(password);
+            user.setStadGemeente(stadGemeente);
             userRepository.save(user);
         }
         return "redirect:/admins/overview-users";
