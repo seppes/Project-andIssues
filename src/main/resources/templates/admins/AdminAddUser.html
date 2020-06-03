@@ -25,21 +25,9 @@
         <div class="col text-center mt-5">
             <form th:action="|/admins/addUser/${username}|" method="post">
                 <div class="form-group">
-                    <label for="username">
-                        <h5>Gebruikersnaam :</h5>
-                        <input type="text" id="username" name="username" class="form-control" placeholder="username">
-                    </label>
-                </div>
-                <div class="form-group">
                     <label for="password">
-                        <h5>Code :</h5>
+                        <h5>Code toevoegen:</h5>
                         <input type="password" id="password" name="password" class="form-control" placeholder="Code">
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="password">
-                        <h5>Stad/Gemeente :</h5>
-                        <input type="text" id="stadGemeente" name="stadGemeente" class="form-control" placeholder="Stad/Gemeente">
                     </label>
                 </div>
                 <button class="btn btn-primary">Klant Registreren</button>
