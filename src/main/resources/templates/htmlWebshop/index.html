@@ -50,7 +50,7 @@
 <div class="container-fluid deck-bg">
     <div class="justify-content-center">
         <div class="card-deck deck-layout2">
-            <div th:each="Knuffel:${knuffels}" class="card cardW mb-3" >
+            <div th:each="Knuffel:${knuffels}" class="card cardW mb-3">
                 <div class="card-header">
                     <img class="img-fluid" th:src="${Knuffel.animalPic}" alt="knuffel"/>
                 </div>
@@ -59,7 +59,8 @@
                     <p th:text="${Knuffel.animalDescription}">knuffel beschrijving</p>
                     <h4 th:text="'€'+${Knuffel.animalPrice}" class="card-title">Prijs</h4>
                     <p class="card-text">
-                        <a class="btn btn-layout bg-dark" th:href="'/user/register/'+${Knuffel.getId()}" href="/RegisterPagina.html">Bestel</a>
+                        <a class="btn btn-layout bg-dark" th:href="'/user/register/'+${Knuffel.getId()}"
+                           href="/RegisterPagina.html">Bestel</a>
                     </p>
                 </div>
             </div>
@@ -70,7 +71,7 @@
 <div class="container-fluid fixed-bottom">
     <div class="row bg-dark justify-content-center">
         <div class="col-md-4 text-center">
-            <h6 class="whiteText pt-4 mt-2">© Copyright 2020 Knùs</h6>
+            <h6 class="whiteText mt-3 mb-3">© Copyright 2020 Knùs</h6>
         </div>
     </div>
 </div> <!--footer-->

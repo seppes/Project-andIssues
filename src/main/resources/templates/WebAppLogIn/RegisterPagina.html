@@ -32,39 +32,39 @@
                 <div class="form-group">
                     <label for="name">
                         <h5>Gebruikersnaam:</h5>
-                        <input type="text" id="name" name="userName" class="form-control" placeholder="Gebruikersnaam">
+                        <input type="text" id="name" name="userName" class="form-control" placeholder="Gebruikersnaam"required>
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="adress">
                         <h5>Adres :</h5>
-                        <input type="text" id="adress" name="adress" class="form-control" placeholder="Adres">
+                        <input type="text" id="adress" name="adress" class="form-control" placeholder="Adres"required>
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="postcode">
                         <h5>Postcode :</h5>
-                        <input type="text" id="postcode" name="postcode" class="form-control" placeholder="Postcode">
+                        <input type="text" id="postcode" name="postcode" class="form-control" placeholder="Postcode"required>
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="stadGemeente">
                         <h5>Stad/Gemeente :</h5>
                         <input type="text" id="stadGemeente" name="stadGemeente" class="form-control"
-                               placeholder="Stad/Gemeente">
+                               placeholder="Stad/Gemeente" required>
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="email">
                         <h5>E-mail:</h5>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="E-mail"required>
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="knuffelId">
                         <h5>Knuffel nummer :</h5>
                         <input type="text" id="knuffelId" name="knuffelId" class="form-control"
-                               placeholder="Knuffel nummer">
+                               placeholder="Zie knuffel nummer" th:value="${knuffel.getId()}" disabled>
                     </label>
                 </div>
                 <button class="btn btn-primary">Verder naar betaling</button>
