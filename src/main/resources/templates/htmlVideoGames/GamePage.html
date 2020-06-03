@@ -39,23 +39,22 @@
 <div class="container-fluid">
     <div class="layoutGamePage">
         <div class="nameVideosAndGames pt-5 pb-5">
-
             <div class="row">
                 <div class="col-md text-center">
                     <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> naam knuffel</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md text-center mt-3">
+                <div class="col-md text-center mt-5">
                     <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel" width="500" height="500"/>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md text-center mb-5">
+            <div class="col-md text-center mt-3">
                 <div th:each="game:${game}">
-                    <h3 class="animalTitleVideoGamePage" th:text="${game.titelGame}">Titel</h3>
-                    <img class="img-fluid" th:src="${game.pictureGame}" alt="knuffel" width="600" height="350"/>
+                    <h3 class="animalTitleVideoGamePage pt-4" th:text="${game.titelGame}">Titel</h3>
+                    <img class="img-fluid2" th:src="${game.pictureGame}" alt="knuffel" width="600" height="350"/>
                 </div>
                 <br>
                 <br>

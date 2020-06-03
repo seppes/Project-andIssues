@@ -44,19 +44,16 @@
                     <h1 class="animalNameTitleVideoGamePage" th:text="${knuffel.animalName}"> Knuffel name</h1>
                 </div>
             </div>
-
-
             <div class="row">
-                <div class="col-md text-center mt-3">
+                <div class="col-md text-center mt-5">
                     <img class="img-fluid" th:src="${knuffel.animalPic}" alt="knuffel" width="500" height="500"/>
                 </div>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-md text-center mb-5">
+            <div class="col-md text-center mt-3">
                 <div th:each="video:${video}">
-                    <h3 class="animalTitleVideoGamePage" th:text="${video.titel}">Titel</h3>
+                    <h3 class="animalTitleVideoGamePage pt-4" th:text="${video.titel}">Titel</h3>
                     <iframe width="560" height="315"
                             th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
                             frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>

@@ -165,7 +165,7 @@ a:hover {
 }
 
 .animalNameTitleVideoGamePage{
-font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .animalTitleVideoGamePage{
@@ -212,4 +212,18 @@ font-family: "Comic Sans MS", cursive, sans-serif;
     color: #E6D16E;
     margin-left: 70%;
     padding-top: 3%;
+}
+
+.footer {
+    background-color: rgba(106, 151, 186,1);
+    padding: 20px;
+    color: #efc700;
+    font-family: "Trebuchet MS";
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.img-fluid2 {
+     margin-top: 0;
 }
