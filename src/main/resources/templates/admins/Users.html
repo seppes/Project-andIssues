@@ -55,6 +55,7 @@
             <h3 th:text="${User.getAdress()}">User</h3><br>
             <h3 th:text="${User.getEmail()}">User</h3><br>
             <h3 th:text="${User.getRole()}">User</h3>
+            <h3 th:text="${User.knuffel.getAnimalName()}">User</h3>
             <p>
                 <a class="btn btn-layout m-2" th:href="@{|/admins/addUser/${User.username}|}">Edit</a>
             </p>
