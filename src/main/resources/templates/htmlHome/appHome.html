@@ -28,10 +28,13 @@
         <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="/user/appHome"><i class="fas fa-home fa-3x"></i></a>
             <a class="nav-item nav-link"  th:href="'/VideoPage/'+${user.getKnuffel().getId()}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
+            <a class="nav-item nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/overviewVideo|">Overzicht videos</a>
             <a class="nav-item nav-link" th:href="'/GamePage/'+${user.getKnuffel().getId()}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
+            <a class="nav-item nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/overviewGame|">Overzicht games</a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
             <a class="nav-item nav-link" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
+
         </div>
     </div>
 </nav>

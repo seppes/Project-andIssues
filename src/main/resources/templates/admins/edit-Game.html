@@ -30,7 +30,7 @@
             <h2>Edit game</h2>
             <form th:action="|/admins/edit-Game/${id}|" method="post">
 
-                
+
                 <div class="titleNewVideo">
                     <div class="infoLine">
                         <div class="infoLineName"><label for="titleGameEdit">Titel game:</label></div>
@@ -54,10 +54,9 @@
                     </div>
 
 
-
                     <div class="buton">
                         <input class="buttonLook editButton" type="submit" value="Edit game"/>
-                        <a th:href="|/overviewGame|" class="buttonLook editButton">cancel</a>
+                        <a th:href="|/admins/overviewGame|" class="buttonLook editButton">cancel</a>
                     </div>
 
                     <h6>zo moet je de image ingeven (voorbeeld) : /img/game3.jpg</h6>
@@ -68,8 +67,6 @@
             </form>
         </div>
     </div>
-
-
 
 
     <div class="row bg-dark justify-content-center fixed-bottom">

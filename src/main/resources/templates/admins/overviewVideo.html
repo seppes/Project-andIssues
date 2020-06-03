@@ -25,8 +25,11 @@
     </button>
 
 
+
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
+            <a href="/user/appHome/" ><i class="far fa-arrow-alt-circle-left fa-5x"></i></a>
+
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
         </div>
     </div>
@@ -38,8 +41,18 @@
         <div class="nameVideosAndGames pt-5 pb-5">
             <div class="row">
                 <div class="col-md text-center">
-                    <h1 class="animalNameTitleVideoGamePage">Alle video's</h1>
+                    <h1 class="animalNameTitleVideoGamePage">Alle video's</h1><br><br>
 
+
+                    <div class="row">
+                        <div class="col-md text-center mt-3">
+                            <div class="editButtonColumn">
+                                <a class="btn btn-layout bg-transparent" sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Video|">Nieuw video toevoegen</a><br><br>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
 
 
         <div class="row">
@@ -48,6 +61,7 @@
 
 
                     <h3 class="animalTitleVideoGamePage" th:text="${video.titel}">Titel</h3>
+                    <h5 class="animalTitleVideoGamePage" th:text="${video.knuffel.animalName}">Titel</h5>
                     <iframe width="560" height="315"
                             th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
                             frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>

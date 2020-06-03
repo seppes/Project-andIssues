@@ -27,7 +27,7 @@
 
     <div class="collapse navbar-collapse" id="navbarDeWebAppVideos">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" th:href="'/user/appHome/'+${knuffelId}" href="/appHome.html"><i
+            <a class="nav-item nav-link" href="/user/appHome/"><i
                     class="fas fa-home fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/VideoPage/'+${knuffelId}" href="/VideoPage.html"><i
                     class="fas fa-tv fa-3x"></i></a>
@@ -57,16 +57,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md text-center mt-3">
-                    <div class="editButtonColumn">
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/new-Video|"
-                           class="buttonLook editButton">nieuw video toevoegen</a><br><br>
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/overviewVideo|"
-                           class="buttonLook editButton">video's wijzigen</a>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
