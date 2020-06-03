@@ -108,6 +108,7 @@ iframe {
 .HoofdTitel {
     color: #DCCA70;
     font-family: Roboto;
+    padding-top: 3%;
 }
 
 .speech-bubble {
@@ -192,4 +193,18 @@ font-family: "Comic Sans MS", cursive, sans-serif;
 
 .gegevens {
     display: block;
+}
+
+.navH{
+    margin-top: -30px;
+}
+
+.adminNavH{
+    padding-top: 3%;
+    min-width: 16%;
+}
+
+.visitorName{
+    margin-left: 70%;
+    color: black !important;
 }

@@ -14,7 +14,7 @@
 <a name="top"></a>
 <nav class="nav navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="#">
-        <img class="rounded" src="/img/logo.PNG" height="100" width="100"/>
+        <img class="rounded" src="/img/logo_Transparant1.png" height="100" width="100"/>
     </a>
 
     <button class="navbar-toggler" type="button"
@@ -30,10 +30,11 @@
             <a class="nav-item nav-link"  th:href="'/VideoPage/'+${user.getKnuffel().getId()}" href="/VideoPage.html"><i class="fas fa-tv fa-3x"></i></a>
             <a class="nav-item nav-link" th:href="'/GamePage/'+${user.getKnuffel().getId()}" href="/GamePage.html"><i class="fas fa-gamepad fa-3x"></i></a>
             <a class="nav-item nav-link" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
-            <a class="nav-item nav-link" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
-            <a class="nav-item nav-link" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
-            <a class="nav-item nav-link" th:href="|/admins/overview-users|"><div sec:authorize="hasAuthority('ADMIN')" >edit user</div></a>
-            <h2 class="mb-4" th:text="${user.getUsername()}"></h2>
+            <a class="nav-item nav-link adminNavH" th:href="|/admins/new-knuffel|"><div sec:authorize="hasAuthority('ADMIN')" >add knuffel</div></a>
+            <a class="nav-item nav-link adminNavH" th:href="|/admins/overzicht-knuffels|"><div sec:authorize="hasAuthority('ADMIN')" >edit knuffel</div></a>
+            <a class="nav-item nav-link adminNavH" th:href="|/admins/overview-users|"><div sec:authorize="hasAuthority('ADMIN')" >edit user</div></a>
+            <h2 class="nav-item nav-link mb-4 adminNavH visitorName" th:text= "hey" + "${user.getUsername()}"></h2>
+
         </div>
     </div>
 </nav>
@@ -50,8 +51,8 @@
             </div>
             <div class="row">
                 <div class="col text-lg-center">
-<!--                    <img class="img-fluid pb-5 mb-5" src="/img/knuffel_egel.png"/>-->
-                <img class="img-fluid pb-5 mb-5" th:src="${user.getKnuffel().getAnimalPic()}" alt="knuffel"/>
+                    <!--                    <img class="img-fluid pb-5 mb-5" src="/img/knuffel_egel.png"/>-->
+                    <img class="img-fluid pb-5 mb-5" th:src="${user.getKnuffel().getAnimalPic()}" alt="knuffel"/>
                 </div>
             </div>
         </div>
