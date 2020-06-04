@@ -13,6 +13,8 @@ public class User {
     private String email;
     private String role;
     private String adress;
+    private String postcode;
+    private String stadGemeente;
     @ManyToOne(fetch = FetchType.LAZY)
     private Knuffel knuffel;
 
@@ -78,4 +80,21 @@ public class User {
     //    public void setKnuffel(Knuffel knuffel) {
 //        this.knuffel = knuffel;
 //    }
+
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getStadGemeente() {
+        return stadGemeente;
+    }
+
+    public void setStadGemeente(String stadGemeente) {
+        this.stadGemeente = stadGemeente;
+    }
 }

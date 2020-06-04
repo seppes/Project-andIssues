@@ -14,8 +14,8 @@
 <body>
 <div class="jumbotron-fluid">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">
-            <img class="img-fluid" src="/img/logo_Transparant.png" alt="logo"/>
+        <a class="navbar-brand" href="/user/appHome">
+            <img class="rounded" src="/img/logo_Transparant1.png" height="100" width="100"/>
         </a>
 
         <button class="navbar-toggler" type="button"
@@ -27,40 +27,28 @@
 
         <div class="collapse navbar-collapse" id="navbarKnus">
             <ul class="nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/"><h6 class="whiteText">Home</h6></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about"><h6 class="whiteText">About</h6></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact"><h6 class="whiteText">Contact</h6></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user/login"><h6 class="whiteText">Login</h6></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/shoppingcart"><h6 class="whiteText"><i class="fas fa-shopping-cart"></i>
-                    </h6></a>
-                </li>
             </ul>
         </div>
     </nav>
 </div> <!--navbar-->
-
 <div class="container-fluid">
-    <div class="row">
+    <div class="row gegevens">
         <div th:each="User:${users}">
-            <h3 th:text="${User.getUsername()}">User</h3><br>
-            <h3 th:text="${User.getAdress()}">User</h3><br>
-            <h3 th:text="${User.getEmail()}">User</h3><br>
-            <h3 th:text="${User.getRole()}">User</h3>
+            <h3 th:text="${User.getUsername()}"></h3>
+            <h3 th:text="${User.getAdress()}"></h3>
+            <h3 th:text="${User.getEmail()}"></h3>
+            <h3 th:text="${User.getRole()}"></h3>
+            <h3 th:text="${User.getPostcode()}"></h3>
+            <h3 th:text="${User.getStadGemeente()}"></h3>
+            <h3 th:text="${User.knuffel.getAnimalName()}"></h3>
             <p>
-                <a class="btn btn-layout m-2" th:href="@{|/admins/addUser/${User.username}|}">Edit</a>
+                <a class="btn btn-layout m-2" th:href="@{|/admins/addUser/${User.username}|}">Code toevoegen</a>
             </p>
+            <br>
+            <hr>
+            <br>
         </div>
     </div>
 </div>
-
 </body>
 </html>
