@@ -209,7 +209,6 @@ public class AdminController {
         return "redirect:/admins/newVideo";
 
     }
-
     @PostMapping({"/editVideo", "/editVideo/{videoId}"})
     public String editVideoPost(@PathVariable(required = false) int videoId,
                                 @RequestParam String videoTitleEdit,
