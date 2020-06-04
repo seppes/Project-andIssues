@@ -23,6 +23,8 @@
     <div class="row pb-5">
         <div class="col text-center mt-5">
             <form th:action="|/user/register|" method="post">
+                <h4 class="mb-4" th:text="'Uw knuffel : '+${knuffel.getAnimalName()}"></h4>
+                <h4 class="mb-4" th:text="'Uw knuffel nummer is : '+${knuffel.getId()}"></h4>
                 <div class="form-group">
                     <label for="name">
                         <h5>Gebruikersnaam :</h5>
