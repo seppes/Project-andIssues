@@ -51,18 +51,19 @@
 
         <div class="row">
             <div class="col-md text-center mb-5">
-        </div>
-        <div class="row">
-            <div class="col-md text-center mt-3">
-                <div th:each="video:${video}">
-                    <h3 class="animalTitleVideoGamePage pt-4" th:text="${video.titel}">Titel</h3>
-                    <iframe width="560" height="315"
-                            th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
-                            frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
+            </div>
+            <div class="row">
+                <div class="col-md text-center mt-3">
+                    <div th:each="video:${video}">
+                        <h3 class="animalTitleVideoGamePage pt-4" th:text="${video.titel}">Titel</h3>
+                        <iframe width="560" height="315"
+                                th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
+                                frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
+                    </div>
+                    <br>
+                    <br>
+                    <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
                 </div>
-                <br>
-                <br>
-                <a href="#top"><i class="fas fa-arrow-up fa-2x"></i></a>
             </div>
         </div>
     </div>
