@@ -103,7 +103,7 @@ public class AdminController {
 
     @GetMapping({"/overview-users"})
     public String overviewUsers(Model model) {
-        Iterable<User> userFromDb = userRepository.findAll();
+        Iterable<User> userFromDb = userRepository.findAllUsersByPasswordNull();
         model.addAttribute("users", userFromDb);
         return "admins/Users";
     }
