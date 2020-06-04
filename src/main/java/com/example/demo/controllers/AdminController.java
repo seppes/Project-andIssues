@@ -47,19 +47,6 @@ public class AdminController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-    @GetMapping("/Orders")
-    public String appHome(Principal principal, Model model) {
-        Optional<User> optionalUserFromDb = userRepository.findByUsername(principal.getName());
-        if (optionalUserFromDb.isEmpty()) {
-            model.addAttribute("user", "Geen bestellingen");
-        } else {
-            User user = optionalUserFromDb.get();
-            model.addAttribute("user", user);
-        }
-        return "admins/adminOrders";
-    }
-
     @GetMapping({"/newVideo"})
     public String newVideo(Model model) {
         model.addAttribute("video", videoRepository.findAll());

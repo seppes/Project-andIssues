@@ -31,7 +31,7 @@
             <a class="nav-item nav-link navP" href="/user/logout"><i class="fas fa-sign-out-alt fa-3x"></i></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/newKnuffel|"><div sec:authorize="hasAuthority('ADMIN')">add knuffel</div></a>
             <a class="nav-item nav-link adminNavH" th:href="|/admins/overzichtKnuffels|"><div sec:authorize="hasAuthority('ADMIN')">edit knuffel</div></a>
-            <a class="nav-item nav-link adminNavH" th:href="|/admins/overviewUsers|"><div sec:authorize="hasAuthority('ADMIN')">edit user</div></a>
+            <a class="nav-item nav-link adminNavH" th:href="|/admins/overviewUsers|"><div sec:authorize="hasAuthority('ADMIN')">orders</div></a>
             <h2 class="nav-item nav-link mb-4 adminNavH visitorName" th:text="${user.getUsername()}"></h2>
         </div>
     </div>
