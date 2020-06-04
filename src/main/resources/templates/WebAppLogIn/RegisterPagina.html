@@ -58,9 +58,10 @@
                 </div>
                 <div class="form-group">
                     <label for="knuffelId">
-                        <h5>Knuffel nummer :</h5>
+                        <p ></p>
+                        <h5 th:text="${knuffel.getId()}"> uw nummer is :</h5>
                         <input type="text" id="knuffelId" name="knuffelId" class="form-control"
-                               placeholder="Zie knuffel nummer" th:value="${knuffel.getId()}" disabled>
+                               placeholder="Zie knuffel nummer">
                     </label>
                 </div>
                 <button class="btn btn-primary">Verder naar betaling</button>

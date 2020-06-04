@@ -78,7 +78,6 @@ public class UserController {
         return "WebAppLogIn/RegisterPagina";
     }
 
-
     //Login form
     @RequestMapping("/login")
     public String login(Principal principal, Model model) {
@@ -92,6 +91,11 @@ public class UserController {
         return "WebAppLogIn/LogoutPagina";
     }
 
+
+    @RequestMapping("/register")
+    public String register(Model model) {
+        return "WebAppLogIn/RegisterPagina";
+    }
 
     @GetMapping("/appHome")
     public String appHome(Principal principal, Model model) {
