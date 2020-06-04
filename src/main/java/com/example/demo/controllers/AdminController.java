@@ -96,6 +96,26 @@ public class AdminController {
         model.addAttribute("users", userFromDb);
         return "admins/Users";
     }
+    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
+    public String editVideo(@PathVariable(required = false) int id, Model model) {
+        Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
+        Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
+        model.addAttribute("video", video);
+        model.addAttribute("video", videoRepository.findAll());
+
+        return "admins/edit-Video";
+    }
+
+    @GetMapping({"/edit-Game", "/edit-Game/{id}"})
+    public String editGame(@PathVariable(required = false) int id, Model model) {
+        Optional<Game> optionalGameFromDb = gameRepository.findById(id);
+        Game game = (optionalGameFromDb.isPresent()) ? optionalGameFromDb.get() : null;
+        model.addAttribute("game", game);
+        model.addAttribute("game", gameRepository.findAll());
+
+        return "admins/edit-Game";
+    }
+
 
 
     @GetMapping({"/overzichtKnuffels"})
@@ -111,6 +131,14 @@ public class AdminController {
         Iterable<Video> videosFromDb = videoRepository.findAll();
         model.addAttribute("videos", videosFromDb);
         return "admins/overviewVideo";
+    }
+
+
+    @GetMapping({"/overviewGame"})
+    public String overviewGames(Model model) {
+        Iterable<Game> gamesFromDb = gameRepository.findAll();
+        model.addAttribute("games", gamesFromDb);
+        return "admins/overviewGame";
     }
 
 
@@ -181,6 +209,54 @@ public class AdminController {
         return "redirect:/admins/newVideo";
 
     }
+
+    @PostMapping({"/edit-Video", "/edit-Video/{videoId}"})
+    public String editVideoPost(@PathVariable(required = false) int videoId,
+                                @RequestParam String videoTitleEdit,
+                                @RequestParam String videoUrlEdit,
+                                @RequestParam Knuffel knuffelIDEdit,
+                                Model model) {
+        logger.info(String.format("editVideoPost %d -- TITEL=%s, VIDEO_FILE_NAME=%s, KNUFFEL_ID=%s\n", videoId, videoTitleEdit, videoUrlEdit, knuffelIDEdit));
+        Optional<Video> videoFromDb = videoRepository.findById(videoId);
+
+        if (videoFromDb.isPresent()) {
+            Video video = videoFromDb.get();
+            video.setTitel(videoTitleEdit);
+            video.setVideoFileName(videoUrlEdit);
+            video.setKnuffel(knuffelIDEdit);
+
+            videoRepository.save(video);
+        }
+        return "redirect:/admins/edit-Video/" + videoId;
+    }
+
+
+
+
+    @PostMapping({"/edit-Game", "/edit-Game/{gameId}"})
+    public String editGamePost(@PathVariable(required = false) int gameId,
+                               @RequestParam String gameTitleEdit,
+                               @RequestParam String gamePictureEdit,
+                               @RequestParam Knuffel knuffelIDgameEdit,
+                               Model model) {
+        logger.info(String.format("editGamePost %d -- TITEL_GAME=%s, PICTURE_GAME=%s, KNUFFEL_ID=%s\n", gameId, gameTitleEdit, gamePictureEdit, knuffelIDgameEdit));
+        Optional<Game> gameFromDb = gameRepository.findById(gameId);
+
+        if (gameFromDb.isPresent()) {
+            Game game = gameFromDb.get();
+            game.setTitelGame(gameTitleEdit);
+            game.setPictureGame(gamePictureEdit);
+            game.setKnuffel(knuffelIDgameEdit);
+
+            gameRepository.save(game);
+        }
+        return "redirect:/admins/edit-Game/" + gameId;
+    }
+
+
+
+
+
 
     @PostMapping({"/newGame"})
     public String newGamePost(@RequestParam String gamePicture,
