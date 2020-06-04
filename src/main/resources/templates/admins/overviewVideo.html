@@ -35,6 +35,15 @@
             <div class="row">
                 <div class="col-md text-center">
                     <h1 class="animalNameTitleVideoGamePage">Alle video's</h1>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md text-center mt-3">
+                            <div class="editButtonColumn">
+                                <a class="btn btn-layout bg-transparent" sec:authorize="hasAuthority('ADMIN')" th:href="|/admins/newVideo|">Nieuwe video toevoegen</a><br><br>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md text-center mb-5">
                             <div th:each="video:${videos}">
@@ -43,7 +52,7 @@
                                         th:src="@{https://www.youtube.com/embed/{url} (url=${video.videoFileName})}"
                                         frameborder="0" alt="no video attached" allowfullscreen="1"></iframe>
                                 <br>
-                                <a class="btn btn-layout bg-transparent " th:href="@{|/admins/editVideo/|}">Edit video</a>
+                                <a class="btn btn-layout bg-transparent " th:href="@{|/admins/editVideo/${video.id}|}">Edit video</a>
                             </div>
                             <br>
                             <br>

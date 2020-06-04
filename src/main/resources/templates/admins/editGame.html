@@ -21,16 +21,11 @@
     <h1 class="HoofdTitel">Editten van Games</h1>
 
 </nav>
-
 <div class="container-fluid">
-
-
     <div class="row1content">
         <div>
             <h2>Edit game</h2>
-            <form th:action="|/admins/edit-Game/${id}|" method="post">
-
-
+            <form th:action="|/admins/editGame/${id}|" method="post">
                 <div class="titleNewVideo">
                     <div class="infoLine">
                         <div class="infoLineName"><label for="titleGameEdit">Titel game:</label></div>
@@ -38,37 +33,28 @@
                             <input id="titleGameEdit" name="gameTitleEdit"/>
                         </div>
                     </div>
-
                     <div class="infoLine">
                         <div class="infoLineName"><label for="pictureGameEdit">source game:</label></div>
                         <div class="infoLineValue">
                             <input id="pictureGameEdit" name="gamePictureEdit"/>
                         </div>
                     </div>
-
                     <div class="infoLine">
                         <div class="infoLineName"><label for="idKnuffelgameEdit">ID van de knuffel:</label></div>
                         <div class="infoLineValue">
                             <input id="idKnuffelgameEdit" name="knuffelIDgameEdit"/>
                         </div>
                     </div>
-
-
                     <div class="buton">
                         <input class="buttonLook editButton" type="submit" value="Edit game"/>
                         <a th:href="|/admins/overviewGame|" class="buttonLook editButton">cancel</a>
                     </div>
-
                     <h6>zo moet je de image ingeven (voorbeeld) : /img/game3.jpg</h6>
                     <h6>DUS /img/ + naam van foto </h6>
-
-
                 </div>
             </form>
         </div>
     </div>
-
-
     <div class="row bg-dark justify-content-center fixed-bottom">
         <div class="col-md-4 text-center">
             <h6 class="pt-2 text-white">© Copyright 2020 Knùs</h6>

@@ -96,24 +96,24 @@ public class AdminController {
         model.addAttribute("users", userFromDb);
         return "admins/Users";
     }
-    @GetMapping({"/edit-Video", "/edit-Video/{id}"})
+    @GetMapping({"/editVideo", "/editVideo/{id}"})
     public String editVideo(@PathVariable(required = false) int id, Model model) {
         Optional<Video> optionalVideoFromDb = videoRepository.findById(id);
         Video video = (optionalVideoFromDb.isPresent()) ? optionalVideoFromDb.get() : null;
         model.addAttribute("video", video);
         model.addAttribute("video", videoRepository.findAll());
 
-        return "admins/edit-Video";
+        return "admins/editVideo";
     }
 
-    @GetMapping({"/edit-Game", "/edit-Game/{id}"})
+    @GetMapping({"/editGame", "/editGame/{id}"})
     public String editGame(@PathVariable(required = false) int id, Model model) {
         Optional<Game> optionalGameFromDb = gameRepository.findById(id);
         Game game = (optionalGameFromDb.isPresent()) ? optionalGameFromDb.get() : null;
         model.addAttribute("game", game);
         model.addAttribute("game", gameRepository.findAll());
 
-        return "admins/edit-Game";
+        return "admins/editGame";
     }
 
 
@@ -210,7 +210,7 @@ public class AdminController {
 
     }
 
-    @PostMapping({"/edit-Video", "/edit-Video/{videoId}"})
+    @PostMapping({"/editVideo", "/editVideo/{videoId}"})
     public String editVideoPost(@PathVariable(required = false) int videoId,
                                 @RequestParam String videoTitleEdit,
                                 @RequestParam String videoUrlEdit,
@@ -227,13 +227,13 @@ public class AdminController {
 
             videoRepository.save(video);
         }
-        return "redirect:/admins/edit-Video/" + videoId;
+        return "redirect:/admins/editVideo/" + videoId;
     }
 
 
 
 
-    @PostMapping({"/edit-Game", "/edit-Game/{gameId}"})
+    @PostMapping({"/editGame", "/editGame/{gameId}"})
     public String editGamePost(@PathVariable(required = false) int gameId,
                                @RequestParam String gameTitleEdit,
                                @RequestParam String gamePictureEdit,
@@ -250,13 +250,8 @@ public class AdminController {
 
             gameRepository.save(game);
         }
-        return "redirect:/admins/edit-Game/" + gameId;
+        return "redirect:/admins/editGame/" + gameId;
     }
-
-
-
-
-
 
     @PostMapping({"/newGame"})
     public String newGamePost(@RequestParam String gamePicture,
