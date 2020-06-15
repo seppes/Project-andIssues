@@ -25,7 +25,7 @@ public class HomeController {
     private String applicationName = "Knùs";
 
     @Autowired
-   private VideoRepository videoRepository;
+    private VideoRepository videoRepository;
 
     @Autowired
     private KnuffelRepository knuffelRepository;
@@ -34,22 +34,20 @@ public class HomeController {
     private GameRepository gameRepository;
 
 
-
     @GetMapping({"/VideoPage/{knuffelId}"})
-  public String VideoPagina(@PathVariable int knuffelId, Model model) {
-      Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
+    public String VideoPagina(@PathVariable int knuffelId, Model model) {
+        Optional<Knuffel> optionalKnuffelFromDb = knuffelRepository.findById(knuffelId);
 
-     if (optionalKnuffelFromDb.isEmpty()) {
-       model.addAttribute("video", new Video[]{});
-   } else {
-         Knuffel knuffel = optionalKnuffelFromDb.get();
-        model.addAttribute("knuffel", knuffel);
-        model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
+        if (optionalKnuffelFromDb.isEmpty()) {
+            model.addAttribute("video", new Video[]{});
+        } else {
+            Knuffel knuffel = optionalKnuffelFromDb.get();
+            model.addAttribute("knuffel", knuffel);
+            model.addAttribute("video", videoRepository.findVideosByKnuffel(knuffel));
 
-     }
-      return "htmlVideoGames/VideoPage";
-      }
-
+        }
+        return "htmlVideoGames/VideoPage";
+    }
 
     @GetMapping({"/GamePage/{knuffelId}"})
     public String GamePagina(@PathVariable int knuffelId, Model model) {
@@ -65,7 +63,6 @@ public class HomeController {
         return "htmlVideoGames/GamePage";
     }
 
-
     @GetMapping("/")
     public String index(Model model) {
         Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
@@ -74,29 +71,15 @@ public class HomeController {
         return "htmlWebshop/index";
     }
 
-
-    @GetMapping("/shoppingcart")
-    public String shoppingcart(Model model) {
-        Iterable<Knuffel> knuffelsFromDb = knuffelRepository.findAll();
-        model.addAttribute("knuffels", knuffelsFromDb);
-        model.addAttribute("appName", applicationName);
-        return "htmlWebshop/shoppingcart";
-    }
-
     @GetMapping("/about")
     public String about(Model model) {
         model.addAttribute("appName", applicationName);
         return "htmlWebshop/about";
     }
 
-
     @GetMapping("/contact")
     public String contact(Model model) {
         model.addAttribute("appName", applicationName);
         return "htmlWebshop/contact";
     }
-
-
-
-
 }
